@@ -402,49 +402,42 @@ pre {white-space: pre-wrap;}
 <p>另外，博客源文件备份还有两个原因：①如果电脑突然罢工，我们的源文件不会丢失；②有时候不方便需要更换电脑写作，我们不必携带任何外在物件比如U盘进行拷贝等繁琐操作，只需直接clone仓库就可以了。</p>
 <p>明白了为什么要进行博客源文件备份之后，下面马上进入正题。</p>
 <p>因为我之前已经搭建博客一段时间了，直接进行博客源文件在GitHub上的备份，行不通，因此我直接从最初的Hexo搭建博客步骤开始。因为我的博客是在Mac上搭建的，所以以下是展示的在Mac上使用Hexo搭建博客以及使用GitHub进行博客源文件备份的步骤，Win下的操作，大致类似，这里不进行具体描述。</p>
-<h4 id="在本地Docments下新建一个文件夹MyBlog"><a href="#在本地Docments下新建一个文件夹MyBlog" class="headerlink" title="在本地Docments下新建一个文件夹MyBlog"></a>在本地Docments下新建一个文件夹MyBlog</h4><h4 id="右键打开Terminal-iTerm2-gitbash-here"><a href="#右键打开Terminal-iTerm2-gitbash-here" class="headerlink" title="右键打开Terminal/iTerm2 (gitbash here)"></a>右键打开Terminal/iTerm2 (gitbash here)</h4><h4 id="超级用户下安装hexo"><a href="#超级用户下安装hexo" class="headerlink" title="超级用户下安装hexo"></a>超级用户下安装hexo</h4><pre><code class="shell">sudo npm install -g hexo</code></pre>
-<h4 id="进入MyBlog目录"><a href="#进入MyBlog目录" class="headerlink" title="进入MyBlog目录"></a>进入MyBlog目录</h4><pre><code class="shell">cd /Users/xia/Documents/MyBlog</code></pre>
-<h4 id="hexo初始化"><a href="#hexo初始化" class="headerlink" title="hexo初始化"></a>hexo初始化</h4><pre><code class="shell">hexo init</code></pre>
+<h4 id="在本地Docments下新建一个文件夹MyBlog"><a href="#在本地Docments下新建一个文件夹MyBlog" class="headerlink" title="在本地Docments下新建一个文件夹MyBlog"></a>在本地Docments下新建一个文件夹MyBlog</h4><h4 id="右键打开Terminal-iTerm2-gitbash-here"><a href="#右键打开Terminal-iTerm2-gitbash-here" class="headerlink" title="右键打开Terminal/iTerm2 (gitbash here)"></a>右键打开Terminal/iTerm2 (gitbash here)</h4><h4 id="超级用户下安装hexo"><a href="#超级用户下安装hexo" class="headerlink" title="超级用户下安装hexo"></a>超级用户下安装hexo</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
+
+<h4 id="进入MyBlog目录"><a href="#进入MyBlog目录" class="headerlink" title="进入MyBlog目录"></a>进入MyBlog目录</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /Users/xia/Documents/MyBlog</span><br></pre></td></tr></table></figure>
+
+<h4 id="hexo初始化"><a href="#hexo初始化" class="headerlink" title="hexo初始化"></a>hexo初始化</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
 <p>注意：<code>hexo init</code> 会初始化 Hexo 环境，该操作会清空.git 文件夹, 导致版本控制信息会丢失。因此除了首次搭建环境之外, 无需运行此命令。</p>
-<h4 id="使用npm安装所需依赖"><a href="#使用npm安装所需依赖" class="headerlink" title="使用npm安装所需依赖"></a>使用npm安装所需依赖</h4><pre><code class="shell">npm install
-npm install hexo-deployer-git</code></pre>
-<h4 id="修改根目录下config文件中为git-github-io-git-master"><a href="#修改根目录下config文件中为git-github-io-git-master" class="headerlink" title="修改根目录下config文件中为git, .github.io.git, master"></a>修改根目录下config文件中为git, .github.io.git, master</h4><pre><code class="yml"># Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repository: https://github.com/cuihuaxia/cuihuaxia.github.io.git
-  branch: master</code></pre>
+<h4 id="使用npm安装所需依赖"><a href="#使用npm安装所需依赖" class="headerlink" title="使用npm安装所需依赖"></a>使用npm安装所需依赖</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改根目录下config文件中为git-github-io-git-master"><a href="#修改根目录下config文件中为git-github-io-git-master" class="headerlink" title="修改根目录下config文件中为git, .github.io.git, master"></a>修改根目录下config文件中为git, .github.io.git, master</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://github.com/cuihuaxia/cuihuaxia.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
 <h4 id="拷贝自己的文件到MyBlog目录下"><a href="#拷贝自己的文件到MyBlog目录下" class="headerlink" title="拷贝自己的文件到MyBlog目录下"></a>拷贝自己的文件到MyBlog目录下</h4><ol>
 <li>文件夹（文件夹里的内容是合并和替代）：<br><code>public</code>, <code>scaffolds</code>, <code>scripts</code>, <code>source</code>, <code>themes</code>.</li>
 <li>文件（替代）：<br><code>_config.yml</code>, <code>db.json</code>, <code>package-lock.json</code>, <code>package.json</code>, <code>README.md</code>.</li>
 </ol>
-<h4 id="初始化git本地版本管理仓库"><a href="#初始化git本地版本管理仓库" class="headerlink" title="初始化git本地版本管理仓库"></a>初始化git本地版本管理仓库</h4><pre><code class="shell">git init</code></pre>
-<h4 id="在本地新建一个分支“backup”用于备份博客"><a href="#在本地新建一个分支“backup”用于备份博客" class="headerlink" title="在本地新建一个分支“backup”用于备份博客"></a>在本地新建一个分支“backup”用于备份博客</h4><pre><code class="shell">git branch backup</code></pre>
-<h4 id="切换到新建分支"><a href="#切换到新建分支" class="headerlink" title="切换到新建分支"></a>切换到新建分支</h4><pre><code class="shell">git checkout backup</code></pre>
-<h4 id="重新添加远程仓库地址"><a href="#重新添加远程仓库地址" class="headerlink" title="重新添加远程仓库地址"></a>重新添加远程仓库地址</h4><pre><code class="shell">git remote add origin git@github.com:cuihuaxia/cuihuaxia.github.io.git</code></pre>
-<h4 id="推送博客源文件到GitHub的backup分支"><a href="#推送博客源文件到GitHub的backup分支" class="headerlink" title="推送博客源文件到GitHub的backup分支"></a>推送博客源文件到GitHub的backup分支</h4><pre><code class="shell">git add ./
-git commit -m &#39;备份博客&#39;
-git push origin backup</code></pre>
+<h4 id="初始化git本地版本管理仓库"><a href="#初始化git本地版本管理仓库" class="headerlink" title="初始化git本地版本管理仓库"></a>初始化git本地版本管理仓库</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<h4 id="在本地新建一个分支“backup”用于备份博客"><a href="#在本地新建一个分支“backup”用于备份博客" class="headerlink" title="在本地新建一个分支“backup”用于备份博客"></a>在本地新建一个分支“backup”用于备份博客</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch backup</span><br></pre></td></tr></table></figure>
+
+<h4 id="切换到新建分支"><a href="#切换到新建分支" class="headerlink" title="切换到新建分支"></a>切换到新建分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout backup</span><br></pre></td></tr></table></figure>
+
+<h4 id="重新添加远程仓库地址"><a href="#重新添加远程仓库地址" class="headerlink" title="重新添加远程仓库地址"></a>重新添加远程仓库地址</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:cuihuaxia/cuihuaxia.github.io.git</span><br></pre></td></tr></table></figure>
+
+<h4 id="推送博客源文件到GitHub的backup分支"><a href="#推送博客源文件到GitHub的backup分支" class="headerlink" title="推送博客源文件到GitHub的backup分支"></a>推送博客源文件到GitHub的backup分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add ./</span><br><span class="line">git commit -m '备份博客'</span><br><span class="line">git push origin backup</span><br></pre></td></tr></table></figure>
+
 <p>到这里,我们已经将我们的博客推送到GitHub的backup分支下面了。我们到Github的<code>cuihuaxia.github.io</code>仓库下会发现我们的项目多了一个backup分支，这个分支就是我们博客源文件的备份。</p>
-<h4 id="将Github的cuihuaxia-github-io仓库下的backup分支更改为默认分支"><a href="#将Github的cuihuaxia-github-io仓库下的backup分支更改为默认分支" class="headerlink" title="将Github的cuihuaxia.github.io仓库下的backup分支更改为默认分支"></a>将Github的<code>cuihuaxia.github.io</code>仓库下的<code>backup</code>分支更改为<u>默认分支</u></h4><h4 id="日常博文修改"><a href="#日常博文修改" class="headerlink" title="日常博文修改"></a>日常博文修改</h4><pre><code class="shell"># 将改动推送到GitHub (此时当前分支应为backup)
-git checkout backup
-git add ./
-git commit -m &#39;备份博客&#39;
-git push origin backup
-# 发布网站到master分支上(此时当前分支应为master)
-git checkout master
-hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</code></pre>
+<h4 id="将Github的cuihuaxia-github-io仓库下的backup分支更改为默认分支"><a href="#将Github的cuihuaxia-github-io仓库下的backup分支更改为默认分支" class="headerlink" title="将Github的cuihuaxia.github.io仓库下的backup分支更改为默认分支"></a>将Github的<code>cuihuaxia.github.io</code>仓库下的<code>backup</code>分支更改为<u>默认分支</u></h4><h4 id="日常博文修改"><a href="#日常博文修改" class="headerlink" title="日常博文修改"></a>日常博文修改</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 将改动推送到GitHub (此时当前分支应为backup)</span></span><br><span class="line">git checkout backup</span><br><span class="line">git add ./</span><br><span class="line">git commit -m '备份博客'</span><br><span class="line">git push origin backup</span><br><span class="line"><span class="meta">#</span><span class="bash"> 发布网站到master分支上(此时当前分支应为master)</span></span><br><span class="line">git checkout master</span><br><span class="line">hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
 <h4 id="本地资料丢失-恢复博客"><a href="#本地资料丢失-恢复博客" class="headerlink" title="本地资料丢失/恢复博客"></a>本地资料丢失/恢复博客</h4><p>当重装电脑之后，或者想在其他电脑上修改博客，可以使用下列步骤 :</p>
 <ol>
 <li><p>将 <code>cuihuaxia.github.io</code> 仓库 clone 到本地：</p>
-<pre><code class="shell"># 拷贝仓库(默认分支为backup)
-git clone [git@github.com](cuihuaxia:git@github.com):cuihuaxia/cuihuaxia.github.io.git
-// git clone https://github.com/cuihuaxia/cuihuaxia.github.io</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 拷贝仓库(默认分支为backup)</span></span><br><span class="line">git clone [git@github.com](cuihuaxia:git@github.com):cuihuaxia/cuihuaxia.github.io.git</span><br><span class="line">// git clone https://github.com/cuihuaxia/cuihuaxia.github.io</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在本地重新安装 <code>Hexo</code> 编译环境。通过Git bash依次执行下列指令:</p>
-<pre><code class="shell">npm install hexo
-npm install
-npm install hexo-deployer-git</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo</span><br><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 <p>注意：在此不需要执行<code>hexo init</code>这条指令，因为不是从零搭建新博客。</p>
@@ -617,6 +610,10 @@ npm install hexo-deployer-git</code></pre>
 			
 		
 			
+				<li><a href="/tags/PPT模板/" title="PPT模板">PPT模板<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Perl/" title="Perl">Perl<sup>1</sup></a></li>
 			
 		
@@ -629,7 +626,7 @@ npm install hexo-deployer-git</code></pre>
 			
 		
 			
-				<li><a href="/tags/PPT模板/" title="PPT模板">PPT模板<sup>1</sup></a></li>
+				<li><a href="/tags/Listening/" title="Listening">Listening<sup>1</sup></a></li>
 			
 		
 			
@@ -641,10 +638,6 @@ npm install hexo-deployer-git</code></pre>
 			
 		
 			
-				<li><a href="/tags/Listening/" title="Listening">Listening<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/ggplot2/" title="ggplot2">ggplot2<sup>1</sup></a></li>
 			
 		
@@ -653,11 +646,11 @@ npm install hexo-deployer-git</code></pre>
 			
 		
 			
-				<li><a href="/tags/气泡图/" title="气泡图">气泡图<sup>1</sup></a></li>
+				<li><a href="/tags/博客备份/" title="博客备份">博客备份<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/博客备份/" title="博客备份">博客备份<sup>1</sup></a></li>
+				<li><a href="/tags/气泡图/" title="气泡图">气泡图<sup>1</sup></a></li>
 			
 		
 			
@@ -681,11 +674,11 @@ npm install hexo-deployer-git</code></pre>
 			
 		
 			
-				<li><a href="/tags/Sequencing/" title="Sequencing">Sequencing<sup>1</sup></a></li>
+				<li><a href="/tags/科研工具/" title="科研工具">科研工具<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/科研工具/" title="科研工具">科研工具<sup>1</sup></a></li>
+				<li><a href="/tags/Sequencing/" title="Sequencing">Sequencing<sup>1</sup></a></li>
 			
 		
 			
@@ -708,7 +701,7 @@ npm install hexo-deployer-git</code></pre>
   <div class="tagcloudlist">
     <p class="asidetitle">Tag Cloud</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/Apache/" style="font-size: 13px; color: #51a4c7">Apache</a> <a href="/tags/MySQL/" style="font-size: 13px; color: #51a4c7">MySQL</a> <a href="/tags/Presentation/" style="font-size: 13px; color: #51a4c7">Presentation</a> <a href="/tags/Perl/" style="font-size: 13px; color: #51a4c7">Perl</a> <a href="/tags/RSS/" style="font-size: 13px; color: #51a4c7">RSS</a> <a href="/tags/GWAS/" style="font-size: 13px; color: #51a4c7">GWAS</a> <a href="/tags/PPT%E6%A8%A1%E6%9D%BF/" style="font-size: 13px; color: #51a4c7">PPT模板</a> <a href="/tags/Writing/" style="font-size: 18px; color: #51a4c7">Writing</a> <a href="/tags/R/" style="font-size: 23px; color: #51a4c7">R</a> <a href="/tags/limma/" style="font-size: 13px; color: #51a4c7">limma</a> <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" style="font-size: 13px; color: #51a4c7">差异表达</a> <a href="/tags/English/" style="font-size: 18px; color: #51a4c7">English</a> <a href="/tags/Listening/" style="font-size: 13px; color: #51a4c7">Listening</a> <a href="/tags/ggplot2/" style="font-size: 13px; color: #51a4c7">ggplot2</a> <a href="/tags/%E6%95%A3%E7%82%B9%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">散点图</a> <a href="/tags/%E6%B0%94%E6%B3%A1%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">气泡图</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD/" style="font-size: 13px; color: #51a4c7">博客备份</a> <a href="/tags/PRS/" style="font-size: 13px; color: #51a4c7">PRS</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px; color: #51a4c7">博客搭建</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13px; color: #51a4c7">知识管理</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%8A%9E%E5%85%AC/" style="font-size: 13px; color: #51a4c7">效率办公</a> <a href="/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" style="font-size: 18px; color: #51a4c7">文献检索</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13px; color: #51a4c7">文献阅读</a> <a href="/tags/Sequencing/" style="font-size: 13px; color: #51a4c7">Sequencing</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #51a4c7">科研工具</a> <a href="/tags/%E6%8E%A2%E9%92%88%E6%B3%A8%E9%87%8A/" style="font-size: 13px; color: #51a4c7">探针注释</a> <a href="/tags/Jekyll/" style="font-size: 13px; color: #51a4c7">Jekyll</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #51a4c7">Hexo</a>
+       <a href="/tags/Apache/" style="font-size: 13px; color: #51a4c7">Apache</a> <a href="/tags/MySQL/" style="font-size: 13px; color: #51a4c7">MySQL</a> <a href="/tags/Presentation/" style="font-size: 13px; color: #51a4c7">Presentation</a> <a href="/tags/PPT%E6%A8%A1%E6%9D%BF/" style="font-size: 13px; color: #51a4c7">PPT模板</a> <a href="/tags/Perl/" style="font-size: 13px; color: #51a4c7">Perl</a> <a href="/tags/RSS/" style="font-size: 13px; color: #51a4c7">RSS</a> <a href="/tags/GWAS/" style="font-size: 13px; color: #51a4c7">GWAS</a> <a href="/tags/Writing/" style="font-size: 18px; color: #51a4c7">Writing</a> <a href="/tags/English/" style="font-size: 18px; color: #51a4c7">English</a> <a href="/tags/Listening/" style="font-size: 13px; color: #51a4c7">Listening</a> <a href="/tags/R/" style="font-size: 23px; color: #51a4c7">R</a> <a href="/tags/limma/" style="font-size: 13px; color: #51a4c7">limma</a> <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" style="font-size: 13px; color: #51a4c7">差异表达</a> <a href="/tags/ggplot2/" style="font-size: 13px; color: #51a4c7">ggplot2</a> <a href="/tags/%E6%95%A3%E7%82%B9%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">散点图</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD/" style="font-size: 13px; color: #51a4c7">博客备份</a> <a href="/tags/%E6%B0%94%E6%B3%A1%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">气泡图</a> <a href="/tags/PRS/" style="font-size: 13px; color: #51a4c7">PRS</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px; color: #51a4c7">博客搭建</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13px; color: #51a4c7">知识管理</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%8A%9E%E5%85%AC/" style="font-size: 13px; color: #51a4c7">效率办公</a> <a href="/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" style="font-size: 18px; color: #51a4c7">文献检索</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13px; color: #51a4c7">文献阅读</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #51a4c7">科研工具</a> <a href="/tags/Sequencing/" style="font-size: 13px; color: #51a4c7">Sequencing</a> <a href="/tags/%E6%8E%A2%E9%92%88%E6%B3%A8%E9%87%8A/" style="font-size: 13px; color: #51a4c7">探针注释</a> <a href="/tags/Jekyll/" style="font-size: 13px; color: #51a4c7">Jekyll</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #51a4c7">Hexo</a>
     </div>
   </div>
 

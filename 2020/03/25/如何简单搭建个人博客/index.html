@@ -408,30 +408,8 @@ pre {white-space: pre-wrap;}
 <li><a href="https://github.com/kitian616/jekyll-TeXt-theme/" target="_blank" rel="noopener">GitHub链接</a></li>
 </ul>
 <h3 id="添加主页（Home）页面"><a href="#添加主页（Home）页面" class="headerlink" title="添加主页（Home）页面"></a>添加主页（Home）页面</h3><p>在<code>_data/navigation.yml</code>文件中header添加如下代码，即可。</p>
-<pre><code class="yml">  - titles:
-      # @start locale config
-      en      : &amp;EN       Home
-      en-GB   : *EN
-      en-US   : *EN
-      en-CA   : *EN
-      en-AU   : *EN
-      zh-Hans : &amp;ZH_HANS  主页
-      zh      : *ZH_HANS
-      zh-CN   : *ZH_HANS
-      zh-SG   : *ZH_HANS
-      zh-Hant : &amp;ZH_HANT  關於
-      zh-TW   : *ZH_HANT
-      zh-HK   : *ZH_HANT
-      ko      : &amp;KO       소개
-      ko-KR   : *KO
-      fr      : &amp;FR       À propos
-      fr-BE   : *FR
-      fr-CA   : *FR
-      fr-CH   : *FR
-      fr-FR   : *FR
-      fr-LU   : *FR
-      # @end locale config
-    url: /index.html</code></pre>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">titles:</span></span><br><span class="line">    <span class="comment"># @start locale config</span></span><br><span class="line">    <span class="attr">en      :</span> <span class="string">&amp;EN</span>       <span class="string">Home</span></span><br><span class="line">    <span class="attr">en-GB   :</span> <span class="meta">*EN</span></span><br><span class="line">    <span class="attr">en-US   :</span> <span class="meta">*EN</span></span><br><span class="line">    <span class="attr">en-CA   :</span> <span class="meta">*EN</span></span><br><span class="line">    <span class="attr">en-AU   :</span> <span class="meta">*EN</span></span><br><span class="line">    <span class="attr">zh-Hans :</span> <span class="string">&amp;ZH_HANS</span>  <span class="string">主页</span></span><br><span class="line">    <span class="attr">zh      :</span> <span class="meta">*ZH_HANS</span></span><br><span class="line">    <span class="attr">zh-CN   :</span> <span class="meta">*ZH_HANS</span></span><br><span class="line">    <span class="attr">zh-SG   :</span> <span class="meta">*ZH_HANS</span></span><br><span class="line">    <span class="attr">zh-Hant :</span> <span class="string">&amp;ZH_HANT</span>  <span class="string">關於</span></span><br><span class="line">    <span class="attr">zh-TW   :</span> <span class="meta">*ZH_HANT</span></span><br><span class="line">    <span class="attr">zh-HK   :</span> <span class="meta">*ZH_HANT</span></span><br><span class="line">    <span class="attr">ko      :</span> <span class="string">&amp;KO</span>       <span class="string">소개</span></span><br><span class="line">    <span class="attr">ko-KR   :</span> <span class="meta">*KO</span></span><br><span class="line">    <span class="attr">fr      :</span> <span class="string">&amp;FR</span>       <span class="string">À</span> <span class="string">propos</span></span><br><span class="line">    <span class="attr">fr-BE   :</span> <span class="meta">*FR</span></span><br><span class="line">    <span class="attr">fr-CA   :</span> <span class="meta">*FR</span></span><br><span class="line">    <span class="attr">fr-CH   :</span> <span class="meta">*FR</span></span><br><span class="line">    <span class="attr">fr-FR   :</span> <span class="meta">*FR</span></span><br><span class="line">    <span class="attr">fr-LU   :</span> <span class="meta">*FR</span></span><br><span class="line">    <span class="comment"># @end locale config</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">/index.html</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="在个人博客文章下面添加分享链接"><a href="#在个人博客文章下面添加分享链接" class="headerlink" title="在个人博客文章下面添加分享链接"></a>在个人博客文章下面添加分享链接</h3><ul>
 <li>注册AddThis：<a href="https://www.addthis.com/" target="_blank" rel="noopener">https://www.addthis.com/</a></li>
 <li>将想要设置分享的应用或链接添加到Inline</li>
@@ -439,14 +417,8 @@ pre {white-space: pre-wrap;}
 <p><img src="https://cdn.jsdelivr.net/gh/cuihuaxia/images@master/uPic/image-20200327191918336.png" alt="image-20200327191918336"></p>
 <ul>
 <li><p>在根目录文件_config.yml中对应位置provider改成<code>addthis</code>，并在id处添加<code>AddThis pubid</code>，即可。</p>
-<pre><code class="yml">## =&gt; Sharing
-##############################
-sharing:
-  provider: addthis # false (default), &quot;addtoany&quot;, &quot;addthis&quot;, &quot;custom&quot;
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## =&gt; Sharing</span></span><br><span class="line"><span class="comment">##############################</span></span><br><span class="line"><span class="attr">sharing:</span></span><br><span class="line">  <span class="attr">provider:</span> <span class="string">addthis</span> <span class="comment"># false (default), "addtoany", "addthis", "custom"</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">## AddThis</span></span><br><span class="line">  <span class="attr">addthis:</span></span><br><span class="line">    <span class="attr">id:</span> <span class="comment"># AddThis pubid, e.g. ra-5xxxxxxxxxxx</span></span><br></pre></td></tr></table></figure>
 
-  ## AddThis
-  addthis:
-    id: # AddThis pubid, e.g. ra-5xxxxxxxxxxx</code></pre>
 </li>
 </ul>
 <h3 id="个人博客访问统计量的显示"><a href="#个人博客访问统计量的显示" class="headerlink" title="个人博客访问统计量的显示"></a>个人博客访问统计量的显示</h3><ul>
@@ -458,16 +430,16 @@ sharing:
 <ul>
 <li><p><strong>网站总访问量统计</strong>设置：</p>
 <p>在根目录下的_includes文件夹下，找到<code>footer.html</code>文件，打开并在紧挨copyright脚注的地方<code>© TouchUMind 2020, Powered by Jekyll &amp; TeXt Theme.</code>的前/后位置，添加如下代码：</p>
-<pre><code class="html">&lt;script async src=&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;
-            &lt;span id=&quot;busuanzi_container_site_pv&quot; style=&#39;display:none&#39;&gt;本站总访问量&amp;nbsp;&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;&amp;nbsp;次&lt;/span&gt;</code></pre>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_pv"</span> <span class="attr">style</span>=<span class="string">'display:none'</span>&gt;</span>本站总访问量<span class="symbol">&amp;nbsp;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_pv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="symbol">&amp;nbsp;</span>次<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>截图如下：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/cuihuaxia/images@master/uPic/image-20200328205836724.png" alt="image-20200328205836724"></p>
 <p>即可在博客网站的脚注处看到增加了<code>本站总访问量 XX 次</code>，变成：<code>© TouchUMind 2020, Powered by Jekyll &amp; TeXt Theme. 本站总访问量 XX 次</code>。</p>
 </li>
 <li><p><strong>单篇文章访问量统计</strong>设置：</p>
 <p>在根目录下的_post文件夹下的每个markdown文件中，在正文的第一行，添加如下代码：</p>
-<pre><code class="markdown">&lt;link rel=&quot;stylesheet&quot; href=&quot;//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css&quot;&gt;
-本文总阅读量&amp;nbsp;&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;i class=&quot;fa fa-spinner&quot;&gt;&lt;/i&gt;&lt;/span&gt;&amp;nbsp;次</code></pre>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"</span>&gt;</span></span></span><br><span class="line">本文总阅读量&amp;nbsp;<span class="xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_page_pv"</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-spinner"</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span>&amp;nbsp;次</span><br></pre></td></tr></table></figure>
+
 <p>截图如下：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/cuihuaxia/images@master/uPic/image-20200328211301773.png" alt="image-20200328211301773"></p>
 <p>即可在单篇文章的第一行，看到增加了<code>本文总阅读量 XX 次</code>。</p>
@@ -479,7 +451,8 @@ sharing:
 <p>但在google了多个个人博客评论插件的推荐之后，并未找到一个完全令我满意的个人博客评论系统。</p>
 <p>再者，我的理解，个人博客更倾向于一个私人领域，也许不适合去打扰和被打扰。</p>
 <p>因此，我最终决定放弃添加个人博客评论系统。（不过，也许过会我的想法就变了也不一定 。。</p>
-<h3 id="在博客中插入YouTube视频"><a href="#在博客中插入YouTube视频" class="headerlink" title="在博客中插入YouTube视频"></a>在博客中插入YouTube视频</h3><pre><code class="markdown">{% youtube dc-nyGo0aC8 %}</code></pre>
+<h3 id="在博客中插入YouTube视频"><a href="#在博客中插入YouTube视频" class="headerlink" title="在博客中插入YouTube视频"></a>在博客中插入YouTube视频</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% youtube dc-nyGo0aC8 %&#125;</span><br></pre></td></tr></table></figure>
+
 <div class="video-container"><iframe src="https://www.youtube.com/embed/dc-nyGo0aC8" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
 
 <p><strong>后续会继续更新博客搭建的各个细节，敬请期待 …</strong></p>
@@ -647,6 +620,10 @@ sharing:
 			
 		
 			
+				<li><a href="/tags/PPT模板/" title="PPT模板">PPT模板<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Perl/" title="Perl">Perl<sup>1</sup></a></li>
 			
 		
@@ -659,7 +636,7 @@ sharing:
 			
 		
 			
-				<li><a href="/tags/PPT模板/" title="PPT模板">PPT模板<sup>1</sup></a></li>
+				<li><a href="/tags/Listening/" title="Listening">Listening<sup>1</sup></a></li>
 			
 		
 			
@@ -671,10 +648,6 @@ sharing:
 			
 		
 			
-				<li><a href="/tags/Listening/" title="Listening">Listening<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/ggplot2/" title="ggplot2">ggplot2<sup>1</sup></a></li>
 			
 		
@@ -683,11 +656,11 @@ sharing:
 			
 		
 			
-				<li><a href="/tags/气泡图/" title="气泡图">气泡图<sup>1</sup></a></li>
+				<li><a href="/tags/博客备份/" title="博客备份">博客备份<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/博客备份/" title="博客备份">博客备份<sup>1</sup></a></li>
+				<li><a href="/tags/气泡图/" title="气泡图">气泡图<sup>1</sup></a></li>
 			
 		
 			
@@ -711,11 +684,11 @@ sharing:
 			
 		
 			
-				<li><a href="/tags/Sequencing/" title="Sequencing">Sequencing<sup>1</sup></a></li>
+				<li><a href="/tags/科研工具/" title="科研工具">科研工具<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/科研工具/" title="科研工具">科研工具<sup>1</sup></a></li>
+				<li><a href="/tags/Sequencing/" title="Sequencing">Sequencing<sup>1</sup></a></li>
 			
 		
 			
@@ -738,7 +711,7 @@ sharing:
   <div class="tagcloudlist">
     <p class="asidetitle">Tag Cloud</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/Apache/" style="font-size: 13px; color: #51a4c7">Apache</a> <a href="/tags/MySQL/" style="font-size: 13px; color: #51a4c7">MySQL</a> <a href="/tags/Presentation/" style="font-size: 13px; color: #51a4c7">Presentation</a> <a href="/tags/Perl/" style="font-size: 13px; color: #51a4c7">Perl</a> <a href="/tags/RSS/" style="font-size: 13px; color: #51a4c7">RSS</a> <a href="/tags/GWAS/" style="font-size: 13px; color: #51a4c7">GWAS</a> <a href="/tags/PPT%E6%A8%A1%E6%9D%BF/" style="font-size: 13px; color: #51a4c7">PPT模板</a> <a href="/tags/Writing/" style="font-size: 18px; color: #51a4c7">Writing</a> <a href="/tags/R/" style="font-size: 23px; color: #51a4c7">R</a> <a href="/tags/limma/" style="font-size: 13px; color: #51a4c7">limma</a> <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" style="font-size: 13px; color: #51a4c7">差异表达</a> <a href="/tags/English/" style="font-size: 18px; color: #51a4c7">English</a> <a href="/tags/Listening/" style="font-size: 13px; color: #51a4c7">Listening</a> <a href="/tags/ggplot2/" style="font-size: 13px; color: #51a4c7">ggplot2</a> <a href="/tags/%E6%95%A3%E7%82%B9%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">散点图</a> <a href="/tags/%E6%B0%94%E6%B3%A1%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">气泡图</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD/" style="font-size: 13px; color: #51a4c7">博客备份</a> <a href="/tags/PRS/" style="font-size: 13px; color: #51a4c7">PRS</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px; color: #51a4c7">博客搭建</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13px; color: #51a4c7">知识管理</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%8A%9E%E5%85%AC/" style="font-size: 13px; color: #51a4c7">效率办公</a> <a href="/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" style="font-size: 18px; color: #51a4c7">文献检索</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13px; color: #51a4c7">文献阅读</a> <a href="/tags/Sequencing/" style="font-size: 13px; color: #51a4c7">Sequencing</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #51a4c7">科研工具</a> <a href="/tags/%E6%8E%A2%E9%92%88%E6%B3%A8%E9%87%8A/" style="font-size: 13px; color: #51a4c7">探针注释</a> <a href="/tags/Jekyll/" style="font-size: 13px; color: #51a4c7">Jekyll</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #51a4c7">Hexo</a>
+       <a href="/tags/Apache/" style="font-size: 13px; color: #51a4c7">Apache</a> <a href="/tags/MySQL/" style="font-size: 13px; color: #51a4c7">MySQL</a> <a href="/tags/Presentation/" style="font-size: 13px; color: #51a4c7">Presentation</a> <a href="/tags/PPT%E6%A8%A1%E6%9D%BF/" style="font-size: 13px; color: #51a4c7">PPT模板</a> <a href="/tags/Perl/" style="font-size: 13px; color: #51a4c7">Perl</a> <a href="/tags/RSS/" style="font-size: 13px; color: #51a4c7">RSS</a> <a href="/tags/GWAS/" style="font-size: 13px; color: #51a4c7">GWAS</a> <a href="/tags/Writing/" style="font-size: 18px; color: #51a4c7">Writing</a> <a href="/tags/English/" style="font-size: 18px; color: #51a4c7">English</a> <a href="/tags/Listening/" style="font-size: 13px; color: #51a4c7">Listening</a> <a href="/tags/R/" style="font-size: 23px; color: #51a4c7">R</a> <a href="/tags/limma/" style="font-size: 13px; color: #51a4c7">limma</a> <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" style="font-size: 13px; color: #51a4c7">差异表达</a> <a href="/tags/ggplot2/" style="font-size: 13px; color: #51a4c7">ggplot2</a> <a href="/tags/%E6%95%A3%E7%82%B9%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">散点图</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD/" style="font-size: 13px; color: #51a4c7">博客备份</a> <a href="/tags/%E6%B0%94%E6%B3%A1%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">气泡图</a> <a href="/tags/PRS/" style="font-size: 13px; color: #51a4c7">PRS</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px; color: #51a4c7">博客搭建</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13px; color: #51a4c7">知识管理</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%8A%9E%E5%85%AC/" style="font-size: 13px; color: #51a4c7">效率办公</a> <a href="/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" style="font-size: 18px; color: #51a4c7">文献检索</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13px; color: #51a4c7">文献阅读</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #51a4c7">科研工具</a> <a href="/tags/Sequencing/" style="font-size: 13px; color: #51a4c7">Sequencing</a> <a href="/tags/%E6%8E%A2%E9%92%88%E6%B3%A8%E9%87%8A/" style="font-size: 13px; color: #51a4c7">探针注释</a> <a href="/tags/Jekyll/" style="font-size: 13px; color: #51a4c7">Jekyll</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #51a4c7">Hexo</a>
     </div>
   </div>
 

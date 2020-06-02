@@ -401,70 +401,40 @@ pre {white-space: pre-wrap;}
 <li>去官网<a href="http://apr.apache.org/download.cgi" target="_blank" rel="noopener">http://apr.apache.org/download.cgi</a>下载apr和apr-util的源码包，这里下载的是最新的<code>apr-1.7.0.tar.gz</code>和<code>apr-util-1.6.1.tar.gz</code>这两个包。</li>
 <li>去官网<a href="https://ftp.pcre.org/pub/pcre/" target="_blank" rel="noopener">https://ftp.pcre.org/pub/pcre/</a>下载pcre的源码包，这里下载的是<code>pcre-8.44.zip</code>这个包。</li>
 </ol>
-<h4 id="解压并安装apr"><a href="#解压并安装apr" class="headerlink" title="解压并安装apr"></a>解压并安装apr</h4><pre><code class="shell"># 解压apr
-cd /zs32/home/chxia/Softwares
-tar -zxvf apr-1.7.0.tar.gz
-# 进入源码包目录，安装apr
-cd apr-1.7.0
-./configure --prefix=/zs32/home/chxia/Softwares/apr-1.7.0/usr/local/apr
-make
-make install</code></pre>
+<h4 id="解压并安装apr"><a href="#解压并安装apr" class="headerlink" title="解压并安装apr"></a>解压并安装apr</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 解压apr</span></span><br><span class="line">cd /zs32/home/chxia/Softwares</span><br><span class="line">tar -zxvf apr-1.7.0.tar.gz</span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入源码包目录，安装apr</span></span><br><span class="line">cd apr-1.7.0</span><br><span class="line">./configure --prefix=/zs32/home/chxia/Softwares/apr-1.7.0/usr/local/apr</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
 <p>上面的配置参数–prefix就是指定安装目录，执行没问题稍等一会就安装好了。</p>
-<h4 id="解压并安装apr-util"><a href="#解压并安装apr-util" class="headerlink" title="解压并安装apr-util"></a>解压并安装apr-util</h4><pre><code class="shell"># 解压apr-util
-cd /zs32/home/chxia/Softwares
-tar -zxvf apr-util-1.6.1.tar.gz 
-# 进入源码包目录，安装apr-util
-cd apr-util-1.6.1
-./configure --prefix=/zs32/home/chxia/Softwares/apr-util-1.6.1/usr/local/apr-util --with-apr=/zs32/home/chxia/Softwares/apr-1.7.0/usr/local/apr
-make
-make install</code></pre>
+<h4 id="解压并安装apr-util"><a href="#解压并安装apr-util" class="headerlink" title="解压并安装apr-util"></a>解压并安装apr-util</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 解压apr-util</span></span><br><span class="line">cd /zs32/home/chxia/Softwares</span><br><span class="line">tar -zxvf apr-util-1.6.1.tar.gz </span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入源码包目录，安装apr-util</span></span><br><span class="line">cd apr-util-1.6.1</span><br><span class="line">./configure --prefix=/zs32/home/chxia/Softwares/apr-util-1.6.1/usr/local/apr-util --with-apr=/zs32/home/chxia/Softwares/apr-1.7.0/usr/local/apr</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
 <p>上面配置参数的–with-apr表示apr-util安装需要依赖apr，所以指定apr的安装目录，到这里apr-util也安装完成了。</p>
-<h4 id="解压并安装pcre"><a href="#解压并安装pcre" class="headerlink" title="解压并安装pcre"></a>解压并安装pcre</h4><pre><code class="shell"># 解压pcre
-cd /zs32/home/chxia/Softwares
-unzip pcre-8.44.zip 
-# 进入源码包目录，安装pcre
-cd pcre-8.44
-./configure --prefix=/zs32/home/chxia/Softwares/pcre-8.44/usr/local/pcre
-make
-make install</code></pre>
-<h4 id="解压并安装Apache"><a href="#解压并安装Apache" class="headerlink" title="解压并安装Apache"></a>解压并安装Apache</h4><pre><code class="shell"># 删除之前安装的Apache httpd-2.4.43
-rm -R /zs32/home/chxia/Softwares/httpd-2.4.43
-## 解压并安装Apache httpd-2.4.43
-# 解压Apache httpd-2.4.43
-cd /zs32/home/chxia/Softwares
-tar -jxvf httpd-2.4.43.tar.bz2
-# 进入源码包目录，安装Apache httpd-2.4.43
-cd /zs32/home/chxia/Softwares/httpd-2.4.43
-./configure --prefix=/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24 --with-apr=/zs32/home/chxia/Softwares/apr-1.7.0/usr/local/apr --with-apr-util=/zs32/home/chxia/Softwares/apr-util-1.6.1/usr/local/apr-util --with-pcre=/zs32/home/chxia/Softwares/pcre-8.44/usr/local/pcre
-make clean
-make
-make install</code></pre>
+<h4 id="解压并安装pcre"><a href="#解压并安装pcre" class="headerlink" title="解压并安装pcre"></a>解压并安装pcre</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 解压pcre</span></span><br><span class="line">cd /zs32/home/chxia/Softwares</span><br><span class="line">unzip pcre-8.44.zip </span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入源码包目录，安装pcre</span></span><br><span class="line">cd pcre-8.44</span><br><span class="line">./configure --prefix=/zs32/home/chxia/Softwares/pcre-8.44/usr/local/pcre</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<h4 id="解压并安装Apache"><a href="#解压并安装Apache" class="headerlink" title="解压并安装Apache"></a>解压并安装Apache</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 删除之前安装的Apache httpd-2.4.43</span></span><br><span class="line">rm -R /zs32/home/chxia/Softwares/httpd-2.4.43</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 解压并安装Apache httpd-2.4.43</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 解压Apache httpd-2.4.43</span></span><br><span class="line">cd /zs32/home/chxia/Softwares</span><br><span class="line">tar -jxvf httpd-2.4.43.tar.bz2</span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入源码包目录，安装Apache httpd-2.4.43</span></span><br><span class="line">cd /zs32/home/chxia/Softwares/httpd-2.4.43</span><br><span class="line">./configure --prefix=/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24 --with-apr=/zs32/home/chxia/Softwares/apr-1.7.0/usr/local/apr --with-apr-util=/zs32/home/chxia/Softwares/apr-util-1.6.1/usr/local/apr-util --with-pcre=/zs32/home/chxia/Softwares/pcre-8.44/usr/local/pcre</span><br><span class="line">make clean</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
 <p>编译过程时间有点长，耐心等待一下，执行完毕，Apache就安装完成了。</p>
 <p>注意：如果make中出现错误，必须执行make clean清除所有缓存文件后继续，如果是在make install过程中出现错误，必须执行make clean并且删除生成了的安装目录，然后重新执行make和make install。</p>
 <h4 id="启动Apache-httpd服务之前"><a href="#启动Apache-httpd服务之前" class="headerlink" title="启动Apache httpd服务之前"></a>启动Apache httpd服务之前</h4><ol>
 <li><p>修改端口为<code>1024</code>以上端口</p>
 <p>注：非root用户使用的端口80将无权限，1~1024 端口只有root只能绑定。你如果不是用root启动apache，则需修改为1024以上的端口。<br>所以，需要打开<code>/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/conf/httpd.conf</code>修改端口信息。</p>
-<pre><code class="shell">#Listen 12.34.56.78:80
- Listen 8080      //修改端口为8080或8008</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">Listen 12.34.56.78:80</span></span><br><span class="line"> Listen 8080      //修改端口为8080或8008</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>打开<code>/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/conf/httpd.conf</code>文件找到<code>#ServerName www.example.com:80</code>, 把这行代码前面的<code>#</code>去掉，保存退出，然后重新启动Apache。</p>
 </li>
 <li><p>需要注意服务器的默认根目录（即放<code>index.html</code>等网站文件的目录）是在<code>/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/htdocs/</code>。</p>
 </li>
 </ol>
-<h4 id="启动Apache-httpd服务"><a href="#启动Apache-httpd服务" class="headerlink" title="启动Apache httpd服务"></a>启动Apache httpd服务</h4><pre><code class="shell"># 启动Apache服务
-/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/bin/apachectl start
-/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/bin/apachectl -f /zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/conf/httpd.conf -k start</code></pre>
+<h4 id="启动Apache-httpd服务"><a href="#启动Apache-httpd服务" class="headerlink" title="启动Apache httpd服务"></a>启动Apache httpd服务</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 启动Apache服务</span></span><br><span class="line">/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/bin/apachectl start</span><br><span class="line">/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/bin/apachectl -f /zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/conf/httpd.conf -k start</span><br></pre></td></tr></table></figure>
+
 <h4 id="浏览器访问对应服务器的外网ip地址（加端口），看到It-works-即表示安装成功"><a href="#浏览器访问对应服务器的外网ip地址（加端口），看到It-works-即表示安装成功" class="headerlink" title="浏览器访问对应服务器的外网ip地址（加端口），看到It works! 即表示安装成功"></a>浏览器访问对应服务器的<u>外网ip</u>地址（加端口），看到It works! 即表示安装成功</h4><p>如下图所示：</p>
 <p><img src="https://images2015.cnblogs.com/blog/734555/201602/734555-20160202144513694-1214565426.jpg" alt="It works"></p>
 <p>但，遗憾的是，我没有成功，我的访问结果是：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/uPic/image-20200527175714551.png" alt="image-20200527175714551"></p>
 <p>究其原因，大概是我没有使用root真正启动Apache吧。</p>
 <p>需要root操作一下来开启Apache服务：</p>
-<pre><code class="shell"># root开启Apache服务
-service httpd start</code></pre>
-<h4 id="停止Apache-httpd服务"><a href="#停止Apache-httpd服务" class="headerlink" title="停止Apache httpd服务"></a>停止Apache httpd服务</h4><pre><code class="shell"># 停止Apache服务
-/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/bin/apachectl stop</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> root开启Apache服务</span></span><br><span class="line">service httpd start</span><br></pre></td></tr></table></figure>
+
+<h4 id="停止Apache-httpd服务"><a href="#停止Apache-httpd服务" class="headerlink" title="停止Apache httpd服务"></a>停止Apache httpd服务</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 停止Apache服务</span></span><br><span class="line">/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/bin/apachectl stop</span><br></pre></td></tr></table></figure>
+
 <h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ol>
 <li><a href="https://www.cnblogs.com/freeweb/p/5177516.html" target="_blank" rel="noopener">https://www.cnblogs.com/freeweb/p/5177516.html</a></li>
 <li><a href="http://www.itechlib.com/2016/01/07/non-root-start-apache-mysql" target="_blank" rel="noopener">http://www.itechlib.com/2016/01/07/non-root-start-apache-mysql</a></li>
@@ -647,6 +617,10 @@ service httpd start</code></pre>
 			
 		
 			
+				<li><a href="/tags/PPT模板/" title="PPT模板">PPT模板<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Perl/" title="Perl">Perl<sup>1</sup></a></li>
 			
 		
@@ -659,7 +633,7 @@ service httpd start</code></pre>
 			
 		
 			
-				<li><a href="/tags/PPT模板/" title="PPT模板">PPT模板<sup>1</sup></a></li>
+				<li><a href="/tags/Listening/" title="Listening">Listening<sup>1</sup></a></li>
 			
 		
 			
@@ -671,10 +645,6 @@ service httpd start</code></pre>
 			
 		
 			
-				<li><a href="/tags/Listening/" title="Listening">Listening<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/ggplot2/" title="ggplot2">ggplot2<sup>1</sup></a></li>
 			
 		
@@ -683,11 +653,11 @@ service httpd start</code></pre>
 			
 		
 			
-				<li><a href="/tags/气泡图/" title="气泡图">气泡图<sup>1</sup></a></li>
+				<li><a href="/tags/博客备份/" title="博客备份">博客备份<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/博客备份/" title="博客备份">博客备份<sup>1</sup></a></li>
+				<li><a href="/tags/气泡图/" title="气泡图">气泡图<sup>1</sup></a></li>
 			
 		
 			
@@ -711,11 +681,11 @@ service httpd start</code></pre>
 			
 		
 			
-				<li><a href="/tags/Sequencing/" title="Sequencing">Sequencing<sup>1</sup></a></li>
+				<li><a href="/tags/科研工具/" title="科研工具">科研工具<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/科研工具/" title="科研工具">科研工具<sup>1</sup></a></li>
+				<li><a href="/tags/Sequencing/" title="Sequencing">Sequencing<sup>1</sup></a></li>
 			
 		
 			
@@ -738,7 +708,7 @@ service httpd start</code></pre>
   <div class="tagcloudlist">
     <p class="asidetitle">Tag Cloud</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/Apache/" style="font-size: 13px; color: #51a4c7">Apache</a> <a href="/tags/MySQL/" style="font-size: 13px; color: #51a4c7">MySQL</a> <a href="/tags/Presentation/" style="font-size: 13px; color: #51a4c7">Presentation</a> <a href="/tags/Perl/" style="font-size: 13px; color: #51a4c7">Perl</a> <a href="/tags/RSS/" style="font-size: 13px; color: #51a4c7">RSS</a> <a href="/tags/GWAS/" style="font-size: 13px; color: #51a4c7">GWAS</a> <a href="/tags/PPT%E6%A8%A1%E6%9D%BF/" style="font-size: 13px; color: #51a4c7">PPT模板</a> <a href="/tags/Writing/" style="font-size: 18px; color: #51a4c7">Writing</a> <a href="/tags/R/" style="font-size: 23px; color: #51a4c7">R</a> <a href="/tags/limma/" style="font-size: 13px; color: #51a4c7">limma</a> <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" style="font-size: 13px; color: #51a4c7">差异表达</a> <a href="/tags/English/" style="font-size: 18px; color: #51a4c7">English</a> <a href="/tags/Listening/" style="font-size: 13px; color: #51a4c7">Listening</a> <a href="/tags/ggplot2/" style="font-size: 13px; color: #51a4c7">ggplot2</a> <a href="/tags/%E6%95%A3%E7%82%B9%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">散点图</a> <a href="/tags/%E6%B0%94%E6%B3%A1%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">气泡图</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD/" style="font-size: 13px; color: #51a4c7">博客备份</a> <a href="/tags/PRS/" style="font-size: 13px; color: #51a4c7">PRS</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px; color: #51a4c7">博客搭建</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13px; color: #51a4c7">知识管理</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%8A%9E%E5%85%AC/" style="font-size: 13px; color: #51a4c7">效率办公</a> <a href="/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" style="font-size: 18px; color: #51a4c7">文献检索</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13px; color: #51a4c7">文献阅读</a> <a href="/tags/Sequencing/" style="font-size: 13px; color: #51a4c7">Sequencing</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #51a4c7">科研工具</a> <a href="/tags/%E6%8E%A2%E9%92%88%E6%B3%A8%E9%87%8A/" style="font-size: 13px; color: #51a4c7">探针注释</a> <a href="/tags/Jekyll/" style="font-size: 13px; color: #51a4c7">Jekyll</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #51a4c7">Hexo</a>
+       <a href="/tags/Apache/" style="font-size: 13px; color: #51a4c7">Apache</a> <a href="/tags/MySQL/" style="font-size: 13px; color: #51a4c7">MySQL</a> <a href="/tags/Presentation/" style="font-size: 13px; color: #51a4c7">Presentation</a> <a href="/tags/PPT%E6%A8%A1%E6%9D%BF/" style="font-size: 13px; color: #51a4c7">PPT模板</a> <a href="/tags/Perl/" style="font-size: 13px; color: #51a4c7">Perl</a> <a href="/tags/RSS/" style="font-size: 13px; color: #51a4c7">RSS</a> <a href="/tags/GWAS/" style="font-size: 13px; color: #51a4c7">GWAS</a> <a href="/tags/Writing/" style="font-size: 18px; color: #51a4c7">Writing</a> <a href="/tags/English/" style="font-size: 18px; color: #51a4c7">English</a> <a href="/tags/Listening/" style="font-size: 13px; color: #51a4c7">Listening</a> <a href="/tags/R/" style="font-size: 23px; color: #51a4c7">R</a> <a href="/tags/limma/" style="font-size: 13px; color: #51a4c7">limma</a> <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" style="font-size: 13px; color: #51a4c7">差异表达</a> <a href="/tags/ggplot2/" style="font-size: 13px; color: #51a4c7">ggplot2</a> <a href="/tags/%E6%95%A3%E7%82%B9%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">散点图</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD/" style="font-size: 13px; color: #51a4c7">博客备份</a> <a href="/tags/%E6%B0%94%E6%B3%A1%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">气泡图</a> <a href="/tags/PRS/" style="font-size: 13px; color: #51a4c7">PRS</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px; color: #51a4c7">博客搭建</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13px; color: #51a4c7">知识管理</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%8A%9E%E5%85%AC/" style="font-size: 13px; color: #51a4c7">效率办公</a> <a href="/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" style="font-size: 18px; color: #51a4c7">文献检索</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13px; color: #51a4c7">文献阅读</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #51a4c7">科研工具</a> <a href="/tags/Sequencing/" style="font-size: 13px; color: #51a4c7">Sequencing</a> <a href="/tags/%E6%8E%A2%E9%92%88%E6%B3%A8%E9%87%8A/" style="font-size: 13px; color: #51a4c7">探针注释</a> <a href="/tags/Jekyll/" style="font-size: 13px; color: #51a4c7">Jekyll</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #51a4c7">Hexo</a>
     </div>
   </div>
 
