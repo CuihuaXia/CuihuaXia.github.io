@@ -410,39 +410,90 @@ pre {white-space: pre-wrap;}
 <p>点击下载，不必登录，不必注册，直接点击<code>No thanks, just start my download</code>即开始下载。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/uPic/image-20200523231605048.png" alt="image-20200523231605048"></p>
 <h3 id="Linux-CentOS-7-版本MySQL-5-7-30在个人目录下的安装"><a href="#Linux-CentOS-7-版本MySQL-5-7-30在个人目录下的安装" class="headerlink" title="Linux (CentOS 7)版本MySQL 5.7.30在个人目录下的安装"></a>Linux (CentOS 7)版本MySQL 5.7.30<u>在个人目录下</u>的安装</h3><h4 id="下载安装boost-1-59-0-tar-gz"><a href="#下载安装boost-1-59-0-tar-gz" class="headerlink" title="下载安装boost_1_59_0.tar.gz"></a>下载安装boost_1_59_0.tar.gz</h4><p>在安装MySQL 5.7.30之前，还需要先安装一下<code>boost_1_59_0</code>，这在cmake那一步会用到。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 移除之前解压的boost_1_59_0文件夹及其文件</span></span><br><span class="line">rm -R /zs32/home/chxia/Softwares/boost_1_59_0</span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载boost_1_59_0.tar.gz</span></span><br><span class="line">cd /zs32/home/chxia/Softwares</span><br><span class="line">wget http://sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.gz</span><br><span class="line"><span class="meta">#</span><span class="bash"> 解压新的boost_1_59_0.tar.gz到安装路径</span></span><br><span class="line">tar -zxvf boost_1_59_0.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h4 id="解压mysql-5-7-30-tar-gz"><a href="#解压mysql-5-7-30-tar-gz" class="headerlink" title="解压mysql-5.7.30.tar.gz"></a>解压mysql-5.7.30.tar.gz</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 移除之前解压的mysql-5.7.30文件夹及其文件</span></span><br><span class="line">rm -R /zs32/home/chxia/local/mysql-5.7.30</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置mysql-5.7.30的安装路径</span></span><br><span class="line">cd /zs32/home/chxia/local</span><br><span class="line"><span class="meta">#</span><span class="bash"> 解压新的mysql-5.7.30.tar.gz到安装路径</span></span><br><span class="line">tar -zxvf /zs32/home/chxia/Softwares/mysql-5.7.30.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h4 id="创建MySQL数据目录"><a href="#创建MySQL数据目录" class="headerlink" title="创建MySQL数据目录"></a>创建MySQL数据目录</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /zs32/home/chxia</span><br><span class="line">mkdir -p ~/data/mysql-5.7.30</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell"># 移除之前解压的boost_1_59_0文件夹及其文件
+rm -R /zs32/home/chxia/Softwares/boost_1_59_0
+# 下载boost_1_59_0.tar.gz
+cd /zs32/home/chxia/Softwares
+wget http://sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.gz
+# 解压新的boost_1_59_0.tar.gz到安装路径
+tar -zxvf boost_1_59_0.tar.gz</code></pre>
+<h4 id="解压mysql-5-7-30-tar-gz"><a href="#解压mysql-5-7-30-tar-gz" class="headerlink" title="解压mysql-5.7.30.tar.gz"></a>解压mysql-5.7.30.tar.gz</h4><pre><code class="shell"># 移除之前解压的mysql-5.7.30文件夹及其文件
+rm -R /zs32/home/chxia/local/mysql-5.7.30
+# 设置mysql-5.7.30的安装路径
+cd /zs32/home/chxia/local
+# 解压新的mysql-5.7.30.tar.gz到安装路径
+tar -zxvf /zs32/home/chxia/Softwares/mysql-5.7.30.tar.gz</code></pre>
+<h4 id="创建MySQL数据目录"><a href="#创建MySQL数据目录" class="headerlink" title="创建MySQL数据目录"></a>创建MySQL数据目录</h4><pre><code class="shell">cd /zs32/home/chxia
+mkdir -p ~/data/mysql-5.7.30</code></pre>
 <p>MySQL的数据会存放在这里。</p>
-<h4 id="创建MySQL配置文件的目录"><a href="#创建MySQL配置文件的目录" class="headerlink" title="创建MySQL配置文件的目录"></a>创建MySQL配置文件的目录</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /zs32/home/chxia</span><br><span class="line">mkdir -p ~/etc/mysql-5.7.30</span><br></pre></td></tr></table></figure>
-
+<h4 id="创建MySQL配置文件的目录"><a href="#创建MySQL配置文件的目录" class="headerlink" title="创建MySQL配置文件的目录"></a>创建MySQL配置文件的目录</h4><pre><code class="shell">cd /zs32/home/chxia
+mkdir -p ~/etc/mysql-5.7.30</code></pre>
 <p>这样，我们就不用去理会root权限才能操作的/etc/my.cnf了。</p>
 <h4 id="创建mysqld-safe的日志目录"><a href="#创建mysqld-safe的日志目录" class="headerlink" title="创建mysqld_safe的日志目录"></a>创建mysqld_safe的日志目录</h4><p>如果你对mysqld_safe有印象，那你一定知道我们就是通过这个家伙来启动MySQL的。但是它默认打印日志在/var/log/mysqld.log。很显然这是ROOT才有的权限。我们普通用户不稀罕，自己提供日志目录，无拘无束。</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /zs32/home/chxia</span><br><span class="line">mkdir -p ~/logs/mysqld_safe/</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">cd /zs32/home/chxia
+mkdir -p ~/logs/mysqld_safe/</code></pre>
 <h4 id="cmake-构建MySQL"><a href="#cmake-构建MySQL" class="headerlink" title="cmake 构建MySQL"></a>cmake 构建MySQL</h4><p>做好了上面的准备工作后，我们就可以开始安装MySQL了。</p>
 <ol>
 <li>首先是用cmake构建出一个Makefile来。</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /zs32/home/chxia/local/mysql-5.7.30</span><br><span class="line">cmake . \</span><br><span class="line"> -DCMAKE_INSTALL_PREFIX=$HOME/local/mysql-5.7.30 \</span><br><span class="line"> -DMYSQL_DATADIR=$HOME/data/mysql-5.7.30 \</span><br><span class="line"> -DSYSCONFDIR=$HOME/etc/mysql-5.7.30 \</span><br><span class="line"> -DDOWNLOAD_BOOST=1 \</span><br><span class="line"> -DWITH_BOOST=/zs32/home/chxia/Softwares/boost_1_59_0</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">cd /zs32/home/chxia/local/mysql-5.7.30
+cmake . \
+ -DCMAKE_INSTALL_PREFIX=$HOME/local/mysql-5.7.30 \
+ -DMYSQL_DATADIR=$HOME/data/mysql-5.7.30 \
+ -DSYSCONFDIR=$HOME/etc/mysql-5.7.30 \
+ -DDOWNLOAD_BOOST=1 \
+ -DWITH_BOOST=/zs32/home/chxia/Softwares/boost_1_59_0</code></pre>
 <p>很重要的一点就是通过<code>-DCMAKE_INSTALL_PREFIX</code>，<code>-DMYSQL_DATADIR</code>，<code>-DSYSCONFDIR</code>参数来设定自己的环境的：MySQL安装的目录，MySQL存放数据的目录，MySQL存放和读取配置的目录。</p>
 <ol start="2">
 <li>然后<code>make</code>和<code>make install</code>安装MySQL 5.7.30</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">make &amp;&amp; make install</code></pre>
 <p>至此，MySQL已经成功安装到我们指定的目录下了。不信，您到$HOME/local/mysql-5.7.30目录下瞧瞧。</p>
 <ol start="3">
 <li>新建配置文件<code>my.cnf</code>到我们指定的配置目录下</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch ~/etc/mysql-5.7.30/my.cnf</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">touch ~/etc/mysql-5.7.30/my.cnf</code></pre>
+<h4 id="修改配置文件配置MySQL"><a href="#修改配置文件配置MySQL" class="headerlink" title="修改配置文件配置MySQL"></a>修改配置文件配置MySQL</h4><pre><code class="shell">vi ~/etc/mysql-5.7.30/my.cnf
+i
 
-<h4 id="修改配置文件配置MySQL"><a href="#修改配置文件配置MySQL" class="headerlink" title="修改配置文件配置MySQL"></a>修改配置文件配置MySQL</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">vi ~/etc/mysql-5.7.30/my.cnf</span><br><span class="line">i</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[client] </span><br><span class="line">password = </span><br><span class="line">port = 3506 </span><br><span class="line">socket = /zs32/home/chxia/local/mysql-5.7.30/tmp/mysql.sock</span><br><span class="line"></span><br><span class="line">[mysqld] </span><br><span class="line">port = 3506</span><br><span class="line">socket = /zs32/home/chxia/local/mysql-5.7.30/tmp/mysql.sock </span><br><span class="line">skip-grant-tables </span><br><span class="line">skip-external-locking </span><br><span class="line">key_buffer_size = 384M </span><br><span class="line">max_allowed_packet = 1M </span><br><span class="line">table_open_cache = 512 </span><br><span class="line">sort_buffer_size = 2M </span><br><span class="line">read_buffer_size = 2M </span><br><span class="line">read_rnd_buffer_size = 8M </span><br><span class="line">myisam_sort_buffer_size = 64M </span><br><span class="line">thread_cache_size = 8 </span><br><span class="line">query_cache_size = 32M  </span><br><span class="line">datadir = /zs32/home/chxia/local/mysql-5.7.30/data</span><br><span class="line">language = /zs32/home/chxia/local/mysql-5.7.30/share/english</span><br><span class="line"></span><br><span class="line">[mysql] </span><br><span class="line">auto-rehash</span><br><span class="line">default-character-set=utf8</span><br><span class="line">socket= /zs32/home/chxia/local/mysql-5.7.30/tmp/mysql.sock</span><br><span class="line"></span><br><span class="line">[mysqld_safe] </span><br><span class="line">log-error=/zs32/home/chxia/logs/mysqld_safe/mysqld.log </span><br><span class="line">pid-file=/zs32/home/chxia/data/mysql-5.7.30/mysqld.pid</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">esc</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
 
+
+[client] 
+password = 
+port = 3506 
+socket = /zs32/home/chxia/local/mysql-5.7.30/tmp/mysql.sock
+
+[mysqld] 
+port = 3506
+socket = /zs32/home/chxia/local/mysql-5.7.30/tmp/mysql.sock 
+skip-grant-tables 
+skip-external-locking 
+key_buffer_size = 384M 
+max_allowed_packet = 1M 
+table_open_cache = 512 
+sort_buffer_size = 2M 
+read_buffer_size = 2M 
+read_rnd_buffer_size = 8M 
+myisam_sort_buffer_size = 64M 
+thread_cache_size = 8 
+query_cache_size = 32M  
+datadir = /zs32/home/chxia/local/mysql-5.7.30/data
+language = /zs32/home/chxia/local/mysql-5.7.30/share/english
+
+[mysql] 
+auto-rehash
+default-character-set=utf8
+socket= /zs32/home/chxia/local/mysql-5.7.30/tmp/mysql.sock
+
+[mysqld_safe] 
+log-error=/zs32/home/chxia/logs/mysqld_safe/mysqld.log 
+pid-file=/zs32/home/chxia/data/mysql-5.7.30/mysqld.pid
+
+
+
+esc
+:wq
+</code></pre>
 <p>参数解释：</p>
 <ol>
 <li>默认端口<code>port</code>是3306，根据个人喜好修改。不过建议不要使用默认的端口，和同一台机器的同事冲突不说。关键是容易被别人攻击。</li>
@@ -451,18 +502,48 @@ pre {white-space: pre-wrap;}
 <li><code>mysqld_safe</code>。这样我们使用<code>mysqld_safe</code>来启动mysql的时候，就可以顺利启动了。毕竟日志文件的目录是我们为他专门设定的。</li>
 </ol>
 <h4 id="初始化MySQL"><a href="#初始化MySQL" class="headerlink" title="初始化MySQL"></a>初始化MySQL</h4><p>接下来就可以初始化MySQL了，建立一些MySQL本身需要的库表等基础数据。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看并杀掉MySQL已有进程</span></span><br><span class="line">lsof |grep nfs00000</span><br><span class="line">kill -9 27729</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除<span class="built_in">local</span>/mysql-5.7.30/data中的数据</span></span><br><span class="line">rm -R /zs32/home/chxia/local/mysql-5.7.30/data/</span><br><span class="line"><span class="meta">#</span><span class="bash"> MySQL初始化</span></span><br><span class="line">/zs32/home/chxia/local/mysql-5.7.30/bin/mysqld --initialize --basedir=/zs32/home/chxia/local/mysql-5.7.30/ --datadir=/zs32/home/chxia/local/mysql-5.7.30/data/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除已有mysql.sock文件</span></span><br><span class="line">rm /zs32/home/chxia/local/mysql-5.7.30/tmp/mysql.sock</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell"># 查看并杀掉MySQL已有进程
+lsof |grep nfs00000
+kill -9 27729
+# 删除local/mysql-5.7.30/data中的数据
+rm -R /zs32/home/chxia/local/mysql-5.7.30/data/
+# MySQL初始化
+/zs32/home/chxia/local/mysql-5.7.30/bin/mysqld --initialize --basedir=/zs32/home/chxia/local/mysql-5.7.30/ --datadir=/zs32/home/chxia/local/mysql-5.7.30/data/
+# 删除已有mysql.sock文件
+rm /zs32/home/chxia/local/mysql-5.7.30/tmp/mysql.sock</code></pre>
 <p>注意：下面这些代码暂时不用，没用。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 创建系统数据库的表</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 很多网上的文章都会加上 –user=mysql。这也曾经让我很困惑，我是普通用户，和mysql这个用户有什么关系呢。今天终于明白，只有root用户才有资格使用这个参数来指定哪个用户运行mysqld，不指定的话，就是当前登陆用户。所以我们没必要带上这个参数了。no-defaults 就是完全不使用默认的东西，我们就是要用完全属于自己的MySQL。–defaults-file就是指定我们自己的配置文件。</span></span><br><span class="line">cp /zs32/home/chxia/local/mysql-5.7.30/bin/mysql_install_db /zs32/home/chxia/local/mysql-5.7.30/scripts/mysql_install_db</span><br><span class="line">/zs32/home/chxia/local/mysql-5.7.30/scripts/mysql_install_db –no-defaults –defaults-file=/zs32/home/chxia/etc/mysql-5.7.30/my.cnf --datadir=/zs32/home/chxia/local/mysql-5.7.30/data/data</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改密码</span></span><br><span class="line">/zs32/home/chxia/local/mysql-5.7.30/bin/mysqladmin -u root password 'new-password'</span><br><span class="line">/zs32/home/chxia/local/mysql-5.7.30/bin/mysqladmin -u root -h host4 password 'new-password'</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">## 创建系统数据库的表
+# 很多网上的文章都会加上 –user=mysql。这也曾经让我很困惑，我是普通用户，和mysql这个用户有什么关系呢。今天终于明白，只有root用户才有资格使用这个参数来指定哪个用户运行mysqld，不指定的话，就是当前登陆用户。所以我们没必要带上这个参数了。no-defaults 就是完全不使用默认的东西，我们就是要用完全属于自己的MySQL。–defaults-file就是指定我们自己的配置文件。
+cp /zs32/home/chxia/local/mysql-5.7.30/bin/mysql_install_db /zs32/home/chxia/local/mysql-5.7.30/scripts/mysql_install_db
+/zs32/home/chxia/local/mysql-5.7.30/scripts/mysql_install_db –no-defaults –defaults-file=/zs32/home/chxia/etc/mysql-5.7.30/my.cnf --datadir=/zs32/home/chxia/local/mysql-5.7.30/data/data
 
-<h4 id="大功告成，启动和登录MySQL"><a href="#大功告成，启动和登录MySQL" class="headerlink" title="大功告成，启动和登录MySQL"></a>大功告成，启动和登录MySQL</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 启动MySQL</span></span><br><span class="line">/zs32/home/chxia/local/mysql-5.7.30/bin/mysqld_safe --defaults-file=/zs32/home/chxia/etc/mysql-5.7.30/my.cnf &amp;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 登录MySQL(直接在上一条命令基础上输入这一条命令即可)</span></span><br><span class="line">/zs32/home/chxia/local/mysql-5.7.30/bin/mysql -u root -p -S /zs32/home/chxia/local/mysql-5.7.30/tmp/mysql.sock //无密码，直接回车即可</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改root登录密码并退出mysql</span></span><br><span class="line">use mysql;</span><br><span class="line">update mysql.user set authentication_string=password('new-password') where user='root';</span><br><span class="line">flush privileges;</span><br><span class="line">exit;</span><br></pre></td></tr></table></figure>
+# 修改密码
+/zs32/home/chxia/local/mysql-5.7.30/bin/mysqladmin -u root password &#39;new-password&#39;
+/zs32/home/chxia/local/mysql-5.7.30/bin/mysqladmin -u root -h host4 password &#39;new-password&#39;</code></pre>
+<h4 id="大功告成，启动和登录MySQL"><a href="#大功告成，启动和登录MySQL" class="headerlink" title="大功告成，启动和登录MySQL"></a>大功告成，启动和登录MySQL</h4><pre><code class="shell"># 启动MySQL
+/zs32/home/chxia/local/mysql-5.7.30/bin/mysqld_safe --defaults-file=/zs32/home/chxia/etc/mysql-5.7.30/my.cnf &amp;
+# 登录MySQL(直接在上一条命令基础上输入这一条命令即可)
+/zs32/home/chxia/local/mysql-5.7.30/bin/mysql -u root -p -S /zs32/home/chxia/local/mysql-5.7.30/tmp/mysql.sock //无密码，直接回车即可
+# 修改root登录密码并退出mysql
+use mysql;
+update mysql.user set authentication_string=password(&#39;new-password&#39;) where user=&#39;root&#39;;
+flush privileges;
+exit;</code></pre>
+<h4 id="设置环境变量，使系统默认的mysql为自己新安装的mysql"><a href="#设置环境变量，使系统默认的mysql为自己新安装的mysql" class="headerlink" title="设置环境变量，使系统默认的mysql为自己新安装的mysql"></a>设置环境变量，使系统默认的mysql为自己新安装的mysql</h4><pre><code class="shell"># 设置环境变量，使默认软件/程序mysql为自己新安装的mysql
+vi ~/.bashrc
+i
 
-<h4 id="设置环境变量，使系统默认的mysql为自己新安装的mysql"><a href="#设置环境变量，使系统默认的mysql为自己新安装的mysql" class="headerlink" title="设置环境变量，使系统默认的mysql为自己新安装的mysql"></a>设置环境变量，使系统默认的mysql为自己新安装的mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置环境变量，使默认软件/程序mysql为自己新安装的mysql</span></span><br><span class="line">vi ~/.bashrc</span><br><span class="line">i</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export PATH=/zs32/home/chxia/local/mysql-5.7.30/bin:/zs32/home/chxia/local/mysql-5.7.30/lib:$PATH</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">esc</span><br><span class="line">:wq</span><br><span class="line"><span class="meta">#</span><span class="bash"> 使.bashrc文件设置生效</span></span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
 
+export PATH=/zs32/home/chxia/local/mysql-5.7.30/bin:/zs32/home/chxia/local/mysql-5.7.30/lib:$PATH
+
+
+esc
+:wq
+# 使.bashrc文件设置生效
+source ~/.bashrc</code></pre>
 <h4 id="之后便可以直接输入mysql进行登录了"><a href="#之后便可以直接输入mysql进行登录了" class="headerlink" title="之后便可以直接输入mysql进行登录了"></a>之后便可以直接输入mysql进行登录了</h4><p>至此，安装mysql的全过程结束，下次便可以直接登录mysql了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 登录mysql（输入密码，即可登录）</span></span><br><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell"># 登录mysql（输入密码，即可登录）
+mysql -u root -p</code></pre>
 <p>最期待，最激动人心的时刻来了！</p>
 <p><img src="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/uPic/image-20200526225551172.png" alt="image-20200526225551172"></p>
 <p>至此，Linux版本的MySQL 5.7.30<u>在个人用户/个人账户</u>（<strong>非root账户</strong>）下的安装圆满成功！撒花～～～</p>
@@ -618,23 +699,15 @@ pre {white-space: pre-wrap;}
 			
 		
 			
-				<li><a href="/tags/Writing/" title="Writing">Writing<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/English/" title="English">English<sup>2</sup></a></li>
 			
 		
 			
+				<li><a href="/tags/Writing/" title="Writing">Writing<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/文献检索/" title="文献检索">文献检索<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Apache/" title="Apache">Apache<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li>
 			
 		
 			
@@ -646,27 +719,15 @@ pre {white-space: pre-wrap;}
 			
 		
 			
+				<li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Perl/" title="Perl">Perl<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/RSS/" title="RSS">RSS<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/GWAS/" title="GWAS">GWAS<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Listening/" title="Listening">Listening<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/limma/" title="limma">limma<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/差异表达/" title="差异表达">差异表达<sup>1</sup></a></li>
 			
 		
 			
@@ -682,6 +743,22 @@ pre {white-space: pre-wrap;}
 			
 		
 			
+				<li><a href="/tags/limma/" title="limma">limma<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/差异表达/" title="差异表达">差异表达<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Listening/" title="Listening">Listening<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GWAS/" title="GWAS">GWAS<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/气泡图/" title="气泡图">气泡图<sup>1</sup></a></li>
 			
 		
@@ -694,6 +771,10 @@ pre {white-space: pre-wrap;}
 			
 		
 			
+				<li><a href="/tags/文献阅读/" title="文献阅读">文献阅读<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/知识管理/" title="知识管理">知识管理<sup>1</sup></a></li>
 			
 		
@@ -702,15 +783,11 @@ pre {white-space: pre-wrap;}
 			
 		
 			
-				<li><a href="/tags/文献阅读/" title="文献阅读">文献阅读<sup>1</sup></a></li>
+				<li><a href="/tags/Sequencing/" title="Sequencing">Sequencing<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/科研工具/" title="科研工具">科研工具<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Sequencing/" title="Sequencing">Sequencing<sup>1</sup></a></li>
 			
 		
 			
@@ -725,6 +802,10 @@ pre {white-space: pre-wrap;}
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
 			
 		
+			
+				<li><a href="/tags/Apache/" title="Apache">Apache<sup>1</sup></a></li>
+			
+		
 		</ul>
 </div>
 
@@ -733,7 +814,7 @@ pre {white-space: pre-wrap;}
   <div class="tagcloudlist">
     <p class="asidetitle">Tag Cloud</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/Apache/" style="font-size: 13px; color: #51a4c7">Apache</a> <a href="/tags/MySQL/" style="font-size: 13px; color: #51a4c7">MySQL</a> <a href="/tags/Presentation/" style="font-size: 13px; color: #51a4c7">Presentation</a> <a href="/tags/PPT%E6%A8%A1%E6%9D%BF/" style="font-size: 13px; color: #51a4c7">PPT模板</a> <a href="/tags/Perl/" style="font-size: 13px; color: #51a4c7">Perl</a> <a href="/tags/RSS/" style="font-size: 13px; color: #51a4c7">RSS</a> <a href="/tags/GWAS/" style="font-size: 13px; color: #51a4c7">GWAS</a> <a href="/tags/Writing/" style="font-size: 18px; color: #51a4c7">Writing</a> <a href="/tags/English/" style="font-size: 18px; color: #51a4c7">English</a> <a href="/tags/Listening/" style="font-size: 13px; color: #51a4c7">Listening</a> <a href="/tags/R/" style="font-size: 23px; color: #51a4c7">R</a> <a href="/tags/limma/" style="font-size: 13px; color: #51a4c7">limma</a> <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" style="font-size: 13px; color: #51a4c7">差异表达</a> <a href="/tags/ggplot2/" style="font-size: 13px; color: #51a4c7">ggplot2</a> <a href="/tags/%E6%95%A3%E7%82%B9%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">散点图</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD/" style="font-size: 13px; color: #51a4c7">博客备份</a> <a href="/tags/%E6%B0%94%E6%B3%A1%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">气泡图</a> <a href="/tags/PRS/" style="font-size: 13px; color: #51a4c7">PRS</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px; color: #51a4c7">博客搭建</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13px; color: #51a4c7">知识管理</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%8A%9E%E5%85%AC/" style="font-size: 13px; color: #51a4c7">效率办公</a> <a href="/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" style="font-size: 18px; color: #51a4c7">文献检索</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13px; color: #51a4c7">文献阅读</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #51a4c7">科研工具</a> <a href="/tags/Sequencing/" style="font-size: 13px; color: #51a4c7">Sequencing</a> <a href="/tags/%E6%8E%A2%E9%92%88%E6%B3%A8%E9%87%8A/" style="font-size: 13px; color: #51a4c7">探针注释</a> <a href="/tags/Jekyll/" style="font-size: 13px; color: #51a4c7">Jekyll</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #51a4c7">Hexo</a>
+       <a href="/tags/Presentation/" style="font-size: 13px; color: #51a4c7">Presentation</a> <a href="/tags/PPT%E6%A8%A1%E6%9D%BF/" style="font-size: 13px; color: #51a4c7">PPT模板</a> <a href="/tags/MySQL/" style="font-size: 13px; color: #51a4c7">MySQL</a> <a href="/tags/Perl/" style="font-size: 13px; color: #51a4c7">Perl</a> <a href="/tags/RSS/" style="font-size: 13px; color: #51a4c7">RSS</a> <a href="/tags/R/" style="font-size: 23px; color: #51a4c7">R</a> <a href="/tags/ggplot2/" style="font-size: 13px; color: #51a4c7">ggplot2</a> <a href="/tags/%E6%95%A3%E7%82%B9%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">散点图</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD/" style="font-size: 13px; color: #51a4c7">博客备份</a> <a href="/tags/limma/" style="font-size: 13px; color: #51a4c7">limma</a> <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" style="font-size: 13px; color: #51a4c7">差异表达</a> <a href="/tags/English/" style="font-size: 18px; color: #51a4c7">English</a> <a href="/tags/Listening/" style="font-size: 13px; color: #51a4c7">Listening</a> <a href="/tags/GWAS/" style="font-size: 13px; color: #51a4c7">GWAS</a> <a href="/tags/%E6%B0%94%E6%B3%A1%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">气泡图</a> <a href="/tags/PRS/" style="font-size: 13px; color: #51a4c7">PRS</a> <a href="/tags/Writing/" style="font-size: 18px; color: #51a4c7">Writing</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px; color: #51a4c7">博客搭建</a> <a href="/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" style="font-size: 18px; color: #51a4c7">文献检索</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13px; color: #51a4c7">文献阅读</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13px; color: #51a4c7">知识管理</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%8A%9E%E5%85%AC/" style="font-size: 13px; color: #51a4c7">效率办公</a> <a href="/tags/Sequencing/" style="font-size: 13px; color: #51a4c7">Sequencing</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #51a4c7">科研工具</a> <a href="/tags/%E6%8E%A2%E9%92%88%E6%B3%A8%E9%87%8A/" style="font-size: 13px; color: #51a4c7">探针注释</a> <a href="/tags/Jekyll/" style="font-size: 13px; color: #51a4c7">Jekyll</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #51a4c7">Hexo</a> <a href="/tags/Apache/" style="font-size: 13px; color: #51a4c7">Apache</a>
     </div>
   </div>
 

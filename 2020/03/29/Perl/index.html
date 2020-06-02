@@ -13,12 +13,12 @@
     
 
     
-    <meta name="description" content="常见注意事项1234567891011121314151617181920hash: 建立索引standard out: 标准输出，即screen，输出在屏幕上。standard in: 标准输入，即从键盘输入。Perl不需要compile(编译)#号用来注释hash table：应该保证是unique，即使其没有重复的元素hash: ①建立索引; ②建立快速查找的table。$后不能紧跟一个数字">
+    <meta name="description" content="常见注意事项hash: 建立索引 standard out: 标准输出，即screen，输出在屏幕上。 standard in: 标准输入，即从键盘输入。 Perl不需要compile(编译) #号用来注释 hash table：应该保证是unique，即使其没有重复的元素 hash: ①建立索引; ②建立快速查找的table。 $后不能紧跟一个数字 数值的变量都有一个取值范围 Perl不能识别“">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Perl">
 <meta property="og:url" content="https://touchumind.com/2020/03/29/Perl/index.html">
 <meta property="og:site_name" content="TouchUMind">
-<meta property="og:description" content="常见注意事项1234567891011121314151617181920hash: 建立索引standard out: 标准输出，即screen，输出在屏幕上。standard in: 标准输入，即从键盘输入。Perl不需要compile(编译)#号用来注释hash table：应该保证是unique，即使其没有重复的元素hash: ①建立索引; ②建立快速查找的table。$后不能紧跟一个数字">
+<meta property="og:description" content="常见注意事项hash: 建立索引 standard out: 标准输出，即screen，输出在屏幕上。 standard in: 标准输入，即从键盘输入。 Perl不需要compile(编译) #号用来注释 hash table：应该保证是unique，即使其没有重复的元素 hash: ①建立索引; ②建立快速查找的table。 $后不能紧跟一个数字 数值的变量都有一个取值范围 Perl不能识别“">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-28T21:45:25.000Z">
 <meta property="article:modified_time" content="2020-05-17T01:03:19.533Z">
@@ -386,8 +386,26 @@ pre {white-space: pre-wrap;}
 </header>
 	<div class="article-content">
 		
-		<h3 id="常见注意事项"><a href="#常见注意事项" class="headerlink" title="常见注意事项"></a>常见注意事项</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">hash: 建立索引</span><br><span class="line">standard out: 标准输出，即screen，输出在屏幕上。</span><br><span class="line">standard in: 标准输入，即从键盘输入。</span><br><span class="line">Perl不需要compile(编译)</span><br><span class="line"><span class="comment">#号用来注释</span></span><br><span class="line">hash table：应该保证是unique，即使其没有重复的元素</span><br><span class="line">hash: ①建立索引; ②建立快速查找的table。</span><br><span class="line">$后不能紧跟一个数字</span><br><span class="line">数值的变量都有一个取值范围</span><br><span class="line">Perl不能识别“,”</span><br><span class="line"><span class="keyword">push</span>: 自动在array后添加新的元素</span><br><span class="line">array: 允许第一个是数字，array最大的特点是做排序</span><br><span class="line"><span class="keyword">pop</span>/<span class="keyword">shift</span>: 清空element（元素），并清除空间</span><br><span class="line"><span class="keyword">m</span>: 做查找</span><br><span class="line"><span class="keyword">s</span>、<span class="keyword">tr</span>: 做替代</span><br><span class="line"><span class="keyword">s</span>: space</span><br><span class="line">i: 忽略大小写</span><br><span class="line"><span class="keyword">do</span>/<span class="keyword">eval</span>: 内部调用</span><br><span class="line">checksum: 校验（数据是否完整）</span><br><span class="line"><span class="keyword">our</span>: 在任何地方都可以调用</span><br></pre></td></tr></table></figure>
-
+		<h3 id="常见注意事项"><a href="#常见注意事项" class="headerlink" title="常见注意事项"></a>常见注意事项</h3><pre><code class="perl">hash: 建立索引
+standard out: 标准输出，即screen，输出在屏幕上。
+standard in: 标准输入，即从键盘输入。
+Perl不需要compile(编译)
+#号用来注释
+hash table：应该保证是unique，即使其没有重复的元素
+hash: ①建立索引; ②建立快速查找的table。
+$后不能紧跟一个数字
+数值的变量都有一个取值范围
+Perl不能识别“,”
+push: 自动在array后添加新的元素
+array: 允许第一个是数字，array最大的特点是做排序
+pop/shift: 清空element（元素），并清除空间
+m: 做查找
+s、tr: 做替代
+s: space
+i: 忽略大小写
+do/eval: 内部调用
+checksum: 校验（数据是否完整）
+our: 在任何地方都可以调用</code></pre>
 <h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>Java程序，必须要有Java virtual machine才能运行。</p>
 <p>计算上，我们一般都会避免n*n的算法，而是尽可能地使用线性(n)算法（优化算法）。</p>
 <p>做计算时，最慢的是读取硬盘的时间。</p>
@@ -542,23 +560,15 @@ pre {white-space: pre-wrap;}
 			
 		
 			
-				<li><a href="/tags/Writing/" title="Writing">Writing<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/English/" title="English">English<sup>2</sup></a></li>
 			
 		
 			
+				<li><a href="/tags/Writing/" title="Writing">Writing<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/文献检索/" title="文献检索">文献检索<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Apache/" title="Apache">Apache<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li>
 			
 		
 			
@@ -570,27 +580,15 @@ pre {white-space: pre-wrap;}
 			
 		
 			
+				<li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Perl/" title="Perl">Perl<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/RSS/" title="RSS">RSS<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/GWAS/" title="GWAS">GWAS<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Listening/" title="Listening">Listening<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/limma/" title="limma">limma<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/差异表达/" title="差异表达">差异表达<sup>1</sup></a></li>
 			
 		
 			
@@ -606,6 +604,22 @@ pre {white-space: pre-wrap;}
 			
 		
 			
+				<li><a href="/tags/limma/" title="limma">limma<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/差异表达/" title="差异表达">差异表达<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Listening/" title="Listening">Listening<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GWAS/" title="GWAS">GWAS<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/气泡图/" title="气泡图">气泡图<sup>1</sup></a></li>
 			
 		
@@ -618,6 +632,10 @@ pre {white-space: pre-wrap;}
 			
 		
 			
+				<li><a href="/tags/文献阅读/" title="文献阅读">文献阅读<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/知识管理/" title="知识管理">知识管理<sup>1</sup></a></li>
 			
 		
@@ -626,15 +644,11 @@ pre {white-space: pre-wrap;}
 			
 		
 			
-				<li><a href="/tags/文献阅读/" title="文献阅读">文献阅读<sup>1</sup></a></li>
+				<li><a href="/tags/Sequencing/" title="Sequencing">Sequencing<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/科研工具/" title="科研工具">科研工具<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Sequencing/" title="Sequencing">Sequencing<sup>1</sup></a></li>
 			
 		
 			
@@ -649,6 +663,10 @@ pre {white-space: pre-wrap;}
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
 			
 		
+			
+				<li><a href="/tags/Apache/" title="Apache">Apache<sup>1</sup></a></li>
+			
+		
 		</ul>
 </div>
 
@@ -657,7 +675,7 @@ pre {white-space: pre-wrap;}
   <div class="tagcloudlist">
     <p class="asidetitle">Tag Cloud</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/Apache/" style="font-size: 13px; color: #51a4c7">Apache</a> <a href="/tags/MySQL/" style="font-size: 13px; color: #51a4c7">MySQL</a> <a href="/tags/Presentation/" style="font-size: 13px; color: #51a4c7">Presentation</a> <a href="/tags/PPT%E6%A8%A1%E6%9D%BF/" style="font-size: 13px; color: #51a4c7">PPT模板</a> <a href="/tags/Perl/" style="font-size: 13px; color: #51a4c7">Perl</a> <a href="/tags/RSS/" style="font-size: 13px; color: #51a4c7">RSS</a> <a href="/tags/GWAS/" style="font-size: 13px; color: #51a4c7">GWAS</a> <a href="/tags/Writing/" style="font-size: 18px; color: #51a4c7">Writing</a> <a href="/tags/English/" style="font-size: 18px; color: #51a4c7">English</a> <a href="/tags/Listening/" style="font-size: 13px; color: #51a4c7">Listening</a> <a href="/tags/R/" style="font-size: 23px; color: #51a4c7">R</a> <a href="/tags/limma/" style="font-size: 13px; color: #51a4c7">limma</a> <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" style="font-size: 13px; color: #51a4c7">差异表达</a> <a href="/tags/ggplot2/" style="font-size: 13px; color: #51a4c7">ggplot2</a> <a href="/tags/%E6%95%A3%E7%82%B9%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">散点图</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD/" style="font-size: 13px; color: #51a4c7">博客备份</a> <a href="/tags/%E6%B0%94%E6%B3%A1%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">气泡图</a> <a href="/tags/PRS/" style="font-size: 13px; color: #51a4c7">PRS</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px; color: #51a4c7">博客搭建</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13px; color: #51a4c7">知识管理</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%8A%9E%E5%85%AC/" style="font-size: 13px; color: #51a4c7">效率办公</a> <a href="/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" style="font-size: 18px; color: #51a4c7">文献检索</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13px; color: #51a4c7">文献阅读</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #51a4c7">科研工具</a> <a href="/tags/Sequencing/" style="font-size: 13px; color: #51a4c7">Sequencing</a> <a href="/tags/%E6%8E%A2%E9%92%88%E6%B3%A8%E9%87%8A/" style="font-size: 13px; color: #51a4c7">探针注释</a> <a href="/tags/Jekyll/" style="font-size: 13px; color: #51a4c7">Jekyll</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #51a4c7">Hexo</a>
+       <a href="/tags/Presentation/" style="font-size: 13px; color: #51a4c7">Presentation</a> <a href="/tags/PPT%E6%A8%A1%E6%9D%BF/" style="font-size: 13px; color: #51a4c7">PPT模板</a> <a href="/tags/MySQL/" style="font-size: 13px; color: #51a4c7">MySQL</a> <a href="/tags/Perl/" style="font-size: 13px; color: #51a4c7">Perl</a> <a href="/tags/RSS/" style="font-size: 13px; color: #51a4c7">RSS</a> <a href="/tags/R/" style="font-size: 23px; color: #51a4c7">R</a> <a href="/tags/ggplot2/" style="font-size: 13px; color: #51a4c7">ggplot2</a> <a href="/tags/%E6%95%A3%E7%82%B9%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">散点图</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD/" style="font-size: 13px; color: #51a4c7">博客备份</a> <a href="/tags/limma/" style="font-size: 13px; color: #51a4c7">limma</a> <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" style="font-size: 13px; color: #51a4c7">差异表达</a> <a href="/tags/English/" style="font-size: 18px; color: #51a4c7">English</a> <a href="/tags/Listening/" style="font-size: 13px; color: #51a4c7">Listening</a> <a href="/tags/GWAS/" style="font-size: 13px; color: #51a4c7">GWAS</a> <a href="/tags/%E6%B0%94%E6%B3%A1%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">气泡图</a> <a href="/tags/PRS/" style="font-size: 13px; color: #51a4c7">PRS</a> <a href="/tags/Writing/" style="font-size: 18px; color: #51a4c7">Writing</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px; color: #51a4c7">博客搭建</a> <a href="/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" style="font-size: 18px; color: #51a4c7">文献检索</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13px; color: #51a4c7">文献阅读</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13px; color: #51a4c7">知识管理</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%8A%9E%E5%85%AC/" style="font-size: 13px; color: #51a4c7">效率办公</a> <a href="/tags/Sequencing/" style="font-size: 13px; color: #51a4c7">Sequencing</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #51a4c7">科研工具</a> <a href="/tags/%E6%8E%A2%E9%92%88%E6%B3%A8%E9%87%8A/" style="font-size: 13px; color: #51a4c7">探针注释</a> <a href="/tags/Jekyll/" style="font-size: 13px; color: #51a4c7">Jekyll</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #51a4c7">Hexo</a> <a href="/tags/Apache/" style="font-size: 13px; color: #51a4c7">Apache</a>
     </div>
   </div>
 
