@@ -1,4 +1,6 @@
 
+
+
  <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -19,7 +21,7 @@
 <meta property="og:description" content="博客更新">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-06-07T02:27:50.000Z">
-<meta property="article:modified_time" content="2020-06-07T04:29:30.280Z">
+<meta property="article:modified_time" content="2020-06-07T04:50:54.402Z">
 <meta property="article:author" content="Cuihua Xia">
 <meta name="twitter:card" content="summary">
 
@@ -41,15 +43,19 @@
 
 
 
-<!-- <style>
-pre {white-space: pre-wrap; word-wrap: normal;}
-</style> -->
+<!--
+<style>
+pre {white-space: pre-wrap;}
+</style>
+-->
+
 
 
 <style type="text/css">
     pre {display: block; overflow: auto !important; background: #322931 !important; padding: 0.5em;}
     pre code {display: inline-block !important; color: #b9b5b8 !important;}
-</style> 
+</style>
+
 
 
 
@@ -387,18 +393,11 @@ pre {white-space: pre-wrap; word-wrap: normal;}
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#提交更新"><span class="toc-number">1.</span> <span class="toc-text">提交更新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#遇到的一些问题"><span class="toc-number">2.</span> <span class="toc-text">遇到的一些问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#问题1"><span class="toc-number">2.1.</span> <span class="toc-text">问题1</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#解决办法：发起一个-commit，存到提交历史"><span class="toc-number">2.2.</span> <span class="toc-text">解决办法：发起一个 commit，存到提交历史</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料："><span class="toc-number">3.</span> <span class="toc-text">参考资料：</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#提交更新遇到的一些问题"><span class="toc-number">1.</span> <span class="toc-text">提交更新遇到的一些问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#问题"><span class="toc-number">1.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#解决办法：发起一个-commit，存到提交历史"><span class="toc-number">1.2.</span> <span class="toc-text">解决办法：发起一个 commit，存到提交历史</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#所以一个完整的博客更新流程应该如下"><span class="toc-number">2.</span> <span class="toc-text">所以一个完整的博客更新流程应该如下</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
 		
 		</div>
 		
-		<h4 id="提交更新"><a href="#提交更新" class="headerlink" title="提交更新"></a>提交更新</h4><pre><code class="shell">hexo cl &amp;&amp; hexo g &amp;&amp; hexo d
-git checkout backup
-git add ./
-git commit -m &#39;备份博客&#39;
-git push origin backup
-git checkout master
-hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</code></pre>
-<h4 id="遇到的一些问题"><a href="#遇到的一些问题" class="headerlink" title="遇到的一些问题"></a>遇到的一些问题</h4><h5 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h5><p>代码提交执行<code>git checkout backup</code>出现下述错误：</p>
+		<h4 id="提交更新遇到的一些问题"><a href="#提交更新遇到的一些问题" class="headerlink" title="提交更新遇到的一些问题"></a>提交更新遇到的一些问题</h4><h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><p>代码提交执行<code>git checkout backup</code>出现下述错误：</p>
 <pre><code class="shell">error: Your local changes to the following files would be overwritten by checkout:
     source/_posts/博客提交更新.md
 Please commit your changes or stash them before you switch branches.
@@ -406,8 +405,17 @@ Aborting</code></pre>
 <h5 id="解决办法：发起一个-commit，存到提交历史"><a href="#解决办法：发起一个-commit，存到提交历史" class="headerlink" title="解决办法：发起一个 commit，存到提交历史"></a>解决办法：发起一个 commit，存到提交历史</h5><pre><code class="shell">git add ./
 git commit -m &quot;xxxxx&quot;  // 这个命令比较简单，就是提交信息</code></pre>
 <p>然后再次执行之前的代码就可以了。</p>
-<h4 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h4><ol>
+<h4 id="所以一个完整的博客更新流程应该如下"><a href="#所以一个完整的博客更新流程应该如下" class="headerlink" title="所以一个完整的博客更新流程应该如下"></a>所以一个完整的博客更新流程应该如下</h4><pre><code class="shell">git checkout backup
+修改博客内容    //在这一步之前文件夹里不能修改或添加任何东西
+git add ./
+git commit -m &#39;备份博客&#39;
+git push origin backup
+hexo cl &amp;&amp; hexo g &amp;&amp; hexo d
+git checkout master
+hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</code></pre>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ol>
 <li><a href="https://puqin2333.github.io/2018/08/15/解决-git-checkout-a-出现的问题/" target="_blank" rel="noopener">https://puqin2333.github.io/2018/08/15/%E8%A7%A3%E5%86%B3-git-checkout-a-%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</a></li>
+<li><a href="https://www.ruanyifeng.com/blog/2014/06/git_remote.html" target="_blank" rel="noopener">https://www.ruanyifeng.com/blog/2014/06/git_remote.html</a></li>
 </ol>
   
 	</div>
@@ -452,9 +460,9 @@ git commit -m &quot;xxxxx&quot;  // 这个命令比较简单，就是提交信�
  
 
 <div class="next">
-<a href="/2020/06/07/博客代码高亮问题/"  title="博客代码高亮问题">
+<a href="/2020/06/01/使用GitHub备份Hexo博客源文件/"  title="使用GitHub备份Hexo博客源文件">
  <strong>下一篇：</strong><br/> 
- <span>博客代码高亮问题
+ <span>使用GitHub备份Hexo博客源文件
 </span>
 </a>
 </div>
@@ -471,7 +479,7 @@ git commit -m &quot;xxxxx&quot;  // 这个命令比较简单，就是提交信�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#提交更新"><span class="toc-number">1.</span> <span class="toc-text">提交更新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#遇到的一些问题"><span class="toc-number">2.</span> <span class="toc-text">遇到的一些问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#问题1"><span class="toc-number">2.1.</span> <span class="toc-text">问题1</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#解决办法：发起一个-commit，存到提交历史"><span class="toc-number">2.2.</span> <span class="toc-text">解决办法：发起一个 commit，存到提交历史</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料："><span class="toc-number">3.</span> <span class="toc-text">参考资料：</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#提交更新遇到的一些问题"><span class="toc-number">1.</span> <span class="toc-text">提交更新遇到的一些问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#问题"><span class="toc-number">1.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#解决办法：发起一个-commit，存到提交历史"><span class="toc-number">1.2.</span> <span class="toc-text">解决办法：发起一个 commit，存到提交历史</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#所以一个完整的博客更新流程应该如下"><span class="toc-number">2.</span> <span class="toc-text">所以一个完整的博客更新流程应该如下</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
  
   </div>
 
@@ -491,7 +499,7 @@ git commit -m &quot;xxxxx&quot;  // 这个命令比较简单，就是提交信�
 		<ul>
 		
 		  
-			<li><a href="/categories/个人博客/" title="个人博客">个人博客<sup>5</sup></a></li>
+			<li><a href="/categories/个人博客/" title="个人博客">个人博客<sup>4</sup></a></li>
 		  
 		
 		  
@@ -556,11 +564,7 @@ git commit -m &quot;xxxxx&quot;  // 这个命令比较简单，就是提交信�
 			
 		
 			
-				<li><a href="/tags/Presentation/" title="Presentation">Presentation<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li>
+				<li><a href="/tags/Apache/" title="Apache">Apache<sup>1</sup></a></li>
 			
 		
 			
@@ -568,7 +572,7 @@ git commit -m &quot;xxxxx&quot;  // 这个命令比较简单，就是提交信�
 			
 		
 			
-				<li><a href="/tags/RSS/" title="RSS">RSS<sup>1</sup></a></li>
+				<li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li>
 			
 		
 			
@@ -576,11 +580,27 @@ git commit -m &quot;xxxxx&quot;  // 这个命令比较简单，就是提交信�
 			
 		
 			
-				<li><a href="/tags/Listening/" title="Listening">Listening<sup>1</sup></a></li>
+				<li><a href="/tags/Presentation/" title="Presentation">Presentation<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/GWAS/" title="GWAS">GWAS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RSS/" title="RSS">RSS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Listening/" title="Listening">Listening<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/limma/" title="limma">limma<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/差异表达/" title="差异表达">差异表达<sup>1</sup></a></li>
 			
 		
 			
@@ -596,19 +616,11 @@ git commit -m &quot;xxxxx&quot;  // 这个命令比较简单，就是提交信�
 			
 		
 			
-				<li><a href="/tags/代码高亮/" title="代码高亮">代码高亮<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/limma/" title="limma">limma<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/差异表达/" title="差异表达">差异表达<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/气泡图/" title="气泡图">气泡图<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PRS/" title="PRS">PRS<sup>1</sup></a></li>
 			
 		
 			
@@ -617,10 +629,6 @@ git commit -m &quot;xxxxx&quot;  // 这个命令比较简单，就是提交信�
 		
 			
 				<li><a href="/tags/效率办公/" title="效率办公">效率办公<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/PRS/" title="PRS">PRS<sup>1</sup></a></li>
 			
 		
 			
@@ -640,19 +648,15 @@ git commit -m &quot;xxxxx&quot;  // 这个命令比较简单，就是提交信�
 			
 		
 			
+				<li><a href="/tags/探针注释/" title="探针注释">探针注释<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Jekyll/" title="Jekyll">Jekyll<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/探针注释/" title="探针注释">探针注释<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Apache/" title="Apache">Apache<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -663,7 +667,7 @@ git commit -m &quot;xxxxx&quot;  // 这个命令比较简单，就是提交信�
   <div class="tagcloudlist">
     <p class="asidetitle">Tag Cloud</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/Presentation/" style="font-size: 13px; color: #51a4c7">Presentation</a> <a href="/tags/MySQL/" style="font-size: 13px; color: #51a4c7">MySQL</a> <a href="/tags/PPT%E6%A8%A1%E6%9D%BF/" style="font-size: 13px; color: #51a4c7">PPT模板</a> <a href="/tags/RSS/" style="font-size: 13px; color: #51a4c7">RSS</a> <a href="/tags/Writing/" style="font-size: 18px; color: #51a4c7">Writing</a> <a href="/tags/Perl/" style="font-size: 13px; color: #51a4c7">Perl</a> <a href="/tags/English/" style="font-size: 18px; color: #51a4c7">English</a> <a href="/tags/Listening/" style="font-size: 13px; color: #51a4c7">Listening</a> <a href="/tags/GWAS/" style="font-size: 13px; color: #51a4c7">GWAS</a> <a href="/tags/R/" style="font-size: 23px; color: #51a4c7">R</a> <a href="/tags/ggplot2/" style="font-size: 13px; color: #51a4c7">ggplot2</a> <a href="/tags/%E6%95%A3%E7%82%B9%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">散点图</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD/" style="font-size: 13px; color: #51a4c7">博客备份</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/" style="font-size: 13px; color: #51a4c7">代码高亮</a> <a href="/tags/limma/" style="font-size: 13px; color: #51a4c7">limma</a> <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" style="font-size: 13px; color: #51a4c7">差异表达</a> <a href="/tags/%E6%B0%94%E6%B3%A1%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">气泡图</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13px; color: #51a4c7">知识管理</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%8A%9E%E5%85%AC/" style="font-size: 13px; color: #51a4c7">效率办公</a> <a href="/tags/PRS/" style="font-size: 13px; color: #51a4c7">PRS</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px; color: #51a4c7">博客搭建</a> <a href="/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" style="font-size: 18px; color: #51a4c7">文献检索</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13px; color: #51a4c7">文献阅读</a> <a href="/tags/Sequencing/" style="font-size: 13px; color: #51a4c7">Sequencing</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #51a4c7">科研工具</a> <a href="/tags/Jekyll/" style="font-size: 13px; color: #51a4c7">Jekyll</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #51a4c7">Hexo</a> <a href="/tags/%E6%8E%A2%E9%92%88%E6%B3%A8%E9%87%8A/" style="font-size: 13px; color: #51a4c7">探针注释</a> <a href="/tags/Apache/" style="font-size: 13px; color: #51a4c7">Apache</a>
+       <a href="/tags/Apache/" style="font-size: 13px; color: #51a4c7">Apache</a> <a href="/tags/PPT%E6%A8%A1%E6%9D%BF/" style="font-size: 13px; color: #51a4c7">PPT模板</a> <a href="/tags/MySQL/" style="font-size: 13px; color: #51a4c7">MySQL</a> <a href="/tags/Perl/" style="font-size: 13px; color: #51a4c7">Perl</a> <a href="/tags/Presentation/" style="font-size: 13px; color: #51a4c7">Presentation</a> <a href="/tags/GWAS/" style="font-size: 13px; color: #51a4c7">GWAS</a> <a href="/tags/Writing/" style="font-size: 18px; color: #51a4c7">Writing</a> <a href="/tags/RSS/" style="font-size: 13px; color: #51a4c7">RSS</a> <a href="/tags/English/" style="font-size: 18px; color: #51a4c7">English</a> <a href="/tags/Listening/" style="font-size: 13px; color: #51a4c7">Listening</a> <a href="/tags/R/" style="font-size: 23px; color: #51a4c7">R</a> <a href="/tags/limma/" style="font-size: 13px; color: #51a4c7">limma</a> <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" style="font-size: 13px; color: #51a4c7">差异表达</a> <a href="/tags/ggplot2/" style="font-size: 13px; color: #51a4c7">ggplot2</a> <a href="/tags/%E6%95%A3%E7%82%B9%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">散点图</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD/" style="font-size: 13px; color: #51a4c7">博客备份</a> <a href="/tags/%E6%B0%94%E6%B3%A1%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">气泡图</a> <a href="/tags/PRS/" style="font-size: 13px; color: #51a4c7">PRS</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13px; color: #51a4c7">知识管理</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%8A%9E%E5%85%AC/" style="font-size: 13px; color: #51a4c7">效率办公</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px; color: #51a4c7">博客搭建</a> <a href="/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" style="font-size: 18px; color: #51a4c7">文献检索</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13px; color: #51a4c7">文献阅读</a> <a href="/tags/Sequencing/" style="font-size: 13px; color: #51a4c7">Sequencing</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #51a4c7">科研工具</a> <a href="/tags/%E6%8E%A2%E9%92%88%E6%B3%A8%E9%87%8A/" style="font-size: 13px; color: #51a4c7">探针注释</a> <a href="/tags/Jekyll/" style="font-size: 13px; color: #51a4c7">Jekyll</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #51a4c7">Hexo</a>
     </div>
   </div>
 
