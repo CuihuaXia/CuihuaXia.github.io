@@ -1,0 +1,1124 @@
+
+ <!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>功能注释和通路富集气泡图 | 生物信息学技术分享</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="TouchUMind">
+    
+
+    
+    <meta name="description" content="功能注释和通路富集气泡图 ###GO和KEGG功能富集气泡图 ##表头：Pathway Gene Pvalue  Qvalue ##表头：Gene Set  Description Size  Expect  Ratio Pvalue  FDR  #载入数据集和R包 library(ggplot2) pathway &#x3D; read.csv(&quot;SCZ Brain region_Frontal">
+<meta property="og:type" content="article">
+<meta property="og:title" content="功能注释和通路富集气泡图">
+<meta property="og:url" content="https://touchumind.com/2020/04/16/%E5%8A%9F%E8%83%BD%E6%B3%A8%E9%87%8A%E5%92%8C%E9%80%9A%E8%B7%AF%E5%AF%8C%E9%9B%86%E6%B0%94%E6%B3%A1%E5%9B%BE/index.html">
+<meta property="og:site_name" content="生物信息学技术分享">
+<meta property="og:description" content="功能注释和通路富集气泡图 ###GO和KEGG功能富集气泡图 ##表头：Pathway Gene Pvalue  Qvalue ##表头：Gene Set  Description Size  Expect  Ratio Pvalue  FDR  #载入数据集和R包 library(ggplot2) pathway &#x3D; read.csv(&quot;SCZ Brain region_Frontal">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-16T09:13:59.000Z">
+<meta property="article:modified_time" content="2020-05-17T01:04:01.679Z">
+<meta property="article:author" content="TouchUMind">
+<meta property="article:tag" content="R">
+<meta property="article:tag" content="气泡图">
+<meta name="twitter:card" content="summary">
+
+    
+    <link rel="alternative" href="/atom.xml" title="生物信息学技术分享" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/%02.css">
+<link rel="stylesheet" href="/.css">
+
+
+
+
+<!-- <style>
+pre {white-space: pre-wrap; word-wrap: normal;}
+</style> -->
+
+
+<style type="text/css">
+    pre {display: block; overflow: auto !important; background: #322931 !important; padding: 0.5em;}
+    pre code {display: inline-block !important; color: #b9b5b8 !important;}
+</style> 
+
+
+
+<style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script><meta name="generator" content="Hexo 4.2.1"><style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script></head>
+
+  
+ <div id="loading-container">
+     <p class="loading-text">Loading . . . </p> 
+     <div class="loading-image">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div> 
+         <div></div>
+     </div>
+ </div><body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="生物信息学技术分享" title="生物信息学技术分享"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="生物信息学技术分享">生物信息学技术分享</a></h1>
+				<h2 class="blog-motto">不积小流，无以成江海。</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:touchumind.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2020/04/16/功能注释和通路富集气泡图/" title="功能注释和通路富集气泡图" itemprop="url">功能注释和通路富集气泡图</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="TouchUMind" target="_blank" itemprop="author">TouchUMind</a>
+		
+  <p class="article-time">
+    <time datetime="2020-04-16T09:13:59.000Z" itemprop="datePublished"> 发表于 2020-04-16</time>
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span id="busuanzi_container_page_pv">&nbsp;Totally&nbsp;<span id="busuanzi_value_page_pv"></span> views
+</span>
+  </p>
+</header>
+	<div class="article-content">
+		
+		<h3 id="功能注释和通路富集气泡图"><a href="#功能注释和通路富集气泡图" class="headerlink" title="功能注释和通路富集气泡图"></a>功能注释和通路富集气泡图</h3><pre><code class="R">
+###GO和KEGG功能富集气泡图
+##表头：Pathway Gene Pvalue  Qvalue
+##表头：Gene Set  Description Size  Expect  Ratio Pvalue  FDR
+
+#载入数据集和R包
+library(ggplot2)
+pathway = read.csv(&quot;SCZ Brain region_Frontal&amp;Hippocampus.csv&quot;,header=TRUE,check.names = FALSE)
+#初始化数据并绘制散点图
+pdf(&quot;GO_SCZ Brain region_Frontal&amp;Hippocampus.pdf&quot;)
+ggplot(pathway,aes(Ratio,Description))+
+
+geom_point(aes(size=Size,color=-1*log10(FDR)))+
+
+scale_color_gradient(low=&quot;green&quot;,high =&quot;red&quot;)+
+##定义连续型的配色
+
+labs(color=expression(-log[10](FDR)),size=&quot;Size&quot;,
+
+##expression函数定义函数样式 []添加下标，^添加上标
+
+x=&quot;Enrichment ratio&quot;,
+##自定义标轴
+
+y=&quot;GO Term&quot;,title=&quot;GO enrichment&quot;)+
+##自定义坐标轴
+
+theme_bw()
+#去掉背景
+dev.off()</code></pre>
+  
+	</div>
+
+    
+      <div class="article-footer-copyright">
+  <left><b>本文作者：<a href="/about/" target="_blank" title="TouchUMind">TouchUMind</a></b></left><br/>
+
+  <left><b>本文链接：<a href="/2020/04/16/功能注释和通路富集气泡图/" target="_blank" title="功能注释和通路富集气泡图">https://touchumind.com/2020/04/16/功能注释和通路富集气泡图/</a></b>.</left></br>
+
+  <left><b>版权声明：</b>本文著作权归作者所有，遵循<b>CC BY</b>-<b>NC</b>-<b>SA 4.0</b>国际许可协议。商业转载请联系作者获取授权，非商业转载请注明作者及出处！</left>
+</div>
+    
+
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%88%B6%E5%9B%BE/">统计制图</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/R/">R</a><a href="/tags/气泡图/">气泡图</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://touchumind.com/2020/04/16/%E5%8A%9F%E8%83%BD%E6%B3%A8%E9%87%8A%E5%92%8C%E9%80%9A%E8%B7%AF%E5%AF%8C%E9%9B%86%E6%B0%94%E6%B3%A1%E5%9B%BE/" data-title="功能注释和通路富集气泡图 | 生物信息学技术分享" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2020/04/16/limma做差异表达分析/" title="limma做差异表达分析">
+  <strong>上一篇：</strong><br/>
+  <span>
+  limma做差异表达分析</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2020/04/15/SCI论文写作攻略/"  title="SCI论文写作攻略">
+ <strong>下一篇：</strong><br/> 
+ <span>SCI论文写作攻略
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  <div class="weixin">
+  <br />
+  <p class="asidetitle">微信公众号</p>
+  <img src="https://i.loli.net/2020/05/10/WUxX4OuoCji6V1A.jpg" style="display:block;margin:auto" width="230px" /> 
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/个人博客/" title="个人博客">个人博客<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/实用工具/" title="实用工具">实用工具<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/思考总结/" title="思考总结">思考总结<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/生信进阶/" title="生信进阶">生信进阶<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/科研写作/" title="科研写作">科研写作<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/统计分析/" title="统计分析">统计分析<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/统计制图/" title="统计制图">统计制图<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/编程语言/" title="编程语言">编程语言<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/英语学习/" title="英语学习">英语学习<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/资源干货/" title="资源干货">资源干货<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/R/" title="R">R<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Writing/" title="Writing">Writing<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/English/" title="English">English<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/文献检索/" title="文献检索">文献检索<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Apache/" title="Apache">Apache<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PPT模板/" title="PPT模板">PPT模板<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Perl/" title="Perl">Perl<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Presentation/" title="Presentation">Presentation<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RSS/" title="RSS">RSS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GWAS/" title="GWAS">GWAS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Listening/" title="Listening">Listening<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GitHubDesktop/" title="GitHubDesktop">GitHubDesktop<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/limma/" title="limma">limma<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/差异表达/" title="差异表达">差异表达<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ggplot2/" title="ggplot2">ggplot2<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/散点图/" title="散点图">散点图<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/博客备份/" title="博客备份">博客备份<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/气泡图/" title="气泡图">气泡图<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/代码高亮/" title="代码高亮">代码高亮<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PRS/" title="PRS">PRS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/博客搭建/" title="博客搭建">博客搭建<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/知识管理/" title="知识管理">知识管理<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/效率办公/" title="效率办公">效率办公<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/文献阅读/" title="文献阅读">文献阅读<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Sequencing/" title="Sequencing">Sequencing<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/探针注释/" title="探针注释">探针注释<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/科研工具/" title="科研工具">科研工具<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Jekyll/" title="Jekyll">Jekyll<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/R/" style="font-size: 23px; color: #51a4c7">R</a> <a href="/tags/Linux/" style="font-size: 13px; color: #51a4c7">Linux</a> <a href="/tags/Apache/" style="font-size: 13px; color: #51a4c7">Apache</a> <a href="/tags/MySQL/" style="font-size: 13px; color: #51a4c7">MySQL</a> <a href="/tags/PPT%E6%A8%A1%E6%9D%BF/" style="font-size: 13px; color: #51a4c7">PPT模板</a> <a href="/tags/Perl/" style="font-size: 13px; color: #51a4c7">Perl</a> <a href="/tags/Presentation/" style="font-size: 13px; color: #51a4c7">Presentation</a> <a href="/tags/RSS/" style="font-size: 13px; color: #51a4c7">RSS</a> <a href="/tags/Writing/" style="font-size: 18px; color: #51a4c7">Writing</a> <a href="/tags/GWAS/" style="font-size: 13px; color: #51a4c7">GWAS</a> <a href="/tags/English/" style="font-size: 18px; color: #51a4c7">English</a> <a href="/tags/Listening/" style="font-size: 13px; color: #51a4c7">Listening</a> <a href="/tags/Git/" style="font-size: 13px; color: #51a4c7">Git</a> <a href="/tags/GitHubDesktop/" style="font-size: 13px; color: #51a4c7">GitHubDesktop</a> <a href="/tags/limma/" style="font-size: 13px; color: #51a4c7">limma</a> <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" style="font-size: 13px; color: #51a4c7">差异表达</a> <a href="/tags/ggplot2/" style="font-size: 13px; color: #51a4c7">ggplot2</a> <a href="/tags/%E6%95%A3%E7%82%B9%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">散点图</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD/" style="font-size: 13px; color: #51a4c7">博客备份</a> <a href="/tags/%E6%B0%94%E6%B3%A1%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">气泡图</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/" style="font-size: 13px; color: #51a4c7">代码高亮</a> <a href="/tags/PRS/" style="font-size: 13px; color: #51a4c7">PRS</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px; color: #51a4c7">博客搭建</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13px; color: #51a4c7">知识管理</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%8A%9E%E5%85%AC/" style="font-size: 13px; color: #51a4c7">效率办公</a> <a href="/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" style="font-size: 18px; color: #51a4c7">文献检索</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13px; color: #51a4c7">文献阅读</a> <a href="/tags/Sequencing/" style="font-size: 13px; color: #51a4c7">Sequencing</a> <a href="/tags/%E6%8E%A2%E9%92%88%E6%B3%A8%E9%87%8A/" style="font-size: 13px; color: #51a4c7">探针注释</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #51a4c7">科研工具</a> <a href="/tags/Jekyll/" style="font-size: 13px; color: #51a4c7">Jekyll</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #51a4c7">Hexo</a>
+    </div>
+  </div>
+
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://maxyjian.github.io/" target="_blank" title="Max Blog">Max Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://demonlee.ml/" target="_blank" title="魔鬼裡">魔鬼裡</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.shaoguoji.cn/" target="_blank" title="国际哥">国际哥</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.huangshujia.me/" target="_blank" title="碱基矿工">碱基矿工</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.wusanwan.xyz/" target="_blank" title="菜鸡小万">菜鸡小万</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://bioinformatics.lofter.com/" target="_blank" title="Bioinformatics">Bioinformatics</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yangli.name/" target="_blank" title="Yang&#39;s Garden">Yang&#39;s Garden</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.xcnte.com/" target="_blank" title="Xcnte&#39;s Blog">Xcnte&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yearito.cn/" target="_blank" title="Yearito&#39;s Blog">Yearito&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://cgspace.date/" target="_blank" title="cgspace">cgspace</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://jinyy.app/" target="_blank" title="Jin">Jin</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.wuxu92.com/" target="_blank" title="Wu Xu">Wu Xu</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://purethought.cn/" target="_blank" title="AlaDing">AlaDing</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://blog.ouyangsihai.cn/" target="_blank" title="欧阳思海">欧阳思海</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/cuihuaxia" target="_blank" class="icon-github" style="font-size:30px;background-color:#1F1F1F;color:#FFFFFF" title="github"></a> 
+		
+		
+		<a href="http://stackoverflow.com/users/13554410" target="_blank" class="icon-stack-overflow" style="font-size:30px;background-color:#1F1F1F;color:#E6863E" title="stackoverflow"></a>
+		
+		
+		
+		
+		
+		
+		
+
+
+
+
+
+		<script src="https://kit.fontawesome.com/adc42ede4e.js" crossorigin="anonymous"></script>
+		
+		<a href="https://www.researchgate.net/profile/Cuihua_Xia" target="_blank" class="fab fa-researchgate" style="font-size:30px;background-color:#1F1F1F;color:#5AC9BB" title="researchgate"></a>
+		
+
+
+
+
+
+		
+		<a href="mailto:xiacuihuar@gmail.com" target="_blank" class="icon-email" style="font-size:30px;background-color:#1F1F1F;color:#CD5546" title="Email Me"></a>
+		
+
+
+	</div>
+			
+		
+
+
+
+<p class="copyright">
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <span id="busuanzi_container_site_pv">
+      本站总访问量 <span id="busuanzi_value_site_pv"></span> 次 | 
+  </span>
+
+  <span id="busuanzi_container_site_uv">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人次 | 
+  </span>
+
+
+
+<span id="sitetime"></span>
+<script language=javascript>
+  function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+    year - 作为date对象的年份，为4位年份值
+    month - 0-11之间的整数，做为date对象的月份
+    day - 1-31之间的整数，做为date对象的天数
+    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+    minutes - 0-59之间的整数，做为date对象的分钟数
+    seconds - 0-59之间的整数，做为date对象的秒数
+    microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+    var t1 = Date.UTC(2020,03,25,00,00,00); //这里调整博客建站时间，时间：2019-05-14 00:00:00
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = t2-t1;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+    document.getElementById("sitetime").innerHTML="本站已安全运行 "+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+  }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+  siteTime();
+</script>
+
+<br/>
+
+<span>
+湘公网安备 43010502001197号 | 湘ICP备2020018549号
+</span>
+
+<br/>
+
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a>
+<br/>
+		Copyright © 2020 by 
+		
+		<a href="/about" target="_blank" title="TouchUMind">TouchUMind</a>
+		
+</p>
+</div></footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-161858965-3', '');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

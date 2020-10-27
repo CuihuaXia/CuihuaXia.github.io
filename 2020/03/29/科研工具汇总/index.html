@@ -1,0 +1,1465 @@
+
+ <!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>科研工具汇总 | 生物信息学技术分享</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="TouchUMind">
+    
+
+    
+    <meta name="description" content="导语：工具如同你手中的剑，不断练习才能运用自如。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="科研工具汇总">
+<meta property="og:url" content="https://touchumind.com/2020/03/29/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="生物信息学技术分享">
+<meta property="og:description" content="导语：工具如同你手中的剑，不断练习才能运用自如。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-28T21:56:24.000Z">
+<meta property="article:modified_time" content="2020-05-16T23:37:31.297Z">
+<meta property="article:author" content="TouchUMind">
+<meta property="article:tag" content="科研工具">
+<meta name="twitter:card" content="summary">
+
+    
+    <link rel="alternative" href="/atom.xml" title="生物信息学技术分享" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/%02.css">
+<link rel="stylesheet" href="/.css">
+
+
+
+
+<!-- <style>
+pre {white-space: pre-wrap; word-wrap: normal;}
+</style> -->
+
+
+<style type="text/css">
+    pre {display: block; overflow: auto !important; background: #322931 !important; padding: 0.5em;}
+    pre code {display: inline-block !important; color: #b9b5b8 !important;}
+</style> 
+
+
+
+<style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script><meta name="generator" content="Hexo 4.2.1"><style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script></head>
+
+  
+ <div id="loading-container">
+     <p class="loading-text">Loading . . . </p> 
+     <div class="loading-image">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div> 
+         <div></div>
+     </div>
+ </div><body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="生物信息学技术分享" title="生物信息学技术分享"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="生物信息学技术分享">生物信息学技术分享</a></h1>
+				<h2 class="blog-motto">不积小流，无以成江海。</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:touchumind.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2020/03/29/科研工具汇总/" title="科研工具汇总" itemprop="url">科研工具汇总</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="TouchUMind" target="_blank" itemprop="author">TouchUMind</a>
+		
+  <p class="article-time">
+    <time datetime="2020-03-28T21:56:24.000Z" itemprop="datePublished"> 发表于 2020-03-29</time>
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span id="busuanzi_container_page_pv">&nbsp;Totally&nbsp;<span id="busuanzi_value_page_pv"></span> views
+</span>
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#网络图工具"><span class="toc-number">1.</span> <span class="toc-text">网络图工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#效率办公"><span class="toc-number">2.</span> <span class="toc-text">效率办公</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编程工具"><span class="toc-number">3.</span> <span class="toc-text">编程工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#韦恩图工具（找多个集合的Overlap）"><span class="toc-number">4.</span> <span class="toc-text">韦恩图工具（找多个集合的Overlap）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Blast比对工具"><span class="toc-number">5.</span> <span class="toc-text">Blast比对工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通路富集分析"><span class="toc-number">6.</span> <span class="toc-text">通路富集分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在线作图工具"><span class="toc-number">7.</span> <span class="toc-text">在线作图工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#词云图"><span class="toc-number">8.</span> <span class="toc-text">词云图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Genotype分析工具"><span class="toc-number">9.</span> <span class="toc-text">Genotype分析工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#云盘工具"><span class="toc-number">10.</span> <span class="toc-text">云盘工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生信数据库"><span class="toc-number">11.</span> <span class="toc-text">生信数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些书籍"><span class="toc-number">12.</span> <span class="toc-text">一些书籍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生信网站"><span class="toc-number">13.</span> <span class="toc-text">生信网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文献管理工具"><span class="toc-number">14.</span> <span class="toc-text">文献管理工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#笔记-云盘软件"><span class="toc-number">15.</span> <span class="toc-text">笔记&#x2F;云盘软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#电子小说阅读"><span class="toc-number">16.</span> <span class="toc-text">电子小说阅读</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#截图-贴图"><span class="toc-number">17.</span> <span class="toc-text">截图&#x2F;贴图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#录屏软件"><span class="toc-number">18.</span> <span class="toc-text">录屏软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视频剪辑"><span class="toc-number">19.</span> <span class="toc-text">视频剪辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#华硕笔记本重装SmartGesture"><span class="toc-number">20.</span> <span class="toc-text">华硕笔记本重装SmartGesture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#硬盘修复软件"><span class="toc-number">21.</span> <span class="toc-text">硬盘修复软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件搜索"><span class="toc-number">22.</span> <span class="toc-text">文件搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载视频"><span class="toc-number">23.</span> <span class="toc-text">下载视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows清理助手"><span class="toc-number">24.</span> <span class="toc-text">Windows清理助手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#论文检测"><span class="toc-number">25.</span> <span class="toc-text">论文检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#电脑防护："><span class="toc-number">26.</span> <span class="toc-text">电脑防护：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时间管理软件（for-phone）"><span class="toc-number">27.</span> <span class="toc-text">时间管理软件（for phone）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#邮箱管理软件（for-phone）"><span class="toc-number">28.</span> <span class="toc-text">邮箱管理软件（for phone）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器"><span class="toc-number">29.</span> <span class="toc-text">浏览器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索引擎"><span class="toc-number">30.</span> <span class="toc-text">搜索引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在线作图"><span class="toc-number">31.</span> <span class="toc-text">在线作图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件传输"><span class="toc-number">32.</span> <span class="toc-text">文件传输</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码编辑器"><span class="toc-number">33.</span> <span class="toc-text">代码编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PPT缩放"><span class="toc-number">34.</span> <span class="toc-text">PPT缩放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#美国著名影评网站——Rotten-Tomatoes："><span class="toc-number">35.</span> <span class="toc-text">美国著名影评网站——Rotten Tomatoes：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WetFeet"><span class="toc-number">36.</span> <span class="toc-text">WetFeet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PDF阅读和注释"><span class="toc-number">37.</span> <span class="toc-text">PDF阅读和注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#桌面便签："><span class="toc-number">38.</span> <span class="toc-text">桌面便签：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码编辑器："><span class="toc-number">39.</span> <span class="toc-text">代码编辑器：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UZER-ME："><span class="toc-number">40.</span> <span class="toc-text">UZER.ME：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#桌面日历"><span class="toc-number">41.</span> <span class="toc-text">桌面日历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#万彩办公大师OfficeBox"><span class="toc-number">42.</span> <span class="toc-text">万彩办公大师OfficeBox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将CAJ转换成PDF"><span class="toc-number">43.</span> <span class="toc-text">将CAJ转换成PDF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TeamViewer"><span class="toc-number">44.</span> <span class="toc-text">TeamViewer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#桌面分屏"><span class="toc-number">45.</span> <span class="toc-text">桌面分屏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#雷电模拟器"><span class="toc-number">46.</span> <span class="toc-text">雷电模拟器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MobaXterm"><span class="toc-number">47.</span> <span class="toc-text">MobaXterm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quicker"><span class="toc-number">48.</span> <span class="toc-text">Quicker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kopernio"><span class="toc-number">49.</span> <span class="toc-text">Kopernio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LOGO设计网站"><span class="toc-number">50.</span> <span class="toc-text">LOGO设计网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HD-Tune"><span class="toc-number">51.</span> <span class="toc-text">HD Tune</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#电子书下载"><span class="toc-number">52.</span> <span class="toc-text">电子书下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思维导图软件"><span class="toc-number">53.</span> <span class="toc-text">思维导图软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#翻译软件"><span class="toc-number">54.</span> <span class="toc-text">翻译软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#笔记软件"><span class="toc-number">55.</span> <span class="toc-text">笔记软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#破解版软件下载"><span class="toc-number">56.</span> <span class="toc-text">破解版软件下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Office激活工具KMSpico"><span class="toc-number">57.</span> <span class="toc-text">Office激活工具KMSpico</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何让打开的网页与任务栏的浏览器图标重叠或者不重叠？"><span class="toc-number">58.</span> <span class="toc-text">如何让打开的网页与任务栏的浏览器图标重叠或者不重叠？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gencards"><span class="toc-number">59.</span> <span class="toc-text">Gencards</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#venn-图"><span class="toc-number">60.</span> <span class="toc-text">venn 图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#词云图-1"><span class="toc-number">61.</span> <span class="toc-text">词云图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遗传学专业名词解释查询"><span class="toc-number">62.</span> <span class="toc-text">遗传学专业名词解释查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转换ID"><span class="toc-number">63.</span> <span class="toc-text">转换ID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML网页设计学习"><span class="toc-number">64.</span> <span class="toc-text">HTML网页设计学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PDF转换及编辑"><span class="toc-number">65.</span> <span class="toc-text">PDF转换及编辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#An-important-database-for-coding-variants"><span class="toc-number">66.</span> <span class="toc-text">An important database for coding variants</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pajek"><span class="toc-number">67.</span> <span class="toc-text">Pajek</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生物信息学网站"><span class="toc-number">68.</span> <span class="toc-text">生物信息学网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#书籍"><span class="toc-number">69.</span> <span class="toc-text">书籍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WiFi共享精灵"><span class="toc-number">70.</span> <span class="toc-text">WiFi共享精灵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FreeGate"><span class="toc-number">71.</span> <span class="toc-text">FreeGate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Primer3"><span class="toc-number">72.</span> <span class="toc-text">Primer3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#喜马拉雅FM"><span class="toc-number">73.</span> <span class="toc-text">喜马拉雅FM</span></a></li></ol>
+		
+		</div>
+		
+		<p>导语：工具如同你手中的剑，不断练习才能运用自如。</p>
+<h3 id="网络图工具"><a href="#网络图工具" class="headerlink" title="网络图工具"></a>网络图工具</h3><ul>
+<li>Cytoscape：<ul>
+<li>可以另外新建一个属性表，然后导入，这样就可以使用2张表来画图。</li>
+<li>做出来的相关关系表，可以按照correlation value把来回做了2次的重复关系去掉。</li>
+</ul>
+</li>
+</ul>
+<h3 id="效率办公"><a href="#效率办公" class="headerlink" title="效率办公"></a>效率办公</h3><ul>
+<li>Everything，这是目前速度最快的文件名搜索工具。</li>
+<li><a href="http://www.colectica.com/software/colecticaforexcel" target="_blank" rel="noopener">colecticaforexcel</a>：在Excel中打开SPSS和Stata数据文件（a good software for generating metadata）</li>
+<li><a href="http://www.bulkrenameutility.co.uk/Download.php" target="_blank" rel="noopener">Bulk Rename Utility</a>：文件批量重命名</li>
+<li>PDF转换及编辑：Adobe Acrobat DC Pro</li>
+<li>PDF阅读器：Adobe Reader</li>
+<li>FileZilla：实现Win/Mac系统和服务器文件快速传输</li>
+<li>WinSCP：Windows下使用SSH的开源图形化SFTP客户端。同时支持SCP协议。它的主要功能就是在本地与远程计算机间安全的相互复制文件，相当方便快捷，比FileZilla还好用。直接打开服务器上的文件进行内容修改保存后，它会自动更新服务器上的文件内容。</li>
+</ul>
+<h3 id="编程工具"><a href="#编程工具" class="headerlink" title="编程工具"></a>编程工具</h3><ul>
+<li>Git：Git是一个开源的分布式版本控制系统，用以有效、高速的处理从很小到非常大的<strong>项目版本管理</strong>。简单来说，Git 是一个管理你的「代码的历史记录」的工具。</li>
+<li>GitHub</li>
+<li>代码编辑器：<ul>
+<li>Sublime Text（推荐）；</li>
+<li>UltraEdit：①column功能：可以选定列进行操作；②可以进行文件的比较（比如找出哪一行不一样）。</li>
+<li>Notepad++</li>
+</ul>
+</li>
+<li>Python：Anaconda</li>
+<li>stack overflow：解决遇到的各种bug</li>
+</ul>
+<h3 id="韦恩图工具（找多个集合的Overlap）"><a href="#韦恩图工具（找多个集合的Overlap）" class="headerlink" title="韦恩图工具（找多个集合的Overlap）"></a>韦恩图工具（找多个集合的Overlap）</h3><ul>
+<li><p><a href="http://bioinfogp.cnb.csic.es/tools/venny/index.html" target="_blank" rel="noopener">VENNY2.1.0</a></p>
+</li>
+<li><p><a href="http://bioinformatics.psb.ugent.be/webtools/Venn/" target="_blank" rel="noopener">Draw Venn Diagram</a></p>
+</li>
+</ul>
+<h3 id="Blast比对工具"><a href="#Blast比对工具" class="headerlink" title="Blast比对工具"></a>Blast比对工具</h3><ul>
+<li>NCBI</li>
+<li>Ensembl</li>
+<li>TIGR</li>
+</ul>
+<h3 id="通路富集分析"><a href="#通路富集分析" class="headerlink" title="通路富集分析"></a>通路富集分析</h3><ul>
+<li>GSEA</li>
+</ul>
+<h3 id="在线作图工具"><a href="#在线作图工具" class="headerlink" title="在线作图工具"></a>在线作图工具</h3><ul>
+<li><p><a href="http://www.highcharts.com/" target="_blank" rel="noopener">highcharts</a>：highcharts 是一个用纯JavaScript编写的一个图表库， 能够很简单便捷的在web网站或是web应用程序添加有交互性的图表，并且免费提供给个人学习、个人网站和非商业用途使用。highcharts支持的图表类型有曲线图、区域图、柱状图、饼状图、散状点图和综合图表。</p>
+<p>highcharts的主要特性：</p>
+<p>①提示功能：highcharts生成的图表中，可以设置在数据点上显示提示效果，即将鼠标移动到某个数据点上，可以显示该点的详细数据，并且可以对显示效果进行设置。</p>
+<p>②放大功能：highcharts可以大量数据集中显示，并且可以放大某一部分的图形，将图表的精度增大，进行详细的显示，可以选择横向或者纵向放大。</p>
+<p>③时间轴：可以精确到毫秒。</p>
+<p>④导出：表格可导出为 PDF/ PNG/ JPG / SVG 格式</p>
+<p>⑤可变焦：选中图表部分放大，近距离观察图表；</p>
+<p>⑥外部数据：从服务器载入动态数据。</p>
+<p>⑦文字旋转：支持在任意方向的标签旋转。</p>
+</li>
+</ul>
+<h3 id="词云图"><a href="#词云图" class="headerlink" title="词云图"></a>词云图</h3><ul>
+<li><a href="https://worditout.com/" target="_blank" rel="noopener">WordItOut</a></li>
+</ul>
+<h3 id="Genotype分析工具"><a href="#Genotype分析工具" class="headerlink" title="Genotype分析工具"></a>Genotype分析工具</h3><ul>
+<li><a href="https://cnsgenomics.com/software/gcta/#Download" target="_blank" rel="noopener">GCTA tools</a>（做PCA）</li>
+</ul>
+<h3 id="云盘工具"><a href="#云盘工具" class="headerlink" title="云盘工具"></a>云盘工具</h3><ul>
+<li>腾讯微云（柿子豆花，秋叶PPT教材配套相关内容）</li>
+</ul>
+<h3 id="生信数据库"><a href="#生信数据库" class="headerlink" title="生信数据库"></a>生信数据库</h3><ul>
+<li><a href="http://exac.broadinstitute.org/" target="_blank" rel="noopener">http://exac.broadinstitute.org/</a> (An important database for coding variants)</li>
+<li><a href="https://omim.org/" target="_blank" rel="noopener">NCBI-OMIM</a>(查看基因在染色体的位置）</li>
+<li>FUMA：①HPO ②OMIM ③商业化的gene panel</li>
+<li>ANOVA database</li>
+<li>ACMG分类</li>
+<li>Ensembl</li>
+<li>Ref gene</li>
+<li>NextCODE：①全面的注释database（OMIM cancer等），直接到疾病，没有GWAS等表型数据，他们关注的临床症状明显和疾病相关的才会放进来。②多国精准医学中标。③简单易用。一是clinical，针对医生诊断，二是research，针对科研人员。</li>
+<li>ExAc：全外显子有十万多个？</li>
+<li>GoAb</li>
+<li>miRScan</li>
+<li>miRBase</li>
+<li>Target Scan</li>
+<li>miR Walk</li>
+<li>miR TarBase</li>
+<li>MiRGater V3.0：可得到已知或新的miRNA</li>
+<li>CoMeTa: miRNA与gene之间的correlation</li>
+<li>miTALOS: signaling pathway</li>
+<li>PolymiRTS: miRNA, mRNA与genotype数据结合</li>
+<li>miR2GO: 比较miRNA突变前后结合的gene target</li>
+</ul>
+<h3 id="一些书籍"><a href="#一些书籍" class="headerlink" title="一些书籍"></a>一些书籍</h3><ul>
+<li>遗传学书籍：<ul>
+<li>Tompson &amp; Thompson Genetics in Medicine, 8e Robert L. Nussbaum MD FACP FACMG</li>
+</ul>
+</li>
+<li>指南：<ul>
+<li>ACMG、NGS指南</li>
+</ul>
+</li>
+</ul>
+<h3 id="生信网站"><a href="#生信网站" class="headerlink" title="生信网站"></a>生信网站</h3><ul>
+<li><a href="http://blog.genesino.com/" target="_blank" rel="noopener">天下（生信宝典）</a></li>
+<li><a href="http://www.biotrainee.com/" target="_blank" rel="noopener">生信技能树</a></li>
+<li><a href="https://www.omicshare.com/forum/" target="_blank" rel="noopener">基迪奥生物论坛</a></li>
+<li><a href="http://www.affymetrix.com/estore/" target="_blank" rel="noopener">Affymetrix官网主页</a></li>
+<li><a href="http://www.bio-info-trainee.com/" target="_blank" rel="noopener">生信菜鸟团</a></li>
+<li>UCSC Genome Browser</li>
+<li>基因检测信息常用网站：<ul>
+<li>GeneReview</li>
+<li>GTR Genetic Testing Registry</li>
+<li>Genetics Home Reference（了解专业术语）</li>
+<li>ACMGG</li>
+<li>ABMGG</li>
+<li>ACGG</li>
+</ul>
+</li>
+</ul>
+<h3 id="文献管理工具"><a href="#文献管理工具" class="headerlink" title="文献管理工具"></a>文献管理工具</h3><ul>
+<li>researchgate：研究之门，是科研界的“知乎”</li>
+<li>storks：可以按照关键词/研究者/期刊来追踪文献，基金等。</li>
+<li>分屏利器：福昕阅读器、setuna（对figure进行截取分屏）</li>
+<li>Endnote X9：注意要<strong>先建好文件夹</strong>，才能实现不同设备间的<strong>同步</strong>。</li>
+</ul>
+<h3 id="笔记-云盘软件"><a href="#笔记-云盘软件" class="headerlink" title="笔记/云盘软件"></a>笔记/云盘软件</h3><ul>
+<li>小米云盘 </li>
+<li>金山快盘 </li>
+</ul>
+<h3 id="电子小说阅读"><a href="#电子小说阅读" class="headerlink" title="电子小说阅读"></a>电子小说阅读</h3><ul>
+<li>小米小说 </li>
+<li>掌阅iReader </li>
+<li>当当读书</li>
+</ul>
+<h3 id="截图-贴图"><a href="#截图-贴图" class="headerlink" title="截图/贴图"></a>截图/贴图</h3><ul>
+<li>Snipaste</li>
+</ul>
+<h3 id="录屏软件"><a href="#录屏软件" class="headerlink" title="录屏软件"></a>录屏软件</h3><ul>
+<li>ScreenToGif：方便插入， 只要在PPT中使用“插入图片”功能即可。</li>
+<li>屏幕录像专家</li>
+<li>超级录屏 </li>
+<li>LiveView </li>
+</ul>
+<h3 id="视频剪辑"><a href="#视频剪辑" class="headerlink" title="视频剪辑"></a>视频剪辑</h3><ul>
+<li>爱剪辑</li>
+</ul>
+<h3 id="华硕笔记本重装SmartGesture"><a href="#华硕笔记本重装SmartGesture" class="headerlink" title="华硕笔记本重装SmartGesture"></a>华硕笔记本重装SmartGesture</h3><ul>
+<li>华硕笔记本重装之后，记得要去华硕官网下载并安装SmartGesture_Win10_64_VER4012，这样触摸板才可以使用。 </li>
+</ul>
+<h3 id="硬盘修复软件"><a href="#硬盘修复软件" class="headerlink" title="硬盘修复软件"></a>硬盘修复软件</h3><ul>
+<li>移动硬盘无法访问参数错误_百度经验 <a href="https://jingyan.baidu.com/article/f7ff0bfc71c6492e26bb13b9.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/f7ff0bfc71c6492e26bb13b9.html</a></li>
+<li>移动硬盘出问题后，可以使用DiskGenius软件检测是不是出现坏道并予以修复。</li>
+<li>以后记住，移动硬盘千万不要分区，因为分区会减慢读取速度，还很容易出现磁盘坏道问题，也不容易辨别（因为一旦分区，电脑会按照你分区的个数分别读取为几个移动磁盘）。</li>
+</ul>
+<h3 id="文件搜索"><a href="#文件搜索" class="headerlink" title="文件搜索"></a>文件搜索</h3><ul>
+<li>Everything</li>
+</ul>
+<h3 id="下载视频"><a href="#下载视频" class="headerlink" title="下载视频"></a>下载视频</h3><ul>
+<li>FLVCd硕鼠官网</li>
+</ul>
+<h3 id="Windows清理助手"><a href="#Windows清理助手" class="headerlink" title="Windows清理助手"></a>Windows清理助手</h3><ul>
+<li>先用Windows清理助手找到恶意软件路径，然后重启计算机。开机后按“F8”进入安全模式，找到文件并清除</li>
+</ul>
+<h3 id="论文检测"><a href="#论文检测" class="headerlink" title="论文检测"></a>论文检测</h3><ul>
+<li>PaperPass论文检测（账号xch_YOYO） </li>
+<li>PaperTest论文检测（账号<a href="mailto:2585904678@qq.com">2585904678@qq.com</a>） </li>
+</ul>
+<h3 id="电脑防护："><a href="#电脑防护：" class="headerlink" title="电脑防护："></a>电脑防护：</h3><ul>
+<li>360安全卫士 </li>
+<li>金山毒霸  </li>
+</ul>
+<h3 id="时间管理软件（for-phone）"><a href="#时间管理软件（for-phone）" class="headerlink" title="时间管理软件（for phone）"></a>时间管理软件（for phone）</h3><ul>
+<li>爱今天</li>
+</ul>
+<h3 id="邮箱管理软件（for-phone）"><a href="#邮箱管理软件（for-phone）" class="headerlink" title="邮箱管理软件（for phone）"></a>邮箱管理软件（for phone）</h3><ul>
+<li>网易邮箱大师</li>
+</ul>
+<h3 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h3><ul>
+<li>Google Chrome</li>
+<li>火狐浏览器</li>
+<li>Safari浏览器</li>
+<li>360极速浏览器</li>
+<li>IE浏览器 </li>
+<li>不推荐UC浏览器（杂乱的东西很多，很不友好）</li>
+</ul>
+<h3 id="搜索引擎"><a href="#搜索引擎" class="headerlink" title="搜索引擎"></a>搜索引擎</h3><ul>
+<li>Google 搜索</li>
+<li>必应搜索 </li>
+<li>XSkyWalker</li>
+<li>Alibaba </li>
+<li>微软学术搜索 </li>
+<li>Google学术搜索 </li>
+<li>九尾搜索</li>
+</ul>
+<h3 id="在线作图"><a href="#在线作图" class="headerlink" title="在线作图"></a>在线作图</h3><ul>
+<li>Echarts</li>
+<li>HighCharts：<a href="http://www.highcharts.com/" target="_blank" rel="noopener">http://www.highcharts.com/</a> </li>
+</ul>
+<h3 id="文件传输"><a href="#文件传输" class="headerlink" title="文件传输"></a>文件传输</h3><ul>
+<li>FileZilla</li>
+<li>Win/Mac客户端-Linux服务器文件传输</li>
+</ul>
+<h3 id="代码编辑器"><a href="#代码编辑器" class="headerlink" title="代码编辑器"></a>代码编辑器</h3><ul>
+<li>Notepad++</li>
+<li>Sublime Text</li>
+</ul>
+<h3 id="PPT缩放"><a href="#PPT缩放" class="headerlink" title="PPT缩放"></a>PPT缩放</h3><ul>
+<li>PPTplex</li>
+<li>缩放功能：插入 → 缩放 </li>
+</ul>
+<h3 id="美国著名影评网站——Rotten-Tomatoes："><a href="#美国著名影评网站——Rotten-Tomatoes：" class="headerlink" title="美国著名影评网站——Rotten Tomatoes："></a>美国著名影评网站——Rotten Tomatoes：</h3><ul>
+<li>Rotten Tomatoes: Movies | TV Shows | Movie Trailers | Reviews <a href="https://www.rottentomatoes.com/" target="_blank" rel="noopener">https://www.rottentomatoes.com/</a>  </li>
+<li>烂番茄（ROTTEN TOMATOES）是美国一个网站，以提供电影相关评论、资讯和新闻为主，其母公司为IGN Entertainment。</li>
+<li>网站由电影迷Senh Duong于1998年5月创建，已经成为电影消费者和影迷的首选目的地。</li>
+<li>基于来自芝加哥太阳时报、新纽约客、今日美国报等媒体的好评，并且以其很多独特的电影评论方式，烂番茄为其用户提供了全方位的服务，特色产品及交流社区。 </li>
+<li>好的评价用新鲜的红番茄表示，坏的评价用腐烂的绿番茄表示。 </li>
+</ul>
+<h3 id="WetFeet"><a href="#WetFeet" class="headerlink" title="WetFeet"></a>WetFeet</h3><ul>
+<li><a href="http://www.wetfeet.com/" target="_blank" rel="noopener">http://www.wetfeet.com/</a> </li>
+<li>全美知名的职业资讯网站，在美国每年帮助超过 1,000,000 名应届毕业生求职。</li>
+<li>Wetfeet 每年都会组织成百上千的专家对各行各业的全球知名企业的高管、员工进行调查和采访，提供详尽的企业内部故事、行业报告、企业文化介绍、以及各行业的就业指南。</li>
+<li>Wetfeet和Vault都是非常出色的找工作必读的书。</li>
+<li>范围基本上覆盖了绝大多数行业，对于每一个想去外企工作的求职者，想了解整个行业的分析师和投资者提供了极好的第一手材料。 </li>
+</ul>
+<h3 id="PDF阅读和注释"><a href="#PDF阅读和注释" class="headerlink" title="PDF阅读和注释"></a>PDF阅读和注释</h3><ul>
+<li>福昕阅读器：可以在官网下载插件；使用正常版，不要领鲜版，并设置为永不更新！！！福昕阅读器快速注释方法：设置快速访问工具栏和设置专属快捷键 。</li>
+<li>Adobe Acrobat Reader DC：打字机功能不好用，太卡。 </li>
+<li>迅捷PDF编辑器：编辑注释很好用，但是要收费。</li>
+</ul>
+<h3 id="桌面便签："><a href="#桌面便签：" class="headerlink" title="桌面便签："></a>桌面便签：</h3><ul>
+<li>Stickies</li>
+</ul>
+<h3 id="代码编辑器："><a href="#代码编辑器：" class="headerlink" title="代码编辑器："></a>代码编辑器：</h3><ul>
+<li>Notepad++（Notepad++设置默认打开文件语言高亮显示：选择“设置”-“语言格式设置”；这里以R语言为例，添加你自己希望增加的文件后序关联，首先在最左边的语言列选择R，然后在下方的“自定义扩展名”栏加上你要关联的文件后序（txt）即可。添加多个不同的文件后序，以空格隔开；完成后保存，再打开文件，就能以R语言的高亮显示了。前提要设置默认语言是R）</li>
+<li>Sublime Text</li>
+</ul>
+<h3 id="UZER-ME："><a href="#UZER-ME：" class="headerlink" title="UZER.ME："></a>UZER.ME：</h3><ul>
+<li>不用安装，在线使用各种软件</li>
+<li>PS、AI、XMind、Word…</li>
+<li>适用于各种救急场景</li>
+</ul>
+<h3 id="桌面日历"><a href="#桌面日历" class="headerlink" title="桌面日历"></a>桌面日历</h3><ul>
+<li>Windows便签记录工具</li>
+<li>在桌面上双击鼠标即可开始记录</li>
+<li>支持云同步，数据导出</li>
+</ul>
+<h3 id="万彩办公大师OfficeBox"><a href="#万彩办公大师OfficeBox" class="headerlink" title="万彩办公大师OfficeBox"></a>万彩办公大师OfficeBox</h3><ul>
+<li>录屏功能很强大</li>
+<li>办公专用小工具箱，共包括60个插件</li>
+<li>PDF处理/OCR识别/图片转换…</li>
+<li>绿色环保、安全无捆绑</li>
+<li>支持文件保密功能</li>
+</ul>
+<h3 id="将CAJ转换成PDF"><a href="#将CAJ转换成PDF" class="headerlink" title="将CAJ转换成PDF"></a>将CAJ转换成PDF</h3><ul>
+<li>如何将caj转换成pdf_百度经验 <a href="https://jingyan.baidu.com/article/a24b33cd6b74a019fe002bfa.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/a24b33cd6b74a019fe002bfa.html</a></li>
+<li>使用CAJViewer的打印功能，打印选项选择”Microsoft Print to PDF”。</li>
+</ul>
+<h3 id="TeamViewer"><a href="#TeamViewer" class="headerlink" title="TeamViewer"></a>TeamViewer</h3><ul>
+<li>多台电脑协作软件</li>
+<li>远程控制工具，可实现一台电脑控制另一台电脑</li>
+<li>支持远程操纵、家庭办公</li>
+<li>支持Wins、Mac、Android之间互连</li>
+<li>要注意不用了要随时关掉这个软件，彻底关掉这个软件。同时注意不要设置成固定密码，设置每次连接后自动生成新密码/随机密码。并且绝对不要泄露自己的ID和密码给任何人。</li>
+</ul>
+<h3 id="桌面分屏"><a href="#桌面分屏" class="headerlink" title="桌面分屏"></a>桌面分屏</h3><ul>
+<li>MaxTo：<a href="https://maxto.net/release/2.0.0-beta3/download" target="_blank" rel="noopener">https://maxto.net/release/2.0.0-beta3/download</a> </li>
+<li>需付费</li>
+</ul>
+<h3 id="雷电模拟器"><a href="#雷电模拟器" class="headerlink" title="雷电模拟器"></a>雷电模拟器</h3><ul>
+<li><a href="https://www.liqucn.com/pc/682841.shtml" target="_blank" rel="noopener">https://www.liqucn.com/pc/682841.shtml</a></li>
+<li>可以在电脑上模拟安卓系统的安卓虚拟机。 </li>
+</ul>
+<h3 id="MobaXterm"><a href="#MobaXterm" class="headerlink" title="MobaXterm"></a>MobaXterm</h3><ul>
+<li>Windows下的Linux客户端，是一个ssh client，类似Secure Shell Client，但是比它更好用</li>
+<li>它可以把文件和代码同时展示在同一个窗口中，并且易操作，可以记住密码，自动登录。 </li>
+</ul>
+<h3 id="Quicker"><a href="#Quicker" class="headerlink" title="Quicker"></a>Quicker</h3><ul>
+<li>win软件快速启动器</li>
+<li>下载链接：<a href="https://getquicker.net/" target="_blank" rel="noopener">https://getquicker.net/</a> </li>
+</ul>
+<h3 id="Kopernio"><a href="#Kopernio" class="headerlink" title="Kopernio"></a>Kopernio</h3><ul>
+<li><a href="https://kopernio.com/locker" target="_blank" rel="noopener">https://kopernio.com/locker</a>   </li>
+<li>一个Chrome插件，可一键获取数以百万计的科研论文全文</li>
+</ul>
+<h3 id="LOGO设计网站"><a href="#LOGO设计网站" class="headerlink" title="LOGO设计网站"></a>LOGO设计网站</h3><ul>
+<li>U钙网：<a href="http://www.uugai.com/" target="_blank" rel="noopener">http://www.uugai.com/</a> </li>
+</ul>
+<h3 id="HD-Tune"><a href="#HD-Tune" class="headerlink" title="HD Tune"></a>HD Tune</h3><ul>
+<li>检测移动硬盘 </li>
+</ul>
+<h3 id="电子书下载"><a href="#电子书下载" class="headerlink" title="电子书下载"></a>电子书下载</h3><ul>
+<li><a href="http://b-ok.org/" target="_blank" rel="noopener">b-ok.org</a></li>
+</ul>
+<h3 id="思维导图软件"><a href="#思维导图软件" class="headerlink" title="思维导图软件"></a>思维导图软件</h3><ul>
+<li>XMind：离线软件，适合做概括图。 </li>
+<li>Mind Manager：离线软件，适合做复杂流程图，图大方简洁美观。 </li>
+<li>百度脑图：在线作图，适合做简单流程图，方便转换图外观，图简单美观，自动保存。</li>
+<li>DiagramDesigner：专业绘制流程图或技术路线的软件。  </li>
+</ul>
+<h3 id="翻译软件"><a href="#翻译软件" class="headerlink" title="翻译软件"></a>翻译软件</h3><ul>
+<li>灵格斯翻译家（可下载多种词库）</li>
+<li>Google翻译（适用于全文翻译）</li>
+<li>欧路词典 </li>
+<li>海词词典</li>
+</ul>
+<h3 id="笔记软件"><a href="#笔记软件" class="headerlink" title="笔记软件"></a>笔记软件</h3><ul>
+<li>印象笔记 </li>
+<li>OneNote：非常适合做快速笔记和查看笔记（<a href="mailto:xch_yoyo@qq.com">xch_yoyo@qq.com</a>)</li>
+</ul>
+<h3 id="破解版软件下载"><a href="#破解版软件下载" class="headerlink" title="破解版软件下载"></a>破解版软件下载</h3><ul>
+<li>盘多多网站</li>
+</ul>
+<h3 id="Office激活工具KMSpico"><a href="#Office激活工具KMSpico" class="headerlink" title="Office激活工具KMSpico"></a>Office激活工具KMSpico</h3><ul>
+<li>win10的office激活工具。 </li>
+<li>以后如果失效了，记得不需要卸载office，只要更新一下激活工具就可以继续免费使用office了。 </li>
+</ul>
+<h3 id="如何让打开的网页与任务栏的浏览器图标重叠或者不重叠？"><a href="#如何让打开的网页与任务栏的浏览器图标重叠或者不重叠？" class="headerlink" title="如何让打开的网页与任务栏的浏览器图标重叠或者不重叠？"></a>如何让打开的网页与任务栏的浏览器图标重叠或者不重叠？</h3><ul>
+<li>重叠：先打开网页，再右键“固定到任务栏”。</li>
+<li>不重叠：在不打开网页的情况下，先右键“固定到任务栏”，再打开网页。</li>
+</ul>
+<h3 id="Gencards"><a href="#Gencards" class="headerlink" title="Gencards"></a>Gencards</h3><ul>
+<li>对一个基因的全方位解读 </li>
+</ul>
+<h3 id="venn-图"><a href="#venn-图" class="headerlink" title="venn 图"></a>venn 图</h3><ul>
+<li><a href="http://bioinformatics.psb.ugent.be/webtools/Venn/" target="_blank" rel="noopener">http://bioinformatics.psb.ugent.be/webtools/Venn/</a> </li>
+</ul>
+<h3 id="词云图-1"><a href="#词云图-1" class="headerlink" title="词云图"></a>词云图</h3><ul>
+<li>WordItOut：<a href="https://worditout.com/" target="_blank" rel="noopener">https://worditout.com/</a></li>
+</ul>
+<h3 id="遗传学专业名词解释查询"><a href="#遗传学专业名词解释查询" class="headerlink" title="遗传学专业名词解释查询"></a>遗传学专业名词解释查询</h3><ul>
+<li><a href="http://www.cnctst.cn/publ/bookn?bookname=%E9%81%97%E4%BC%A0%E5%AD%A6%E5%90%8D%E8%AF%8D%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89" target="_blank" rel="noopener">http://www.cnctst.cn/publ/bookn?bookname=%E9%81%97%E4%BC%A0%E5%AD%A6%E5%90%8D%E8%AF%8D%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89</a> </li>
+</ul>
+<h3 id="转换ID"><a href="#转换ID" class="headerlink" title="转换ID"></a>转换ID</h3><ul>
+<li><a href="http://biodb.jp/" target="_blank" rel="noopener">http://biodb.jp/</a> </li>
+</ul>
+<h3 id="HTML网页设计学习"><a href="#HTML网页设计学习" class="headerlink" title="HTML网页设计学习"></a>HTML网页设计学习</h3><ul>
+<li><a href="http://www.w3school.com.cn/" target="_blank" rel="noopener">http://www.w3school.com.cn/</a> </li>
+</ul>
+<h3 id="PDF转换及编辑"><a href="#PDF转换及编辑" class="headerlink" title="PDF转换及编辑"></a>PDF转换及编辑</h3><ul>
+<li>Adobe Acrobat DC</li>
+</ul>
+<h3 id="An-important-database-for-coding-variants"><a href="#An-important-database-for-coding-variants" class="headerlink" title="An important database for coding variants"></a>An important database for coding variants</h3><ul>
+<li><a href="http://exac.broadinstitute.org/" target="_blank" rel="noopener">http://exac.broadinstitute.org/</a>   </li>
+</ul>
+<h3 id="Pajek"><a href="#Pajek" class="headerlink" title="Pajek"></a>Pajek</h3><ul>
+<li>用于带有上千乃至数百万个节点的大型网络的分析和可视化操作 </li>
+</ul>
+<h3 id="生物信息学网站"><a href="#生物信息学网站" class="headerlink" title="生物信息学网站"></a>生物信息学网站</h3><ul>
+<li>生信技能树</li>
+<li>OmicShare Forum论坛</li>
+<li>博客园</li>
+<li>stack overflow</li>
+</ul>
+<h3 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h3><ul>
+<li>《培养独立思考能力的教育》</li>
+<li>《爱因斯坦传》</li>
+<li>《平凡的世界》</li>
+<li>《约翰克里斯多夫》</li>
+<li>《象牙塔外的社会学》</li>
+<li>马克思的著作</li>
+<li>毛泽东的著作 </li>
+</ul>
+<h3 id="WiFi共享精灵"><a href="#WiFi共享精灵" class="headerlink" title="WiFi共享精灵"></a>WiFi共享精灵</h3><h3 id="FreeGate"><a href="#FreeGate" class="headerlink" title="FreeGate"></a>FreeGate</h3><h3 id="Primer3"><a href="#Primer3" class="headerlink" title="Primer3"></a>Primer3</h3><h3 id="喜马拉雅FM"><a href="#喜马拉雅FM" class="headerlink" title="喜马拉雅FM"></a>喜马拉雅FM</h3>  
+	</div>
+
+    
+      <div class="article-footer-copyright">
+  <left><b>本文作者：<a href="/about/" target="_blank" title="TouchUMind">TouchUMind</a></b></left><br/>
+
+  <left><b>本文链接：<a href="/2020/03/29/科研工具汇总/" target="_blank" title="科研工具汇总">https://touchumind.com/2020/03/29/科研工具汇总/</a></b>.</left></br>
+
+  <left><b>版权声明：</b>本文著作权归作者所有，遵循<b>CC BY</b>-<b>NC</b>-<b>SA 4.0</b>国际许可协议。商业转载请联系作者获取授权，非商业转载请注明作者及出处！</left>
+</div>
+    
+
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/">实用工具</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/科研工具/">科研工具</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://touchumind.com/2020/03/29/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7%E6%B1%87%E6%80%BB/" data-title="科研工具汇总 | 生物信息学技术分享" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2020/03/29/英语学习工具汇总/" title="英语学习工具汇总">
+  <strong>上一篇：</strong><br/>
+  <span>
+  英语学习工具汇总</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2020/03/29/文献检索与阅读/"  title="文献检索与阅读">
+ <strong>下一篇：</strong><br/> 
+ <span>文献检索与阅读
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#网络图工具"><span class="toc-number">1.</span> <span class="toc-text">网络图工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#效率办公"><span class="toc-number">2.</span> <span class="toc-text">效率办公</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编程工具"><span class="toc-number">3.</span> <span class="toc-text">编程工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#韦恩图工具（找多个集合的Overlap）"><span class="toc-number">4.</span> <span class="toc-text">韦恩图工具（找多个集合的Overlap）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Blast比对工具"><span class="toc-number">5.</span> <span class="toc-text">Blast比对工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通路富集分析"><span class="toc-number">6.</span> <span class="toc-text">通路富集分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在线作图工具"><span class="toc-number">7.</span> <span class="toc-text">在线作图工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#词云图"><span class="toc-number">8.</span> <span class="toc-text">词云图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Genotype分析工具"><span class="toc-number">9.</span> <span class="toc-text">Genotype分析工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#云盘工具"><span class="toc-number">10.</span> <span class="toc-text">云盘工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生信数据库"><span class="toc-number">11.</span> <span class="toc-text">生信数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些书籍"><span class="toc-number">12.</span> <span class="toc-text">一些书籍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生信网站"><span class="toc-number">13.</span> <span class="toc-text">生信网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文献管理工具"><span class="toc-number">14.</span> <span class="toc-text">文献管理工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#笔记-云盘软件"><span class="toc-number">15.</span> <span class="toc-text">笔记&#x2F;云盘软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#电子小说阅读"><span class="toc-number">16.</span> <span class="toc-text">电子小说阅读</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#截图-贴图"><span class="toc-number">17.</span> <span class="toc-text">截图&#x2F;贴图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#录屏软件"><span class="toc-number">18.</span> <span class="toc-text">录屏软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视频剪辑"><span class="toc-number">19.</span> <span class="toc-text">视频剪辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#华硕笔记本重装SmartGesture"><span class="toc-number">20.</span> <span class="toc-text">华硕笔记本重装SmartGesture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#硬盘修复软件"><span class="toc-number">21.</span> <span class="toc-text">硬盘修复软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件搜索"><span class="toc-number">22.</span> <span class="toc-text">文件搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载视频"><span class="toc-number">23.</span> <span class="toc-text">下载视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows清理助手"><span class="toc-number">24.</span> <span class="toc-text">Windows清理助手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#论文检测"><span class="toc-number">25.</span> <span class="toc-text">论文检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#电脑防护："><span class="toc-number">26.</span> <span class="toc-text">电脑防护：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时间管理软件（for-phone）"><span class="toc-number">27.</span> <span class="toc-text">时间管理软件（for phone）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#邮箱管理软件（for-phone）"><span class="toc-number">28.</span> <span class="toc-text">邮箱管理软件（for phone）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器"><span class="toc-number">29.</span> <span class="toc-text">浏览器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索引擎"><span class="toc-number">30.</span> <span class="toc-text">搜索引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在线作图"><span class="toc-number">31.</span> <span class="toc-text">在线作图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件传输"><span class="toc-number">32.</span> <span class="toc-text">文件传输</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码编辑器"><span class="toc-number">33.</span> <span class="toc-text">代码编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PPT缩放"><span class="toc-number">34.</span> <span class="toc-text">PPT缩放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#美国著名影评网站——Rotten-Tomatoes："><span class="toc-number">35.</span> <span class="toc-text">美国著名影评网站——Rotten Tomatoes：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WetFeet"><span class="toc-number">36.</span> <span class="toc-text">WetFeet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PDF阅读和注释"><span class="toc-number">37.</span> <span class="toc-text">PDF阅读和注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#桌面便签："><span class="toc-number">38.</span> <span class="toc-text">桌面便签：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码编辑器："><span class="toc-number">39.</span> <span class="toc-text">代码编辑器：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UZER-ME："><span class="toc-number">40.</span> <span class="toc-text">UZER.ME：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#桌面日历"><span class="toc-number">41.</span> <span class="toc-text">桌面日历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#万彩办公大师OfficeBox"><span class="toc-number">42.</span> <span class="toc-text">万彩办公大师OfficeBox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将CAJ转换成PDF"><span class="toc-number">43.</span> <span class="toc-text">将CAJ转换成PDF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TeamViewer"><span class="toc-number">44.</span> <span class="toc-text">TeamViewer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#桌面分屏"><span class="toc-number">45.</span> <span class="toc-text">桌面分屏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#雷电模拟器"><span class="toc-number">46.</span> <span class="toc-text">雷电模拟器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MobaXterm"><span class="toc-number">47.</span> <span class="toc-text">MobaXterm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quicker"><span class="toc-number">48.</span> <span class="toc-text">Quicker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kopernio"><span class="toc-number">49.</span> <span class="toc-text">Kopernio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LOGO设计网站"><span class="toc-number">50.</span> <span class="toc-text">LOGO设计网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HD-Tune"><span class="toc-number">51.</span> <span class="toc-text">HD Tune</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#电子书下载"><span class="toc-number">52.</span> <span class="toc-text">电子书下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思维导图软件"><span class="toc-number">53.</span> <span class="toc-text">思维导图软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#翻译软件"><span class="toc-number">54.</span> <span class="toc-text">翻译软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#笔记软件"><span class="toc-number">55.</span> <span class="toc-text">笔记软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#破解版软件下载"><span class="toc-number">56.</span> <span class="toc-text">破解版软件下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Office激活工具KMSpico"><span class="toc-number">57.</span> <span class="toc-text">Office激活工具KMSpico</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何让打开的网页与任务栏的浏览器图标重叠或者不重叠？"><span class="toc-number">58.</span> <span class="toc-text">如何让打开的网页与任务栏的浏览器图标重叠或者不重叠？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gencards"><span class="toc-number">59.</span> <span class="toc-text">Gencards</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#venn-图"><span class="toc-number">60.</span> <span class="toc-text">venn 图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#词云图-1"><span class="toc-number">61.</span> <span class="toc-text">词云图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遗传学专业名词解释查询"><span class="toc-number">62.</span> <span class="toc-text">遗传学专业名词解释查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转换ID"><span class="toc-number">63.</span> <span class="toc-text">转换ID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML网页设计学习"><span class="toc-number">64.</span> <span class="toc-text">HTML网页设计学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PDF转换及编辑"><span class="toc-number">65.</span> <span class="toc-text">PDF转换及编辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#An-important-database-for-coding-variants"><span class="toc-number">66.</span> <span class="toc-text">An important database for coding variants</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pajek"><span class="toc-number">67.</span> <span class="toc-text">Pajek</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生物信息学网站"><span class="toc-number">68.</span> <span class="toc-text">生物信息学网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#书籍"><span class="toc-number">69.</span> <span class="toc-text">书籍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WiFi共享精灵"><span class="toc-number">70.</span> <span class="toc-text">WiFi共享精灵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FreeGate"><span class="toc-number">71.</span> <span class="toc-text">FreeGate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Primer3"><span class="toc-number">72.</span> <span class="toc-text">Primer3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#喜马拉雅FM"><span class="toc-number">73.</span> <span class="toc-text">喜马拉雅FM</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  <div class="weixin">
+  <br />
+  <p class="asidetitle">微信公众号</p>
+  <img src="https://i.loli.net/2020/05/10/WUxX4OuoCji6V1A.jpg" style="display:block;margin:auto" width="230px" /> 
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/个人博客/" title="个人博客">个人博客<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/实用工具/" title="实用工具">实用工具<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/思考总结/" title="思考总结">思考总结<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/生信进阶/" title="生信进阶">生信进阶<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/科研写作/" title="科研写作">科研写作<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/统计分析/" title="统计分析">统计分析<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/统计制图/" title="统计制图">统计制图<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/编程语言/" title="编程语言">编程语言<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/英语学习/" title="英语学习">英语学习<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/资源干货/" title="资源干货">资源干货<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/R/" title="R">R<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Writing/" title="Writing">Writing<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/English/" title="English">English<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/文献检索/" title="文献检索">文献检索<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Apache/" title="Apache">Apache<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PPT模板/" title="PPT模板">PPT模板<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Perl/" title="Perl">Perl<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Presentation/" title="Presentation">Presentation<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RSS/" title="RSS">RSS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GWAS/" title="GWAS">GWAS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Listening/" title="Listening">Listening<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GitHubDesktop/" title="GitHubDesktop">GitHubDesktop<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/limma/" title="limma">limma<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/差异表达/" title="差异表达">差异表达<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ggplot2/" title="ggplot2">ggplot2<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/散点图/" title="散点图">散点图<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/博客备份/" title="博客备份">博客备份<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/气泡图/" title="气泡图">气泡图<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/代码高亮/" title="代码高亮">代码高亮<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PRS/" title="PRS">PRS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/博客搭建/" title="博客搭建">博客搭建<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/知识管理/" title="知识管理">知识管理<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/效率办公/" title="效率办公">效率办公<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/文献阅读/" title="文献阅读">文献阅读<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Sequencing/" title="Sequencing">Sequencing<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/探针注释/" title="探针注释">探针注释<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/科研工具/" title="科研工具">科研工具<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Jekyll/" title="Jekyll">Jekyll<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/R/" style="font-size: 23px; color: #51a4c7">R</a> <a href="/tags/Linux/" style="font-size: 13px; color: #51a4c7">Linux</a> <a href="/tags/Apache/" style="font-size: 13px; color: #51a4c7">Apache</a> <a href="/tags/MySQL/" style="font-size: 13px; color: #51a4c7">MySQL</a> <a href="/tags/PPT%E6%A8%A1%E6%9D%BF/" style="font-size: 13px; color: #51a4c7">PPT模板</a> <a href="/tags/Perl/" style="font-size: 13px; color: #51a4c7">Perl</a> <a href="/tags/Presentation/" style="font-size: 13px; color: #51a4c7">Presentation</a> <a href="/tags/RSS/" style="font-size: 13px; color: #51a4c7">RSS</a> <a href="/tags/Writing/" style="font-size: 18px; color: #51a4c7">Writing</a> <a href="/tags/GWAS/" style="font-size: 13px; color: #51a4c7">GWAS</a> <a href="/tags/English/" style="font-size: 18px; color: #51a4c7">English</a> <a href="/tags/Listening/" style="font-size: 13px; color: #51a4c7">Listening</a> <a href="/tags/Git/" style="font-size: 13px; color: #51a4c7">Git</a> <a href="/tags/GitHubDesktop/" style="font-size: 13px; color: #51a4c7">GitHubDesktop</a> <a href="/tags/limma/" style="font-size: 13px; color: #51a4c7">limma</a> <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" style="font-size: 13px; color: #51a4c7">差异表达</a> <a href="/tags/ggplot2/" style="font-size: 13px; color: #51a4c7">ggplot2</a> <a href="/tags/%E6%95%A3%E7%82%B9%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">散点图</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD/" style="font-size: 13px; color: #51a4c7">博客备份</a> <a href="/tags/%E6%B0%94%E6%B3%A1%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">气泡图</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/" style="font-size: 13px; color: #51a4c7">代码高亮</a> <a href="/tags/PRS/" style="font-size: 13px; color: #51a4c7">PRS</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px; color: #51a4c7">博客搭建</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13px; color: #51a4c7">知识管理</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%8A%9E%E5%85%AC/" style="font-size: 13px; color: #51a4c7">效率办公</a> <a href="/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" style="font-size: 18px; color: #51a4c7">文献检索</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13px; color: #51a4c7">文献阅读</a> <a href="/tags/Sequencing/" style="font-size: 13px; color: #51a4c7">Sequencing</a> <a href="/tags/%E6%8E%A2%E9%92%88%E6%B3%A8%E9%87%8A/" style="font-size: 13px; color: #51a4c7">探针注释</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #51a4c7">科研工具</a> <a href="/tags/Jekyll/" style="font-size: 13px; color: #51a4c7">Jekyll</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #51a4c7">Hexo</a>
+    </div>
+  </div>
+
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://maxyjian.github.io/" target="_blank" title="Max Blog">Max Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://demonlee.ml/" target="_blank" title="魔鬼裡">魔鬼裡</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.shaoguoji.cn/" target="_blank" title="国际哥">国际哥</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.huangshujia.me/" target="_blank" title="碱基矿工">碱基矿工</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.wusanwan.xyz/" target="_blank" title="菜鸡小万">菜鸡小万</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://bioinformatics.lofter.com/" target="_blank" title="Bioinformatics">Bioinformatics</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yangli.name/" target="_blank" title="Yang&#39;s Garden">Yang&#39;s Garden</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.xcnte.com/" target="_blank" title="Xcnte&#39;s Blog">Xcnte&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yearito.cn/" target="_blank" title="Yearito&#39;s Blog">Yearito&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://cgspace.date/" target="_blank" title="cgspace">cgspace</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://jinyy.app/" target="_blank" title="Jin">Jin</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.wuxu92.com/" target="_blank" title="Wu Xu">Wu Xu</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://purethought.cn/" target="_blank" title="AlaDing">AlaDing</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://blog.ouyangsihai.cn/" target="_blank" title="欧阳思海">欧阳思海</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/cuihuaxia" target="_blank" class="icon-github" style="font-size:30px;background-color:#1F1F1F;color:#FFFFFF" title="github"></a> 
+		
+		
+		<a href="http://stackoverflow.com/users/13554410" target="_blank" class="icon-stack-overflow" style="font-size:30px;background-color:#1F1F1F;color:#E6863E" title="stackoverflow"></a>
+		
+		
+		
+		
+		
+		
+		
+
+
+
+
+
+		<script src="https://kit.fontawesome.com/adc42ede4e.js" crossorigin="anonymous"></script>
+		
+		<a href="https://www.researchgate.net/profile/Cuihua_Xia" target="_blank" class="fab fa-researchgate" style="font-size:30px;background-color:#1F1F1F;color:#5AC9BB" title="researchgate"></a>
+		
+
+
+
+
+
+		
+		<a href="mailto:xiacuihuar@gmail.com" target="_blank" class="icon-email" style="font-size:30px;background-color:#1F1F1F;color:#CD5546" title="Email Me"></a>
+		
+
+
+	</div>
+			
+		
+
+
+
+<p class="copyright">
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <span id="busuanzi_container_site_pv">
+      本站总访问量 <span id="busuanzi_value_site_pv"></span> 次 | 
+  </span>
+
+  <span id="busuanzi_container_site_uv">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人次 | 
+  </span>
+
+
+
+<span id="sitetime"></span>
+<script language=javascript>
+  function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+    year - 作为date对象的年份，为4位年份值
+    month - 0-11之间的整数，做为date对象的月份
+    day - 1-31之间的整数，做为date对象的天数
+    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+    minutes - 0-59之间的整数，做为date对象的分钟数
+    seconds - 0-59之间的整数，做为date对象的秒数
+    microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+    var t1 = Date.UTC(2020,03,25,00,00,00); //这里调整博客建站时间，时间：2019-05-14 00:00:00
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = t2-t1;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+    document.getElementById("sitetime").innerHTML="本站已安全运行 "+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+  }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+  siteTime();
+</script>
+
+<br/>
+
+<span>
+湘公网安备 43010502001197号 | 湘ICP备2020018549号
+</span>
+
+<br/>
+
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a>
+<br/>
+		Copyright © 2020 by 
+		
+		<a href="/about" target="_blank" title="TouchUMind">TouchUMind</a>
+		
+</p>
+</div></footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-161858965-3', '');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
