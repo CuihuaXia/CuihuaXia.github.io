@@ -377,6 +377,32 @@ pre {white-space: pre-wrap; word-wrap: normal;}
 		
   <p class="article-time">
     <time datetime="2020-05-27T14:23:59.176Z" itemprop="datePublished"> Published 2020-05-27</time>
+
+
+
+    {%if post.updated and post.updated > post.date%}
+    <span class="post-updated">
+      &nbsp; | &nbsp; {{ __('post.updated') }}
+      <time itemprop="dateUpdated" datetime="{{ moment(post.updated).format() }}" content="{{ date(post.updated, config.date_format) }}">
+        {{ date(post.updated, config.date_format) }}
+      </time>
+    </span>
+  {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <span id="busuanzi_container_page_pv">&nbsp;Totally&nbsp;<span id="busuanzi_value_page_pv"></span> views
 </span>
   </p>
