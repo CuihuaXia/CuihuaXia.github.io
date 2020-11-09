@@ -4,22 +4,31 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>生物信息学技术分享</title>
+    <title>RNA测序数据分析 | 生物信息学技术分享</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="TouchUMind">
     
 
     
-    <meta name="description" content="This is Cuihua Xia&#39;s Tech Blog.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="生物信息学技术分享">
-<meta property="og:url" content="https://touchumind.com/page/3/index.html">
+    <meta name="description" content="更新于 2020-11-09 18:00  最近有给大家在2020《应用生物信息学》这门课上介绍“转录组测序数据分析”专题，由于在课上着重讲了从fastq原始数据开始到差异分析以及通路富集分析的整个流程，代码细节没有过多介绍，而课件上的一些代码在步骤与步骤之间也不太连续，导致新入门的小可爱们在做作业时，有点伤脑筋，所以今天本小编就这个专题的作业，给大家再详细介绍一下代码流程～ 本流程代码所用的数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RNA测序数据分析">
+<meta property="og:url" content="https://touchumind.com/2020/11/09/RNA%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="生物信息学技术分享">
-<meta property="og:description" content="This is Cuihua Xia&#39;s Tech Blog.">
+<meta property="og:description" content="更新于 2020-11-09 18:00  最近有给大家在2020《应用生物信息学》这门课上介绍“转录组测序数据分析”专题，由于在课上着重讲了从fastq原始数据开始到差异分析以及通路富集分析的整个流程，代码细节没有过多介绍，而课件上的一些代码在步骤与步骤之间也不太连续，导致新入门的小可爱们在做作业时，有点伤脑筋，所以今天本小编就这个专题的作业，给大家再详细介绍一下代码流程～ 本流程代码所用的数">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/PicGo/20201109152535.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/PicGo/20201109170336.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/PicGo/20201109171518.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/PicGo/20201109171559.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/PicGo/20201109171639.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/PicGo/20201109171706.png">
+<meta property="article:published_time" content="2020-11-09T06:49:42.000Z">
+<meta property="article:modified_time" content="2020-11-09T09:57:31.359Z">
 <meta property="article:author" content="TouchUMind">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/PicGo/20201109152535.png">
 
     
     <link rel="alternative" href="/atom.xml" title="生物信息学技术分享" type="application/atom+xml">
@@ -362,230 +371,268 @@ pre {white-space: pre-wrap; word-wrap: normal;}
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2020/03/29/通过GEO查找Probe和GeneSymbol的匹配信息/" title="通过GEO查找Probe和GeneSymbol的匹配信息" itemprop="url">
-  
-    <h1 itemprop="name">通过GEO查找Probe和GeneSymbol的匹配信息</h1>
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
     
-     
-           <p itemprop="description" >GEO：
+      <a href="/2020/11/09/RNA测序数据分析/" title="RNA测序数据分析" itemprop="url">RNA测序数据分析</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="TouchUMind" target="_blank" itemprop="author">TouchUMind</a>
+		
+  <p class="article-time">
+    <time datetime="2020-11-09T06:49:42.000Z" itemprop="datePublished"> Published 2020-11-09</time>
 
-通过platform查找probe和gene symbol的匹配信息：入口为GEO Datasets。
-GEO数据库：http是全部下载；custom是选择性下载。
-HG-U133P就是HG-U133_Plus的缩写。
-找gene_symbol和probe_ID的信息</p>
-        
+
+
+
+    <!-- <time datetime="2020-11-09T06:49:42.000Z" itemprop="dateUpdated"> dateupdated 2020-11-09</time> -->
+
+
+
+    <span id="busuanzi_container_page_pv">&nbsp;Totally&nbsp;<span id="busuanzi_value_page_pv"></span> views
+</span>
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#读入表达矩阵数据和样本信息"><span class="toc-number">1.</span> <span class="toc-text">读入表达矩阵数据和样本信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#低表达基因过滤（只保留在-gt-50-的样本中表达值-gt-1的基因）"><span class="toc-number">2.</span> <span class="toc-text">低表达基因过滤（只保留在&gt;50%的样本中表达值&gt;1的基因）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#离群样本过滤"><span class="toc-number">3.</span> <span class="toc-text">离群样本过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看一下此时表达矩阵和样本信息数据的具体情况"><span class="toc-number">4.</span> <span class="toc-text">查看一下此时表达矩阵和样本信息数据的具体情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#寻找隐藏协变量（Call-Hidden-Factors）"><span class="toc-number">5.</span> <span class="toc-text">寻找隐藏协变量（Call Hidden Factors）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用PVCA查看协变量校正效果（协变量校正前后分别画一下PVCA图）"><span class="toc-number">6.</span> <span class="toc-text">使用PVCA查看协变量校正效果（协变量校正前后分别画一下PVCA图）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#批次校正"><span class="toc-number">7.</span> <span class="toc-text">批次校正</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协变量校正-amp-差异分析"><span class="toc-number">8.</span> <span class="toc-text">协变量校正 &amp; 差异分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对res文件做一些手动处理"><span class="toc-number">9.</span> <span class="toc-text">对res文件做一些手动处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果可视化（火山图）"><span class="toc-number">10.</span> <span class="toc-text">结果可视化（火山图）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用Excel打开res文件，根据padj这一列，筛选出padj-lt-0-05的所有行，另存为res-significant-csv文件"><span class="toc-number">11.</span> <span class="toc-text">用Excel打开res文件，根据padj这一列，筛选出padj&lt;0.05的所有行，另存为res_significant.csv文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能注释和通路富集"><span class="toc-number">12.</span> <span class="toc-text">功能注释和通路富集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#保存当前环境下的所有变量"><span class="toc-number">13.</span> <span class="toc-text">保存当前环境下的所有变量</span></a></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<p>更新于 2020-11-09 18:00</p>
+</blockquote>
+<p>最近有给大家在2020《应用生物信息学》这门课上介绍“转录组测序数据分析”专题，由于在课上着重讲了从fastq原始数据开始到差异分析以及通路富集分析的整个流程，代码细节没有过多介绍，而课件上的一些代码在步骤与步骤之间也不太连续，导致新入门的小可爱们在做作业时，有点伤脑筋，所以今天本小编就这个专题的作业，给大家再详细介绍一下代码流程～</p>
+<p>本流程代码所用的数据就是本次课作业里的两个文件：表达矩阵文件<code>RawCounts.csv</code>；样本信息文件<code>sampleInfo.csv</code>。</p>
+<p>代码运行环境：R</p>
+<h3 id="读入表达矩阵数据和样本信息"><a href="#读入表达矩阵数据和样本信息" class="headerlink" title="读入表达矩阵数据和样本信息"></a>读入表达矩阵数据和样本信息</h3><p>需注意：<br>表达矩阵文件要以矩阵形式读入，样本信息文件要以数据框格式读入。</p>
+<pre><code class="R">datExpr&lt;-as.matrix(read.csv(&quot;RawCounts.csv&quot;, header=T, row.names=1, sep=&quot;,&quot;))
+datMeta&lt;-as.data.frame(read.csv(&quot;sampleInfo.csv&quot;, header=T, row.names=1))
+dim(datExpr)
+# [1] 58780   113
+dim(datMeta)
+# [1] 113   5</code></pre>
+<p>共58780个探针，113个样本。</p>
+<h3 id="低表达基因过滤（只保留在-gt-50-的样本中表达值-gt-1的基因）"><a href="#低表达基因过滤（只保留在-gt-50-的样本中表达值-gt-1的基因）" class="headerlink" title="低表达基因过滤（只保留在&gt;50%的样本中表达值&gt;1的基因）"></a>低表达基因过滤（只保留在&gt;50%的样本中表达值&gt;1的基因）</h3><p><code>删除在所有样本中均未检测到表达的基因</code>这一标准还是太松了，会导致后面寻找隐藏协变量这一步出现错误：<br><code>Number of significant surrogate variables is:  3
+Iteration (out of 5 ):Error in density.default(x, adjust = adj) : &#39;x&#39; contains missing values</code></p>
+<p>错误原因：<br>没有过滤掉低表达量的基因</p>
+<p>解决办法：<br>在低表达基因过滤这一步条件设置得太松了，可改成：只保留在&gt;50%的样本中表达值&gt;1的基因。</p>
+<pre><code class="R">pres = apply(datExpr&gt;1,1,sum) 
+to_keep = pres &gt; 0.5 * ncol(datExpr)
+table(to_keep)
+# to_keep
+# FALSE  TRUE
+# 37578 21202
+datExpr = datExpr[to_keep,]</code></pre>
+<p>基因过滤之后，只保留了21202个探针。</p>
+<h3 id="离群样本过滤"><a href="#离群样本过滤" class="headerlink" title="离群样本过滤"></a>离群样本过滤</h3><pre><code class="R">library(WGCNA)
+sdout &lt;- 2; normadj &lt;- (0.5+0.5*bicor(datExpr, use=&#39;pairwise.complete.obs&#39;))^2 
+netsummary &lt;- fundamentalNetworkConcepts(normadj); ku &lt;- netsummary$Connectivity; z.ku &lt;- (ku-mean(ku))/sqrt(var(ku)) 
+outliers &lt;- (z.ku &gt; mean(z.ku)+sdout*sd(z.ku))|(z.ku &lt; mean(z.ku)-sdout*sd(z.ku)) 
+print(paste(&quot;There are &quot;,sum(outliers), &quot;outliers samples based on a bicor distance sample network connectivity standard deviation above&quot;,sdout,sep=&quot;&quot;)); 
+print(colnames(datExpr)[outliers])
+print(table(outliers)) 
+# [1] &quot;There are 5outliers samples based on a bicor distance sample network connectivity standard deviation above2&quot;
+# [1] &quot;donor9_ileum_repA&quot;   &quot;donor10_ileum_repB&quot;  &quot;donor19_ileum_repA&quot;  &quot;donor26_rectum_repA&quot; &quot;donor30_rectum_repA&quot;
+# outliers
+# FALSE  TRUE
+#   108     5
+pdf(&quot;Outlier Removal.pdf&quot;) 
+plot(z.ku, col = as.numeric(datMeta$disease.state), pch=19, main=&quot;Outlier detection&quot;, ylab=&quot;Network Connectivity (z score)&quot;) 
+abline(h=-2, lty=2) 
+dev.off()
+datExpr = datExpr[,!outliers]
+datMeta = datMeta[!outliers,] </code></pre>
+<p>可见，本步过滤掉了5个离群样本，还剩108个样本。画出的图Outlier Removal.pdf如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/PicGo/20201109152535.png" alt="Outlier Removal Plot"></p>
+<h3 id="查看一下此时表达矩阵和样本信息数据的具体情况"><a href="#查看一下此时表达矩阵和样本信息数据的具体情况" class="headerlink" title="查看一下此时表达矩阵和样本信息数据的具体情况"></a>查看一下此时表达矩阵和样本信息数据的具体情况</h3><pre><code class="R">## 查看数据维度
+dim(datExpr)
+# [1] 21202   108
+dim(datMeta)
+[1] 108   5
+## 查看数据结构
+class(datExpr)
+# [1] &quot;matrix&quot;
+class(datMeta)
+# [1] &quot;data.frame&quot;
+## 查看datMeta列名
+colnames(datMeta)
+# [1] &quot;SampleID&quot;      &quot;sex&quot;           &quot;ancestry&quot;      &quot;age&quot;           &quot;disease.state&quot;</code></pre>
+<h3 id="寻找隐藏协变量（Call-Hidden-Factors）"><a href="#寻找隐藏协变量（Call-Hidden-Factors）" class="headerlink" title="寻找隐藏协变量（Call Hidden Factors）"></a>寻找隐藏协变量（Call Hidden Factors）</h3><pre><code class="R">library(sva)
+mod=model.matrix(~as.factor(datMeta$sex)+as.factor(datMeta$ancestry)+datMeta$age+as.factor(datMeta$disease.state), data=datMeta) 
+n.sv=num.sv(datExpr,mod,method=&quot;be&quot;) 
+n.sv 
+# [1] 3
+mod0=model.matrix(~as.factor(datMeta$sex)+as.factor(datMeta$ancestry)+datMeta$age, data=datMeta) 
+svobj = sva(datExpr,mod,mod0,n.sv=n.sv)$sv 
+datMeta$svobj=svobj
+write.csv(datMeta,&quot;datMeta_PVCA.csv&quot;, row.names=F)
+datMeta&lt;-read.csv(&quot;datMeta_PVCA.csv&quot;)
+colnames(datMeta)
+# [1] &quot;SampleID&quot;      &quot;sex&quot;           &quot;ancestry&quot;      &quot;age&quot;           &quot;disease.state&quot; &quot;svobj.1&quot;       &quot;svobj.2&quot;       &quot;svobj.3&quot;</code></pre>
+<h3 id="使用PVCA查看协变量校正效果（协变量校正前后分别画一下PVCA图）"><a href="#使用PVCA查看协变量校正效果（协变量校正前后分别画一下PVCA图）" class="headerlink" title="使用PVCA查看协变量校正效果（协变量校正前后分别画一下PVCA图）"></a>使用PVCA查看协变量校正效果（协变量校正前后分别画一下PVCA图）</h3><p>由于这一步代码较为复杂，此次作业可跳过这一步。</p>
+<h3 id="批次校正"><a href="#批次校正" class="headerlink" title="批次校正"></a>批次校正</h3><p>由于本次作业样本信息文件中无批次信息，这一步不做。</p>
+<h3 id="协变量校正-amp-差异分析"><a href="#协变量校正-amp-差异分析" class="headerlink" title="协变量校正 &amp; 差异分析"></a>协变量校正 &amp; 差异分析</h3><p>由于协变量校正之后，表达值可能会出现负值，而使用DESeq2做差异分析的表达矩阵中是不允许出现负值的，所以我们协变量校正和差异分析一起做，在构建design矩阵时，直接将需要校正的协变量放进去一起构建，起到一个校正的作用。</p>
+<pre><code class="R">library(DESeq2)
+# 取整,函数round
+input_data &lt;-round(datExpr,digits = 0)
+# 构建dds矩阵
+dds &lt;- DESeqDataSetFromMatrix(countData = datExpr, colData = datMeta, design = ~sex+ancestry+age+disease.state+svobj.1+svobj.2+svobj.3)
+# 标准化
+dds &lt;- DESeq(dds)
+# 差异分析结果
+res &lt;- results(dds, contrast=c(&quot;disease.state&quot;,&quot;Inflammatory Bowel Disease&quot;,&quot;Control&quot;), alpha=0.05) 
+# 查看结果的概括统计量,可以看到上下调基因的总体情况
+summary(res)
+# out of 21202 with nonzero total read count
+# adjusted p-value &lt; 0.05
+# LFC &gt; 0 (up)       : 340, 1.6%
+# LFC &lt; 0 (down)     : 170, 0.8%
+# outliers [1]       : 0, 0%
+# low counts [2]     : 823, 3.9%
+# (mean count &lt; 3)
+# [1] see &#39;cooksCutoff&#39; argument of ?results
+# [2] see &#39;independentFiltering&#39; argument of ?results
+
+# 输出差异分析的结果
+write.csv(res,&quot;res.csv&quot;)</code></pre>
+<h3 id="对res文件做一些手动处理"><a href="#对res文件做一些手动处理" class="headerlink" title="对res文件做一些手动处理"></a>对res文件做一些手动处理</h3><p>用Excel打开res文件，给第一列添加列名为”EnsemblID”；</p>
+<p>然后将第一列值的小数位数去除（以便后面进行基因匹配）；</p>
+<p>并且根据第一列进行去重（先将第一列排序，然后高亮显示并找到第一列的重复值，删除重复两行中的其中一整行。这里处理方法比较简单粗暴，其实处理不同探针对应同一个基因的情况，是在差异分析之前，并且是有科学的处理办法的，但是这里为了简化步骤，不展开介绍了）。</p>
+<p>此处删除了2行。</p>
+<h3 id="结果可视化（火山图）"><a href="#结果可视化（火山图）" class="headerlink" title="结果可视化（火山图）"></a>结果可视化（火山图）</h3><pre><code class="R">library(ggplot2)
+library(ggrepel)
+# 读入上一步得到的结果文件
+resdata&lt;-read.csv(&quot;res.csv&quot;)
+resdata$significant &lt;- as.factor(resdata$padj&lt;0.05 &amp; abs(resdata$log2FoldChange) &gt; 1)
+pdf(&quot;Volcano.pdf&quot;)
+ggplot(data=resdata, aes(x=log2FoldChange, y =-log10(padj),color =significant)) +
+geom_point() +
+ylim(0, 8)+
+scale_color_manual(values =c(&quot;black&quot;,&quot;red&quot;))+
+geom_hline(yintercept = log10(0.05),lty=4,lwd=0.6,alpha=0.8)+
+geom_vline(xintercept = c(1,-1),lty=4,lwd=0.6,alpha=0.8)+
+theme_bw()+
+theme(panel.border = element_blank(),
+panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(),
+axis.line = element_line(colour = &quot;black&quot;))+
+labs(title=&quot;Volcano Plot&quot;, x=&quot;log2 (fold change)&quot;,y=&quot;-log10 (padj)&quot;)+
+theme(plot.title = element_text(hjust = 0.5))+
+geom_text_repel(data=subset(resdata, -log10(padj) &gt; 6), aes(label=EnsemblID),col=&quot;black&quot;,alpha =0.8)  #标记出padj&lt;10E-06的基因
+dev.off()</code></pre>
+<p>画出的火山图如下：<br><img src="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/PicGo/20201109170336.png" alt="Volcano plot"></p>
+<h3 id="用Excel打开res文件，根据padj这一列，筛选出padj-lt-0-05的所有行，另存为res-significant-csv文件"><a href="#用Excel打开res文件，根据padj这一列，筛选出padj-lt-0-05的所有行，另存为res-significant-csv文件" class="headerlink" title="用Excel打开res文件，根据padj这一列，筛选出padj&lt;0.05的所有行，另存为res_significant.csv文件"></a>用Excel打开res文件，根据padj这一列，筛选出padj&lt;0.05的所有行，另存为res_significant.csv文件</h3><h3 id="功能注释和通路富集"><a href="#功能注释和通路富集" class="headerlink" title="功能注释和通路富集"></a>功能注释和通路富集</h3><pre><code class="R"># BiocManager::install(&quot;GOSemSim&quot;)
+# BiocManager::install(&quot;ggraph&quot;)
+# BiocManager::install(&quot;polyclip&quot;)
+# BiocManager::install(&quot;clusterProfiler&quot;): http://yulab-smu.top/clusterProfiler-book/chapter12.html
+library(clusterProfiler)
+library(AnnotationDbi)
+library(org.Hs.eg.db)
+# 读入res_significant.csv文件
+dat&lt;-read.csv(&quot;res_significant.csv&quot;)
+# 转换基因名
+transID = bitr(dat$EnsemblID, fromType=&quot;ENSEMBL&quot;, toType=c(&quot;SYMBOL&quot;, &quot;ENTREZID&quot;), OrgDb=&quot;org.Hs.eg.db&quot;)
+# GO_ALL 注释
+ALL &lt;- enrichGO(transID$ENTREZID,
+    &quot;org.Hs.eg.db&quot;,
+    keyType=&quot;ENTREZID&quot;,
+    ont=&quot;ALL&quot;,
+    pvalueCutoff=0.01,
+    pAdjustMethod=&quot;BH&quot;,
+    qvalueCutoff=0.1
+) #Cutoff是为后面画图设置的阈值，并且实际上这里的qvalueCutoff=0.1不是给qvalue设的，是给p.adjust设的（这是个bug!）
+ALL &lt;- setReadable(ALL, OrgDb=org.Hs.eg.db)
+write.table(as.data.frame(ALL@result), file=&quot;GO_ALL.csv&quot;, sep=&quot;,&quot;, row.names=F)
+# 可视化
+pdf(&quot;GO_ALL.pdf&quot;, width=15, height=20)
+barplot(ALL, color = &quot;p.adjust&quot;, showCategory=20, drop=T, split=&quot;ONTOLOGY&quot;)+ facet_grid(ONTOLOGY ~ ., scales = &quot;free&quot;) #柱状图，按p.adjust从小到大排列，在BP，MF，CC条目中各选取p.adjust(这个包只能按照p.adjust排序和筛选前20个条目，不能按照pvalue或qvalue)最小的前20个条目画图
+dotplot(ALL, color = &quot;p.adjust&quot;, showCategory=20, x=~-log(p.adjust), split=&quot;ONTOLOGY&quot;)+ facet_grid(ONTOLOGY ~ ., scales = &quot;free&quot;) #气泡图
+dev.off()
+
+# KEGG 注释
+kegg &lt;- enrichKEGG(transID$ENTREZID, organism=&quot;hsa&quot;, keyType=&quot;kegg&quot;, pvalueCutoff=0.01, pAdjustMethod=&quot;BH&quot;, qvalueCutoff=0.1) #Cutoff是为后面画图设置的阈值，并且实际上这里的qvalueCutoff=0.1不是给qvalue设的，是给p.adjust设的（这是个bug!）
+kegg &lt;- setReadable(kegg, OrgDb=org.Hs.eg.db, keyType=&quot;ENTREZID&quot;)
+write.table(as.data.frame(kegg@result), file=&quot;KEGG.csv&quot;, sep=&quot;,&quot;, row.names=F)
+# 可视化
+pdf(&quot;KEGG.pdf&quot;)
+barplot(kegg, color = &quot;p.adjust&quot;, showCategory=20, drop=T) #柱状图，按p.adjust从小到大排列，选取p.adjust(这个包只能按照p.adjust排序和筛选前20个条目，不能按照pvalue或qvalue)最小的前20个条目画图
+dotplot(kegg, color = &quot;p.adjust&quot;, showCategory=20, x=~-log(p.adjust)) #气泡图
+dev.off()</code></pre>
+<p>画出的富集分析图GO_ALL.pdf如下：<br><img src="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/PicGo/20201109171518.png" alt="GO_ALL barplot"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/PicGo/20201109171559.png" alt="GO_ALL dotplot"></p>
+<p>画出的富集分析图KEGG.pdf如下：<br><img src="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/PicGo/20201109171639.png" alt="KEGG barplot"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/PicGo/20201109171706.png" alt="KEGG dotplot"></p>
+<p>PS：如果觉得用这个包画富集分析图比较鸡肋，可以自己用ggplot2来画，它可以更方便地设置画图细节（需要自己先按照校正后的P值，把要画的通路手动筛选出来）；</p>
+<p>另外，如果觉得clusterProfiler包安装比较费劲，那也可以直接去在线网站进行功能注释和通路富集，这里推荐网站：WebGestalt(<a href="http://www.webgestalt.org/option.php)。" target="_blank" rel="noopener">http://www.webgestalt.org/option.php)。</a></p>
+<h3 id="保存当前环境下的所有变量"><a href="#保存当前环境下的所有变量" class="headerlink" title="保存当前环境下的所有变量"></a>保存当前环境下的所有变量</h3><pre><code class="R">save.image(&quot;rnaseq_2020.Rdata&quot;)</code></pre>
+  
+	</div>
+
     
-    <time datetime="2020-03-28T22:00:24.000Z" itemprop="datePublished">2020-03-29</time>
+      <div class="article-footer-copyright">
+  <left><b>本文作者：<a href="/about/" target="_blank" title="TouchUMind">TouchUMind</a></b></left><br/>
 
+  <left><b>本文链接：<a href="/2020/11/09/RNA测序数据分析/" target="_blank" title="RNA测序数据分析">https://touchumind.com/2020/11/09/RNA测序数据分析/</a></b>.</left></br>
 
-
-    <!-- <time datetime="2020-03-28T22:00:24.000Z" itemprop="dateUpdated">2020-03-29</time> -->
-
-
-
-
-
-
-  </a>
-</section>
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2020/03/29/英语学习工具汇总/" title="英语学习工具汇总" itemprop="url">
-  
-    <h1 itemprop="name">英语学习工具汇总</h1>
+  <left><b>版权声明：</b>本文著作权归作者所有，遵循<b>CC BY</b>-<b>NC</b>-<b>SA 4.0</b>国际许可协议。商业转载请联系作者获取授权，非商业转载请注明作者及出处！</left>
+</div>
     
-     
-           <p itemprop="description" >英语翻译网站
-柯林斯词典：https://www.collinsdictionary.com/
-剑桥词典：https://dictionary.cambridge.org/
-CNKI翻译助手：http://dict.cnki.net/
-Google翻译：适用于全文翻译
-欧路词典
-</p>
-        
-    
-    <time datetime="2020-03-28T21:57:53.000Z" itemprop="datePublished">2020-03-29</time>
 
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
 
-
-    <!-- <time datetime="2020-03-28T21:57:53.000Z" itemprop="dateUpdated">2020-03-29</time> -->
-
-
-
-
-
-
-  </a>
-</section>
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2020/03/29/科研工具汇总/" title="科研工具汇总" itemprop="url">
-  
-    <h1 itemprop="name">科研工具汇总</h1>
-    
-     
-      <p itemprop="description" >导语：工具如同你手中的剑，不断练习才能运用自如。</p>
-      
-    
-    <time datetime="2020-03-28T21:56:24.000Z" itemprop="datePublished">2020-03-29</time>
-
-
-
-    <!-- <time datetime="2020-03-28T21:56:24.000Z" itemprop="dateUpdated">2020-03-29</time> -->
-
-
-
-
-
-
-  </a>
-</section>
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2020/03/29/文献检索与阅读/" title="文献检索与阅读" itemprop="url">
-  
-    <h1 itemprop="name">文献检索与阅读</h1>
-    
-     
-           <p itemprop="description" >科技查新要点
-首先，课题的要点要正确提取；
-准确提取关键词并分清主次地位，明确哪些必须保留，哪些是可以舍弃的；
-关键词的同义词要找全，包括可利用其上位词和下位词；
-选择合适的数据库，像PubMed主要收录的是生物学的文献，如果你的课题方向偏向于社会学或者化学的方向，那PubMed</p>
-        
-    
-    <time datetime="2020-03-28T21:53:53.000Z" itemprop="datePublished">2020-03-29</time>
-
-
-
-    <!-- <time datetime="2020-03-28T21:53:53.000Z" itemprop="dateUpdated">2020-03-29</time> -->
-
-
-
-
-
-
-  </a>
-</section>
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2020/03/29/PPT展示/" title="幻灯片展示技巧" itemprop="url">
-  
-    <h1 itemprop="name">幻灯片展示技巧</h1>
-    
-     
-           <p itemprop="description" >导语：PPT是你的表达能力、组织能力和逻辑思维能力的综合体现。
-借助图表
-在做PPT展示时，要善于用最直观的图表（对比）形式来表述自己的结果，而不是用枯燥无对比性的文字；
-注意当你想借助图表来表达自己时，一定要准确地使用图表，而不能出现词不达意的情况，意思也就是说，你要把相互之间</p>
-        
-    
-    <time datetime="2020-03-28T21:47:32.000Z" itemprop="datePublished">2020-03-29</time>
-
-
-
-    <!-- <time datetime="2020-03-28T21:47:32.000Z" itemprop="dateUpdated">2020-03-29</time> -->
-
-
-
-
-
-
-  </a>
-</section>
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2020/03/29/Perl/" title="Perl" itemprop="url">
-  
-    <h1 itemprop="name">Perl</h1>
-    
-     
-           <p itemprop="description" >常见注意事项hash: 建立索引
-standard out: 标准输出，即screen，输出在屏幕上。
-standard in: 标准输入，即从键盘输入。
-Perl不需要compile(编译)
-#号用来注释
-hash table：应该保证是unique，即使其没有重复的元素
-ha</p>
-        
-    
-    <time datetime="2020-03-28T21:45:25.000Z" itemprop="datePublished">2020-03-29</time>
-
-
-
-    <!-- <time datetime="2020-03-28T21:45:25.000Z" itemprop="dateUpdated">2020-03-29</time> -->
-
-
-
-
-
-
-  </a>
-</section>
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2020/03/25/如何简单搭建个人博客/" title="如何简单搭建个人博客" itemprop="url">
-  
-    <h1 itemprop="name">如何简单搭建个人博客</h1>
-    
-     
-           <p itemprop="description" >搭建个人博客的初衷/原因因为新冠肺炎疫情，今年的寒假已经休了太长时间，但是也给了我一个安静的，独立思考的时间和空间。
-最初只是想整理一下自己在各个软件和平台的学习笔记。然而，在连续整理了好几天之后，我崩溃地发现，我花了好几天的结果是，整理的效果和没整理时是一样的！
-因为我用了太多</p>
-        
-    
-    <time datetime="2020-03-24T21:41:59.000Z" itemprop="datePublished">2020-03-25</time>
-
-
-
-    <!-- <time datetime="2020-03-24T21:41:59.000Z" itemprop="dateUpdated">2020-03-25</time> -->
-
-
-
-
-
-
-  </a>
-</section>
-
-
-
-
-  <nav id="page-nav" class="clearfix unexpand">
-    <a class="extend prev" rel="prev" href="/page/2/">&lt; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
 
 </div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://touchumind.com/2020/11/09/RNA%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" data-title="RNA测序数据分析 | 生物信息学技术分享" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2020/09/29/Win10安装Git和GitHubDesktop/"  title="Win10安装Git和GitHubDesktop">
+ <strong>下一篇：</strong><br/> 
+ <span>Win10安装Git和GitHubDesktop
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#读入表达矩阵数据和样本信息"><span class="toc-number">1.</span> <span class="toc-text">读入表达矩阵数据和样本信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#低表达基因过滤（只保留在-gt-50-的样本中表达值-gt-1的基因）"><span class="toc-number">2.</span> <span class="toc-text">低表达基因过滤（只保留在&gt;50%的样本中表达值&gt;1的基因）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#离群样本过滤"><span class="toc-number">3.</span> <span class="toc-text">离群样本过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看一下此时表达矩阵和样本信息数据的具体情况"><span class="toc-number">4.</span> <span class="toc-text">查看一下此时表达矩阵和样本信息数据的具体情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#寻找隐藏协变量（Call-Hidden-Factors）"><span class="toc-number">5.</span> <span class="toc-text">寻找隐藏协变量（Call Hidden Factors）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用PVCA查看协变量校正效果（协变量校正前后分别画一下PVCA图）"><span class="toc-number">6.</span> <span class="toc-text">使用PVCA查看协变量校正效果（协变量校正前后分别画一下PVCA图）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#批次校正"><span class="toc-number">7.</span> <span class="toc-text">批次校正</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协变量校正-amp-差异分析"><span class="toc-number">8.</span> <span class="toc-text">协变量校正 &amp; 差异分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对res文件做一些手动处理"><span class="toc-number">9.</span> <span class="toc-text">对res文件做一些手动处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果可视化（火山图）"><span class="toc-number">10.</span> <span class="toc-text">结果可视化（火山图）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用Excel打开res文件，根据padj这一列，筛选出padj-lt-0-05的所有行，另存为res-significant-csv文件"><span class="toc-number">11.</span> <span class="toc-text">用Excel打开res文件，根据padj这一列，筛选出padj&lt;0.05的所有行，另存为res_significant.csv文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能注释和通路富集"><span class="toc-number">12.</span> <span class="toc-text">功能注释和通路富集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#保存当前环境下的所有变量"><span class="toc-number">13.</span> <span class="toc-text">保存当前环境下的所有变量</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
@@ -1051,12 +1098,88 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
@@ -1127,15 +1250,5 @@ ga('send', 'pageview');
 
 <!-- Tiny_search End -->
 
-
-<!-- <a href="https://github.com/cuihuaxia" target="_blank" rel="noopener">
-<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67"
-alt="Fork me on GitHub" 
-data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
-</a> -->
-
-
-
-
   </body>
- </html>
+</html>
