@@ -11,15 +11,15 @@
     
 
     
-    <meta name="description" content="更新于 2021.01.09  echo ‘PATH&#x3D;$PATH:&#x2F;zs32&#x2F;home&#x2F;chxia&#x2F;.aspera&#x2F;connect&#x2F;bin’&gt;&gt;~&#x2F;.bashrc tar zxf sratoolkit.2.10.9-centos_linux64.tar.gz(base) [chxia@SKLMG10 Softwares]$ cd &#x2F;zs32&#x2F;home&#x2F;chxia&#x2F;Softwares&#x2F;">
+    <meta name="description" content="更新于 2021.01.09   echo &#39;PATH&#x3D;$PATH:&#x2F;zs32&#x2F;home&#x2F;chxia&#x2F;.aspera&#x2F;connect&#x2F;bin&#39;&gt;&gt;~&#x2F;.bashrc        tar zxf sratoolkit.2.10.9-centos_linux64.tar.gz (base) [chxia@SKLMG10 Softwares]$ cd &#x2F;zs32&#x2F;home">
 <meta property="og:type" content="article">
 <meta property="og:title" content="dbGaP数据下载">
 <meta property="og:url" content="https://touchumind.com/2021/01/09/dbGaP%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/index.html">
 <meta property="og:site_name" content="生物信息学技术分享">
-<meta property="og:description" content="更新于 2021.01.09  echo ‘PATH&#x3D;$PATH:&#x2F;zs32&#x2F;home&#x2F;chxia&#x2F;.aspera&#x2F;connect&#x2F;bin’&gt;&gt;~&#x2F;.bashrc tar zxf sratoolkit.2.10.9-centos_linux64.tar.gz(base) [chxia@SKLMG10 Softwares]$ cd &#x2F;zs32&#x2F;home&#x2F;chxia&#x2F;Softwares&#x2F;">
+<meta property="og:description" content="更新于 2021.01.09   echo &#39;PATH&#x3D;$PATH:&#x2F;zs32&#x2F;home&#x2F;chxia&#x2F;.aspera&#x2F;connect&#x2F;bin&#39;&gt;&gt;~&#x2F;.bashrc        tar zxf sratoolkit.2.10.9-centos_linux64.tar.gz (base) [chxia@SKLMG10 Softwares]$ cd &#x2F;zs32&#x2F;home">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-09T01:36:35.000Z">
-<meta property="article:modified_time" content="2021-01-24T12:04:07.670Z">
+<meta property="article:modified_time" content="2021-01-24T12:07:02.227Z">
 <meta property="article:author" content="TouchUMind">
 <meta name="twitter:card" content="summary">
 
@@ -395,23 +395,73 @@ pre {white-space: pre-wrap; word-wrap: normal;}
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#conda-install-c-bioconda-sra-tools-2-5-6"><span class="toc-number">1.</span> <span class="toc-text">conda install -c bioconda sra-tools&#x3D;2.5.6</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2021-01-07T13-37-27-prefetch-2-5-6-err-error-unexpected-while-resolving-tree-within-virtual-file-system-module-failed-to-resolve-accession-‘SRR1069188’-Obsolete-software-See-https-github-com-ncbi-sra-tools-wiki-Obsolete-software-406"><span class="toc-number">2.</span> <span class="toc-text">2021-01-07T13:37:27 prefetch.2.5.6 err: error unexpected while resolving tree within virtual file system module - failed to resolve accession ‘SRR1069188’ - Obsolete software. See https:&#x2F;&#x2F;github.com&#x2F;ncbi&#x2F;sra-tools&#x2F;wiki&#x2F;Obsolete-software ( 406 )</span></a></li></ol>
+			
 		
 		</div>
 		
 		<blockquote>
 <p>更新于 2021.01.09</p>
 </blockquote>
-<p>echo ‘PATH=$PATH:/zs32/home/chxia/.aspera/connect/bin’&gt;&gt;~/.bashrc</p>
-<p>tar zxf sratoolkit.2.10.9-centos_linux64.tar.gz<br>(base) [chxia@SKLMG10 Softwares]$ cd /zs32/home/chxia/Softwares/sratoolkit.2.10.9-centos_linux64/bin/<br>echo ‘PATH=$PATH:/zs32/home/chxia/Softwares/sratoolkit.2.10.9-centos_linux64/bin/‘&gt;&gt;~/.bashrc<br>source ~/.bashrc</p>
-<p>wget <a href="http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.5.6/sratoolkit.2.5.6-centos_linux64.tar.gz" target="_blank" rel="noopener">http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.5.6/sratoolkit.2.5.6-centos_linux64.tar.gz</a></p>
-<h1 id="conda-install-c-bioconda-sra-tools-2-5-6"><a href="#conda-install-c-bioconda-sra-tools-2-5-6" class="headerlink" title="conda install -c bioconda sra-tools=2.5.6"></a>conda install -c bioconda sra-tools=2.5.6</h1><p>cd /zs32/home/chxia/Softwares<br>tar zxf sratoolkit.2.5.6-centos_linux64.tar.gz<br>echo ‘PATH=$PATH:/zs32/home/chxia/Softwares/sratoolkit.2.5.6-centos_linux64/bin/‘&gt;&gt;~/.bashrc<br>source ~/.bashrc</p>
-<p>vdb-config –import /zs32/home/chxia/DATA/prj_10638.ngc<br>/zs32/home/chxia/DATA/prj_10638.ngc was imported.<br>New protected repository was created.<br>Repository directory is: ‘/zs32/home/chxia/ncbi/dbGaP-10638’.<br>cd /zs32/home/chxia/ncbi/dbGaP-10638<br>/zs32/home/chxia/Softwares/sratoolkit.2.5.6-centos_linux64/bin/prefetch cart_DAR50267_202101050840.krt<br>prefetch SRR1069188</p>
-<h1 id="2021-01-07T13-37-27-prefetch-2-5-6-err-error-unexpected-while-resolving-tree-within-virtual-file-system-module-failed-to-resolve-accession-‘SRR1069188’-Obsolete-software-See-https-github-com-ncbi-sra-tools-wiki-Obsolete-software-406"><a href="#2021-01-07T13-37-27-prefetch-2-5-6-err-error-unexpected-while-resolving-tree-within-virtual-file-system-module-failed-to-resolve-accession-‘SRR1069188’-Obsolete-software-See-https-github-com-ncbi-sra-tools-wiki-Obsolete-software-406" class="headerlink" title="2021-01-07T13:37:27 prefetch.2.5.6 err: error unexpected while resolving tree within virtual file system module - failed to resolve accession ‘SRR1069188’ - Obsolete software. See https://github.com/ncbi/sra-tools/wiki/Obsolete-software ( 406 )"></a>2021-01-07T13:37:27 prefetch.2.5.6 err: error unexpected while resolving tree within virtual file system module - failed to resolve accession ‘SRR1069188’ - Obsolete software. See <a href="https://github.com/ncbi/sra-tools/wiki/Obsolete-software" target="_blank" rel="noopener">https://github.com/ncbi/sra-tools/wiki/Obsolete-software</a> ( 406 )</h1><p>prefetch -V</p>
-<p>prefetch –option-file cart_DAR50267_202101050840.krt –output-directory /zs32/home/chxia/ncbi/dbGaP-10638/</p>
-<p>prefetch -a /zs32/home/chxia/.aspera/connect/bin/ascp|/zs32/home/chxia/.aspera/connect/etc/asperaweb_id_dsa.openssh –ngc /zs32/home/chxia/DATA/prj_10638.ngc –cart cart_DAR50267_202101050840.krt -O output_dir/</p>
-<p>prefetch /zs32/home/chxia/.aspera/connect/bin/ascp|/zs32/home/chxia/.aspera/connect/etc/asperaweb_id_dsa.openssh –ngc /zs32/home/chxia/DATA/prj_10638.ngc –cart cart_DAR50267_202101050840.krt -O /zs32/home/chxia/ncbi/dbGaP-10638/</p>
-<p>prefetch -t ascp -a “/zs32/home/chxia/.aspera/connect/bin/ascp|/zs32/home/chxia/.aspera/connect/etc/asperaweb_id_dsa.openssh” –option-file cart_DAR50267_202101050840.krt </p>
+<pre><code class="shell">
+echo &#39;PATH=$PATH:/zs32/home/chxia/.aspera/connect/bin&#39;&gt;&gt;~/.bashrc
+
+
+
+
+
+
+
+tar zxf sratoolkit.2.10.9-centos_linux64.tar.gz
+(base) [chxia@SKLMG10 Softwares]$ cd /zs32/home/chxia/Softwares/sratoolkit.2.10.9-centos_linux64/bin/
+echo &#39;PATH=$PATH:/zs32/home/chxia/Softwares/sratoolkit.2.10.9-centos_linux64/bin/&#39;&gt;&gt;~/.bashrc
+source ~/.bashrc
+
+
+
+wget http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.5.6/sratoolkit.2.5.6-centos_linux64.tar.gz
+# conda install -c bioconda sra-tools=2.5.6
+cd /zs32/home/chxia/Softwares
+tar zxf sratoolkit.2.5.6-centos_linux64.tar.gz
+echo &#39;PATH=$PATH:/zs32/home/chxia/Softwares/sratoolkit.2.5.6-centos_linux64/bin/&#39;&gt;&gt;~/.bashrc
+source ~/.bashrc
+
+
+
+
+
+
+
+
+
+
+
+
+vdb-config --import /zs32/home/chxia/DATA/prj_10638.ngc
+/zs32/home/chxia/DATA/prj_10638.ngc was imported.
+New protected repository was created.
+Repository directory is: &#39;/zs32/home/chxia/ncbi/dbGaP-10638&#39;.
+cd /zs32/home/chxia/ncbi/dbGaP-10638
+/zs32/home/chxia/Softwares/sratoolkit.2.5.6-centos_linux64/bin/prefetch cart_DAR50267_202101050840.krt
+prefetch SRR1069188
+
+
+# 2021-01-07T13:37:27 prefetch.2.5.6 err: error unexpected while resolving tree within virtual file system module - failed to resolve accession &#39;SRR1069188&#39; - Obsolete software. See https://github.com/ncbi/sra-tools/wiki/Obsolete-software ( 406 )
+
+
+
+
+
+prefetch -V
+
+prefetch --option-file cart_DAR50267_202101050840.krt --output-directory /zs32/home/chxia/ncbi/dbGaP-10638/
+
+
+prefetch -a /zs32/home/chxia/.aspera/connect/bin/ascp|/zs32/home/chxia/.aspera/connect/etc/asperaweb_id_dsa.openssh --ngc /zs32/home/chxia/DATA/prj_10638.ngc --cart cart_DAR50267_202101050840.krt -O output_dir/
+
+prefetch /zs32/home/chxia/.aspera/connect/bin/ascp|/zs32/home/chxia/.aspera/connect/etc/asperaweb_id_dsa.openssh --ngc /zs32/home/chxia/DATA/prj_10638.ngc --cart cart_DAR50267_202101050840.krt -O /zs32/home/chxia/ncbi/dbGaP-10638/
+
+
+prefetch -t ascp -a &quot;/zs32/home/chxia/.aspera/connect/bin/ascp|/zs32/home/chxia/.aspera/connect/etc/asperaweb_id_dsa.openssh&quot; --option-file cart_DAR50267_202101050840.krt </code></pre>
   
 	</div>
 
@@ -477,7 +527,7 @@ pre {white-space: pre-wrap; word-wrap: normal;}
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#conda-install-c-bioconda-sra-tools-2-5-6"><span class="toc-number">1.</span> <span class="toc-text">conda install -c bioconda sra-tools&#x3D;2.5.6</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2021-01-07T13-37-27-prefetch-2-5-6-err-error-unexpected-while-resolving-tree-within-virtual-file-system-module-failed-to-resolve-accession-‘SRR1069188’-Obsolete-software-See-https-github-com-ncbi-sra-tools-wiki-Obsolete-software-406"><span class="toc-number">2.</span> <span class="toc-text">2021-01-07T13:37:27 prefetch.2.5.6 err: error unexpected while resolving tree within virtual file system module - failed to resolve accession ‘SRR1069188’ - Obsolete software. See https:&#x2F;&#x2F;github.com&#x2F;ncbi&#x2F;sra-tools&#x2F;wiki&#x2F;Obsolete-software ( 406 )</span></a></li></ol>
+ 
  
   </div>
 
@@ -570,6 +620,10 @@ pre {white-space: pre-wrap; word-wrap: normal;}
 			
 		
 			
+				<li><a href="/tags/Apache/" title="Apache">Apache<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li>
 			
 		
@@ -578,19 +632,11 @@ pre {white-space: pre-wrap; word-wrap: normal;}
 			
 		
 			
-				<li><a href="/tags/Apache/" title="Apache">Apache<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Perl/" title="Perl">Perl<sup>1</sup></a></li>
+				<li><a href="/tags/Presentation/" title="Presentation">Presentation<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/GWAS/" title="GWAS">GWAS<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Presentation/" title="Presentation">Presentation<sup>1</sup></a></li>
 			
 		
 			
@@ -618,6 +664,10 @@ pre {white-space: pre-wrap; word-wrap: normal;}
 			
 		
 			
+				<li><a href="/tags/博客备份/" title="博客备份">博客备份<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/limma/" title="limma">limma<sup>1</sup></a></li>
 			
 		
@@ -626,7 +676,7 @@ pre {white-space: pre-wrap; word-wrap: normal;}
 			
 		
 			
-				<li><a href="/tags/博客备份/" title="博客备份">博客备份<sup>1</sup></a></li>
+				<li><a href="/tags/气泡图/" title="气泡图">气泡图<sup>1</sup></a></li>
 			
 		
 			
@@ -634,7 +684,7 @@ pre {white-space: pre-wrap; word-wrap: normal;}
 			
 		
 			
-				<li><a href="/tags/气泡图/" title="气泡图">气泡图<sup>1</sup></a></li>
+				<li><a href="/tags/博客搭建/" title="博客搭建">博客搭建<sup>1</sup></a></li>
 			
 		
 			
@@ -642,7 +692,7 @@ pre {white-space: pre-wrap; word-wrap: normal;}
 			
 		
 			
-				<li><a href="/tags/博客搭建/" title="博客搭建">博客搭建<sup>1</sup></a></li>
+				<li><a href="/tags/文献阅读/" title="文献阅读">文献阅读<sup>1</sup></a></li>
 			
 		
 			
@@ -654,15 +704,11 @@ pre {white-space: pre-wrap; word-wrap: normal;}
 			
 		
 			
-				<li><a href="/tags/文献阅读/" title="文献阅读">文献阅读<sup>1</sup></a></li>
+				<li><a href="/tags/Sequencing/" title="Sequencing">Sequencing<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/科研工具/" title="科研工具">科研工具<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Sequencing/" title="Sequencing">Sequencing<sup>1</sup></a></li>
 			
 		
 			
@@ -677,6 +723,10 @@ pre {white-space: pre-wrap; word-wrap: normal;}
 				<li><a href="/tags/探针注释/" title="探针注释">探针注释<sup>1</sup></a></li>
 			
 		
+			
+				<li><a href="/tags/Perl/" title="Perl">Perl<sup>1</sup></a></li>
+			
+		
 		</ul>
 </div>
 
@@ -685,7 +735,7 @@ pre {white-space: pre-wrap; word-wrap: normal;}
   <div class="tagcloudlist">
     <p class="asidetitle">Tag Cloud</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/R/" style="font-size: 23px; color: #51a4c7">R</a> <a href="/tags/Linux/" style="font-size: 13px; color: #51a4c7">Linux</a> <a href="/tags/MySQL/" style="font-size: 13px; color: #51a4c7">MySQL</a> <a href="/tags/PPT%E6%A8%A1%E6%9D%BF/" style="font-size: 13px; color: #51a4c7">PPT模板</a> <a href="/tags/Apache/" style="font-size: 13px; color: #51a4c7">Apache</a> <a href="/tags/Perl/" style="font-size: 13px; color: #51a4c7">Perl</a> <a href="/tags/GWAS/" style="font-size: 13px; color: #51a4c7">GWAS</a> <a href="/tags/Presentation/" style="font-size: 13px; color: #51a4c7">Presentation</a> <a href="/tags/RSS/" style="font-size: 13px; color: #51a4c7">RSS</a> <a href="/tags/English/" style="font-size: 18px; color: #51a4c7">English</a> <a href="/tags/Listening/" style="font-size: 13px; color: #51a4c7">Listening</a> <a href="/tags/Git/" style="font-size: 13px; color: #51a4c7">Git</a> <a href="/tags/GitHubDesktop/" style="font-size: 13px; color: #51a4c7">GitHubDesktop</a> <a href="/tags/Writing/" style="font-size: 18px; color: #51a4c7">Writing</a> <a href="/tags/ggplot2/" style="font-size: 13px; color: #51a4c7">ggplot2</a> <a href="/tags/%E6%95%A3%E7%82%B9%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">散点图</a> <a href="/tags/limma/" style="font-size: 13px; color: #51a4c7">limma</a> <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" style="font-size: 13px; color: #51a4c7">差异表达</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD/" style="font-size: 13px; color: #51a4c7">博客备份</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/" style="font-size: 13px; color: #51a4c7">代码高亮</a> <a href="/tags/%E6%B0%94%E6%B3%A1%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">气泡图</a> <a href="/tags/PRS/" style="font-size: 13px; color: #51a4c7">PRS</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px; color: #51a4c7">博客搭建</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13px; color: #51a4c7">知识管理</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%8A%9E%E5%85%AC/" style="font-size: 13px; color: #51a4c7">效率办公</a> <a href="/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" style="font-size: 18px; color: #51a4c7">文献检索</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13px; color: #51a4c7">文献阅读</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #51a4c7">科研工具</a> <a href="/tags/Sequencing/" style="font-size: 13px; color: #51a4c7">Sequencing</a> <a href="/tags/Jekyll/" style="font-size: 13px; color: #51a4c7">Jekyll</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #51a4c7">Hexo</a> <a href="/tags/%E6%8E%A2%E9%92%88%E6%B3%A8%E9%87%8A/" style="font-size: 13px; color: #51a4c7">探针注释</a>
+       <a href="/tags/R/" style="font-size: 23px; color: #51a4c7">R</a> <a href="/tags/Linux/" style="font-size: 13px; color: #51a4c7">Linux</a> <a href="/tags/Apache/" style="font-size: 13px; color: #51a4c7">Apache</a> <a href="/tags/MySQL/" style="font-size: 13px; color: #51a4c7">MySQL</a> <a href="/tags/PPT%E6%A8%A1%E6%9D%BF/" style="font-size: 13px; color: #51a4c7">PPT模板</a> <a href="/tags/Presentation/" style="font-size: 13px; color: #51a4c7">Presentation</a> <a href="/tags/GWAS/" style="font-size: 13px; color: #51a4c7">GWAS</a> <a href="/tags/RSS/" style="font-size: 13px; color: #51a4c7">RSS</a> <a href="/tags/English/" style="font-size: 18px; color: #51a4c7">English</a> <a href="/tags/Listening/" style="font-size: 13px; color: #51a4c7">Listening</a> <a href="/tags/Git/" style="font-size: 13px; color: #51a4c7">Git</a> <a href="/tags/GitHubDesktop/" style="font-size: 13px; color: #51a4c7">GitHubDesktop</a> <a href="/tags/Writing/" style="font-size: 18px; color: #51a4c7">Writing</a> <a href="/tags/ggplot2/" style="font-size: 13px; color: #51a4c7">ggplot2</a> <a href="/tags/%E6%95%A3%E7%82%B9%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">散点图</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD/" style="font-size: 13px; color: #51a4c7">博客备份</a> <a href="/tags/limma/" style="font-size: 13px; color: #51a4c7">limma</a> <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" style="font-size: 13px; color: #51a4c7">差异表达</a> <a href="/tags/%E6%B0%94%E6%B3%A1%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">气泡图</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/" style="font-size: 13px; color: #51a4c7">代码高亮</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px; color: #51a4c7">博客搭建</a> <a href="/tags/PRS/" style="font-size: 13px; color: #51a4c7">PRS</a> <a href="/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" style="font-size: 18px; color: #51a4c7">文献检索</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13px; color: #51a4c7">文献阅读</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13px; color: #51a4c7">知识管理</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%8A%9E%E5%85%AC/" style="font-size: 13px; color: #51a4c7">效率办公</a> <a href="/tags/Sequencing/" style="font-size: 13px; color: #51a4c7">Sequencing</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #51a4c7">科研工具</a> <a href="/tags/Jekyll/" style="font-size: 13px; color: #51a4c7">Jekyll</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #51a4c7">Hexo</a> <a href="/tags/%E6%8E%A2%E9%92%88%E6%B3%A8%E9%87%8A/" style="font-size: 13px; color: #51a4c7">探针注释</a> <a href="/tags/Perl/" style="font-size: 13px; color: #51a4c7">Perl</a>
     </div>
   </div>
 
