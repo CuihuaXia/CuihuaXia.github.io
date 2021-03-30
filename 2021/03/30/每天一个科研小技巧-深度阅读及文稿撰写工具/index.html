@@ -4,28 +4,24 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Linux普通用户下安装Apache | 生物信息学技术分享</title>
+    <title>每天一个科研小技巧-深度阅读及文稿撰写工具 | 生物信息学技术分享</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="TouchUMind">
     
 
     
-    <meta name="description" content="安装包下载 去官网 http:&#x2F;&#x2F;httpd.apache.org&#x2F;下载Apache的源码包，这里下载的是最新的httpd-2.4.43.tar.bz2这个包。 去官网http:&#x2F;&#x2F;apr.apache.org&#x2F;download.cgi下载apr和apr-util的源码包，这里下载的是最新的apr-1.7.0.tar.gz和apr-util-1.6.1.tar.gz这两个包。 去官网https:&#x2F;">
+    <meta name="description" content="更新于 2021-03-30  https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;GwTiq6no2p3OYZLTte4eRA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux普通用户下安装Apache">
-<meta property="og:url" content="https://touchumind.com/2020/05/27/Linux%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%E4%B8%8B%E5%AE%89%E8%A3%85Apache/index.html">
+<meta property="og:title" content="每天一个科研小技巧-深度阅读及文稿撰写工具">
+<meta property="og:url" content="https://touchumind.com/2021/03/30/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AA%E7%A7%91%E7%A0%94%E5%B0%8F%E6%8A%80%E5%B7%A7-%E6%B7%B1%E5%BA%A6%E9%98%85%E8%AF%BB%E5%8F%8A%E6%96%87%E7%A8%BF%E6%92%B0%E5%86%99%E5%B7%A5%E5%85%B7/index.html">
 <meta property="og:site_name" content="生物信息学技术分享">
-<meta property="og:description" content="安装包下载 去官网 http:&#x2F;&#x2F;httpd.apache.org&#x2F;下载Apache的源码包，这里下载的是最新的httpd-2.4.43.tar.bz2这个包。 去官网http:&#x2F;&#x2F;apr.apache.org&#x2F;download.cgi下载apr和apr-util的源码包，这里下载的是最新的apr-1.7.0.tar.gz和apr-util-1.6.1.tar.gz这两个包。 去官网https:&#x2F;">
+<meta property="og:description" content="更新于 2021-03-30  https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;GwTiq6no2p3OYZLTte4eRA">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://images2015.cnblogs.com/blog/734555/201602/734555-20160202144513694-1214565426.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/uPic/image-20200527175714551.png">
-<meta property="article:published_time" content="2020-05-27T09:13:46.000Z">
-<meta property="article:modified_time" content="2020-05-27T11:27:16.667Z">
+<meta property="article:published_time" content="2021-03-30T09:18:49.000Z">
+<meta property="article:modified_time" content="2021-03-30T09:19:35.546Z">
 <meta property="article:author" content="TouchUMind">
-<meta property="article:tag" content="Apache">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/734555/201602/734555-20160202144513694-1214565426.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="生物信息学技术分享" type="application/atom+xml">
@@ -374,19 +370,19 @@ pre {white-space: pre-wrap; word-wrap: normal;}
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2020/05/27/Linux普通用户下安装Apache/" title="Linux普通用户下安装Apache" itemprop="url">Linux普通用户下安装Apache</a>
+      <a href="/2021/03/30/每天一个科研小技巧-深度阅读及文稿撰写工具/" title="每天一个科研小技巧-深度阅读及文稿撰写工具" itemprop="url">每天一个科研小技巧-深度阅读及文稿撰写工具</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="TouchUMind" target="_blank" itemprop="author">TouchUMind</a>
 		
   <p class="article-time">
-    <time datetime="2020-05-27T09:13:46.000Z" itemprop="datePublished"> Published 2020-05-27</time>
+    <time datetime="2021-03-30T09:18:49.000Z" itemprop="datePublished"> Published 2021-03-30</time>
 
 
 
 
-    <!-- <time datetime="2020-05-27T09:13:46.000Z" itemprop="dateUpdated"> dateupdated 2020-05-27</time> -->
+    <!-- <time datetime="2021-03-30T09:18:49.000Z" itemprop="dateUpdated"> dateupdated 2021-03-30</time> -->
 
 
 
@@ -399,89 +395,14 @@ pre {white-space: pre-wrap; word-wrap: normal;}
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装包下载"><span class="toc-number">1.</span> <span class="toc-text">安装包下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解压并安装apr"><span class="toc-number">2.</span> <span class="toc-text">解压并安装apr</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解压并安装apr-util"><span class="toc-number">3.</span> <span class="toc-text">解压并安装apr-util</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解压并安装pcre"><span class="toc-number">4.</span> <span class="toc-text">解压并安装pcre</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解压并安装Apache"><span class="toc-number">5.</span> <span class="toc-text">解压并安装Apache</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动Apache-httpd服务之前"><span class="toc-number">6.</span> <span class="toc-text">启动Apache httpd服务之前</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动Apache-httpd服务"><span class="toc-number">7.</span> <span class="toc-text">启动Apache httpd服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器访问对应服务器的外网ip地址（加端口），看到It-works-即表示安装成功"><span class="toc-number">8.</span> <span class="toc-text">浏览器访问对应服务器的外网ip地址（加端口），看到It works! 即表示安装成功</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#停止Apache-httpd服务"><span class="toc-number">9.</span> <span class="toc-text">停止Apache httpd服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料"><span class="toc-number">10.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#结束语"><span class="toc-number">11.</span> <span class="toc-text">结束语</span></a></li></ol>
+			
 		
 		</div>
 		
-		<h4 id="安装包下载"><a href="#安装包下载" class="headerlink" title="安装包下载"></a>安装包下载</h4><ol>
-<li>去官网 <a href="http://httpd.apache.org/" target="_blank" rel="noopener">http://httpd.apache.org/</a>下载Apache的源码包，这里下载的是最新的<code>httpd-2.4.43.tar.bz2</code>这个包。</li>
-<li>去官网<a href="http://apr.apache.org/download.cgi" target="_blank" rel="noopener">http://apr.apache.org/download.cgi</a>下载apr和apr-util的源码包，这里下载的是最新的<code>apr-1.7.0.tar.gz</code>和<code>apr-util-1.6.1.tar.gz</code>这两个包。</li>
-<li>去官网<a href="https://ftp.pcre.org/pub/pcre/" target="_blank" rel="noopener">https://ftp.pcre.org/pub/pcre/</a>下载pcre的源码包，这里下载的是<code>pcre-8.44.zip</code>这个包。</li>
-</ol>
-<h4 id="解压并安装apr"><a href="#解压并安装apr" class="headerlink" title="解压并安装apr"></a>解压并安装apr</h4><pre><code class="shell"># 解压apr
-cd /zs32/home/chxia/Softwares
-tar -zxvf apr-1.7.0.tar.gz
-# 进入源码包目录，安装apr
-cd apr-1.7.0
-./configure --prefix=/zs32/home/chxia/Softwares/apr-1.7.0/usr/local/apr
-make
-make install</code></pre>
-<p>上面的配置参数–prefix就是指定安装目录，执行没问题稍等一会就安装好了。</p>
-<h4 id="解压并安装apr-util"><a href="#解压并安装apr-util" class="headerlink" title="解压并安装apr-util"></a>解压并安装apr-util</h4><pre><code class="shell"># 解压apr-util
-cd /zs32/home/chxia/Softwares
-tar -zxvf apr-util-1.6.1.tar.gz 
-# 进入源码包目录，安装apr-util
-cd apr-util-1.6.1
-./configure --prefix=/zs32/home/chxia/Softwares/apr-util-1.6.1/usr/local/apr-util --with-apr=/zs32/home/chxia/Softwares/apr-1.7.0/usr/local/apr
-make
-make install</code></pre>
-<p>上面配置参数的–with-apr表示apr-util安装需要依赖apr，所以指定apr的安装目录，到这里apr-util也安装完成了。</p>
-<h4 id="解压并安装pcre"><a href="#解压并安装pcre" class="headerlink" title="解压并安装pcre"></a>解压并安装pcre</h4><pre><code class="shell"># 解压pcre
-cd /zs32/home/chxia/Softwares
-unzip pcre-8.44.zip 
-# 进入源码包目录，安装pcre
-cd pcre-8.44
-./configure --prefix=/zs32/home/chxia/Softwares/pcre-8.44/usr/local/pcre
-make
-make install</code></pre>
-<h4 id="解压并安装Apache"><a href="#解压并安装Apache" class="headerlink" title="解压并安装Apache"></a>解压并安装Apache</h4><pre><code class="shell"># 删除之前安装的Apache httpd-2.4.43
-rm -R /zs32/home/chxia/Softwares/httpd-2.4.43
-## 解压并安装Apache httpd-2.4.43
-# 解压Apache httpd-2.4.43
-cd /zs32/home/chxia/Softwares
-tar -jxvf httpd-2.4.43.tar.bz2
-# 进入源码包目录，安装Apache httpd-2.4.43
-cd /zs32/home/chxia/Softwares/httpd-2.4.43
-./configure --prefix=/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24 --with-apr=/zs32/home/chxia/Softwares/apr-1.7.0/usr/local/apr --with-apr-util=/zs32/home/chxia/Softwares/apr-util-1.6.1/usr/local/apr-util --with-pcre=/zs32/home/chxia/Softwares/pcre-8.44/usr/local/pcre
-make clean
-make
-make install</code></pre>
-<p>编译过程时间有点长，耐心等待一下，执行完毕，Apache就安装完成了。</p>
-<p>注意：如果make中出现错误，必须执行make clean清除所有缓存文件后继续，如果是在make install过程中出现错误，必须执行make clean并且删除生成了的安装目录，然后重新执行make和make install。</p>
-<h4 id="启动Apache-httpd服务之前"><a href="#启动Apache-httpd服务之前" class="headerlink" title="启动Apache httpd服务之前"></a>启动Apache httpd服务之前</h4><ol>
-<li><p>修改端口为<code>1024</code>以上端口</p>
-<p>注：非root用户使用的端口80将无权限，1~1024 端口只有root只能绑定。你如果不是用root启动apache，则需修改为1024以上的端口。<br>所以，需要打开<code>/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/conf/httpd.conf</code>修改端口信息。</p>
-<pre><code class="shell">#Listen 12.34.56.78:80
- Listen 8080      //修改端口为8080或8008</code></pre>
-</li>
-<li><p>打开<code>/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/conf/httpd.conf</code>文件找到<code>#ServerName www.example.com:80</code>, 把这行代码前面的<code>#</code>去掉，保存退出，然后重新启动Apache。</p>
-</li>
-<li><p>需要注意服务器的默认根目录（即放<code>index.html</code>等网站文件的目录）是在<code>/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/htdocs/</code>。</p>
-</li>
-</ol>
-<h4 id="启动Apache-httpd服务"><a href="#启动Apache-httpd服务" class="headerlink" title="启动Apache httpd服务"></a>启动Apache httpd服务</h4><pre><code class="shell"># 启动Apache服务
-/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/bin/apachectl start
-/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/bin/apachectl -f /zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/conf/httpd.conf -k start</code></pre>
-<h4 id="浏览器访问对应服务器的外网ip地址（加端口），看到It-works-即表示安装成功"><a href="#浏览器访问对应服务器的外网ip地址（加端口），看到It-works-即表示安装成功" class="headerlink" title="浏览器访问对应服务器的外网ip地址（加端口），看到It works! 即表示安装成功"></a>浏览器访问对应服务器的<u>外网ip</u>地址（加端口），看到It works! 即表示安装成功</h4><p>如下图所示：</p>
-<p><img src="https://images2015.cnblogs.com/blog/734555/201602/734555-20160202144513694-1214565426.jpg" alt="It works"></p>
-<p>但，遗憾的是，我没有成功，我的访问结果是：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/uPic/image-20200527175714551.png" alt="image-20200527175714551"></p>
-<p>究其原因，大概是我没有使用root真正启动Apache吧。</p>
-<p>需要root操作一下来开启Apache服务：</p>
-<pre><code class="shell"># root开启Apache服务
-service httpd start</code></pre>
-<h4 id="停止Apache-httpd服务"><a href="#停止Apache-httpd服务" class="headerlink" title="停止Apache httpd服务"></a>停止Apache httpd服务</h4><pre><code class="shell"># 停止Apache服务
-/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/bin/apachectl stop</code></pre>
-<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ol>
-<li><a href="https://www.cnblogs.com/freeweb/p/5177516.html" target="_blank" rel="noopener">https://www.cnblogs.com/freeweb/p/5177516.html</a></li>
-<li><a href="http://www.itechlib.com/2016/01/07/non-root-start-apache-mysql" target="_blank" rel="noopener">http://www.itechlib.com/2016/01/07/non-root-start-apache-mysql</a></li>
-<li><a href="https://blog.csdn.net/xuexiaoxu1990/article/details/50460084" target="_blank" rel="noopener">https://blog.csdn.net/xuexiaoxu1990/article/details/50460084</a></li>
-</ol>
-<h4 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h4><p>在任务如此繁重，时间如此紧张的情况下，今天，我又花了整整一天时间安装Apache服务，以为终于可以使用自己实验室的Linux服务器搭建网站，并可以成功访问网页了，然而——现实是残酷的。在老板不给租云服务器，而自己实验室的服务器又没有root操作权限的前提下，我的数据库网站搭建技术学得再好，也只是白费，想要以一己之力实现搭建数据库网站和发数据库文章一条龙的梦，始终是——泡沫。</p>
-<p>因此，也许很快…我不会再坚持“作为一个生信人必须要掌握开发数据库网站这项<u>基本技能</u>”了吧。</p>
-<p>科研的时间如此宝贵，我不会把宝贵的时间和精力浪费在“一开始就知道不会有结果”的事情上。</p>
-<p>既然此路不通，那我从此便关闭此路。</p>
-<p>科研之路，条条大路通罗马，马上开启自己的下一条路便是了。下一条路，大可能比这一条路容易实现得多。</p>
+		<blockquote>
+<p>更新于 2021-03-30</p>
+</blockquote>
+<p><a href="https://mp.weixin.qq.com/s/GwTiq6no2p3OYZLTte4eRA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/GwTiq6no2p3OYZLTte4eRA</a></p>
   
 	</div>
 
@@ -489,7 +410,7 @@ service httpd start</code></pre>
       <div class="article-footer-copyright">
   <left><b>本文作者：<a href="/about/" target="_blank" title="TouchUMind">TouchUMind</a></b></left><br/>
 
-  <left><b>本文链接：<a href="/2020/05/27/Linux普通用户下安装Apache/" target="_blank" title="Linux普通用户下安装Apache">https://touchumind.com/2020/05/27/Linux普通用户下安装Apache/</a></b>.</left></br>
+  <left><b>本文链接：<a href="/2021/03/30/每天一个科研小技巧-深度阅读及文稿撰写工具/" target="_blank" title="每天一个科研小技巧-深度阅读及文稿撰写工具">https://touchumind.com/2021/03/30/每天一个科研小技巧-深度阅读及文稿撰写工具/</a></b>.</left></br>
 
   <left><b>版权声明：</b>本文著作权归作者所有，遵循<b>CC BY</b>-<b>NC</b>-<b>SA 4.0</b>国际许可协议。商业转载请联系作者获取授权，非商业转载请注明作者及出处！</left>
 </div>
@@ -500,14 +421,9 @@ service httpd start</code></pre>
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a>
+  <a class="article-category-link" href="/categories/%E6%88%91%E7%9A%84%E8%A7%86%E9%A2%91/">我的视频</a>
 </div>
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Apache/">Apache</a>
-  </div>
 
 </div>
 
@@ -515,7 +431,7 @@ service httpd start</code></pre>
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://touchumind.com/2020/05/27/Linux%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%E4%B8%8B%E5%AE%89%E8%A3%85Apache/" data-title="Linux普通用户下安装Apache | 生物信息学技术分享" data-tsina="" class="share clearfix">
+	  <div data-url="https://touchumind.com/2021/03/30/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AA%E7%A7%91%E7%A0%94%E5%B0%8F%E6%8A%80%E5%B7%A7-%E6%B7%B1%E5%BA%A6%E9%98%85%E8%AF%BB%E5%8F%8A%E6%96%87%E7%A8%BF%E6%92%B0%E5%86%99%E5%B7%A5%E5%85%B7/" data-title="每天一个科研小技巧-深度阅读及文稿撰写工具 | 生物信息学技术分享" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -529,18 +445,18 @@ service httpd start</code></pre>
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2020/06/01/使用GitHub备份Hexo博客源文件/" title="使用GitHub备份Hexo博客源文件">
+ <a href="/2021/03/30/每天一个科研小技巧-借助Twitter获取最新文献或研究动态/" title="每天一个科研小技巧-借助Twitter获取最新文献或研究动态">
   <strong>上一篇：</strong><br/>
   <span>
-  使用GitHub备份Hexo博客源文件</span>
+  每天一个科研小技巧-借助Twitter获取最新文献或研究动态</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2020/05/26/Linux版本MySQL在个人目录下的下载与安装/"  title="Linux版本MySQL在个人目录下的下载与安装">
+<a href="/2021/03/30/如何评价大秦左丞相——李斯/"  title="如何评价大秦左丞相——李斯">
  <strong>下一篇：</strong><br/> 
- <span>Linux版本MySQL在个人目录下的下载与安装
+ <span>如何评价大秦左丞相——李斯
 </span>
 </a>
 </div>
@@ -557,7 +473,7 @@ service httpd start</code></pre>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装包下载"><span class="toc-number">1.</span> <span class="toc-text">安装包下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解压并安装apr"><span class="toc-number">2.</span> <span class="toc-text">解压并安装apr</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解压并安装apr-util"><span class="toc-number">3.</span> <span class="toc-text">解压并安装apr-util</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解压并安装pcre"><span class="toc-number">4.</span> <span class="toc-text">解压并安装pcre</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解压并安装Apache"><span class="toc-number">5.</span> <span class="toc-text">解压并安装Apache</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动Apache-httpd服务之前"><span class="toc-number">6.</span> <span class="toc-text">启动Apache httpd服务之前</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动Apache-httpd服务"><span class="toc-number">7.</span> <span class="toc-text">启动Apache httpd服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器访问对应服务器的外网ip地址（加端口），看到It-works-即表示安装成功"><span class="toc-number">8.</span> <span class="toc-text">浏览器访问对应服务器的外网ip地址（加端口），看到It works! 即表示安装成功</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#停止Apache-httpd服务"><span class="toc-number">9.</span> <span class="toc-text">停止Apache httpd服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料"><span class="toc-number">10.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#结束语"><span class="toc-number">11.</span> <span class="toc-text">结束语</span></a></li></ol>
+ 
  
   </div>
 

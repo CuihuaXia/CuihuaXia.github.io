@@ -4,28 +4,22 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Linux普通用户下安装Apache | 生物信息学技术分享</title>
+    <title>生物信息学技术分享</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="TouchUMind">
     
 
     
-    <meta name="description" content="安装包下载 去官网 http:&#x2F;&#x2F;httpd.apache.org&#x2F;下载Apache的源码包，这里下载的是最新的httpd-2.4.43.tar.bz2这个包。 去官网http:&#x2F;&#x2F;apr.apache.org&#x2F;download.cgi下载apr和apr-util的源码包，这里下载的是最新的apr-1.7.0.tar.gz和apr-util-1.6.1.tar.gz这两个包。 去官网https:&#x2F;">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Linux普通用户下安装Apache">
-<meta property="og:url" content="https://touchumind.com/2020/05/27/Linux%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%E4%B8%8B%E5%AE%89%E8%A3%85Apache/index.html">
+    <meta name="description" content="This is Cuihua Xia&#39;s Tech Blog.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="生物信息学技术分享">
+<meta property="og:url" content="https://touchumind.com/page/4/index.html">
 <meta property="og:site_name" content="生物信息学技术分享">
-<meta property="og:description" content="安装包下载 去官网 http:&#x2F;&#x2F;httpd.apache.org&#x2F;下载Apache的源码包，这里下载的是最新的httpd-2.4.43.tar.bz2这个包。 去官网http:&#x2F;&#x2F;apr.apache.org&#x2F;download.cgi下载apr和apr-util的源码包，这里下载的是最新的apr-1.7.0.tar.gz和apr-util-1.6.1.tar.gz这两个包。 去官网https:&#x2F;">
+<meta property="og:description" content="This is Cuihua Xia&#39;s Tech Blog.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://images2015.cnblogs.com/blog/734555/201602/734555-20160202144513694-1214565426.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/uPic/image-20200527175714551.png">
-<meta property="article:published_time" content="2020-05-27T09:13:46.000Z">
-<meta property="article:modified_time" content="2020-05-27T11:27:16.667Z">
 <meta property="article:author" content="TouchUMind">
-<meta property="article:tag" content="Apache">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/734555/201602/734555-20160202144513694-1214565426.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="生物信息学技术分享" type="application/atom+xml">
@@ -368,198 +362,77 @@ pre {white-space: pre-wrap; word-wrap: normal;}
 </div>
     </header>
     <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
+      <div id="main">
+
   
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2020/05/27/Linux普通用户下安装Apache/" title="Linux普通用户下安装Apache" itemprop="url">Linux普通用户下安装Apache</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="TouchUMind" target="_blank" itemprop="author">TouchUMind</a>
-		
-  <p class="article-time">
-    <time datetime="2020-05-27T09:13:46.000Z" itemprop="datePublished"> Published 2020-05-27</time>
-
-
-
-
-    <!-- <time datetime="2020-05-27T09:13:46.000Z" itemprop="dateUpdated"> dateupdated 2020-05-27</time> -->
-
-
-
-    <span id="busuanzi_container_page_pv">&nbsp;Totally&nbsp;<span id="busuanzi_value_page_pv"></span> views
-</span>
-  </p>
-</header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装包下载"><span class="toc-number">1.</span> <span class="toc-text">安装包下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解压并安装apr"><span class="toc-number">2.</span> <span class="toc-text">解压并安装apr</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解压并安装apr-util"><span class="toc-number">3.</span> <span class="toc-text">解压并安装apr-util</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解压并安装pcre"><span class="toc-number">4.</span> <span class="toc-text">解压并安装pcre</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解压并安装Apache"><span class="toc-number">5.</span> <span class="toc-text">解压并安装Apache</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动Apache-httpd服务之前"><span class="toc-number">6.</span> <span class="toc-text">启动Apache httpd服务之前</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动Apache-httpd服务"><span class="toc-number">7.</span> <span class="toc-text">启动Apache httpd服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器访问对应服务器的外网ip地址（加端口），看到It-works-即表示安装成功"><span class="toc-number">8.</span> <span class="toc-text">浏览器访问对应服务器的外网ip地址（加端口），看到It works! 即表示安装成功</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#停止Apache-httpd服务"><span class="toc-number">9.</span> <span class="toc-text">停止Apache httpd服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料"><span class="toc-number">10.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#结束语"><span class="toc-number">11.</span> <span class="toc-text">结束语</span></a></li></ol>
-		
-		</div>
-		
-		<h4 id="安装包下载"><a href="#安装包下载" class="headerlink" title="安装包下载"></a>安装包下载</h4><ol>
-<li>去官网 <a href="http://httpd.apache.org/" target="_blank" rel="noopener">http://httpd.apache.org/</a>下载Apache的源码包，这里下载的是最新的<code>httpd-2.4.43.tar.bz2</code>这个包。</li>
-<li>去官网<a href="http://apr.apache.org/download.cgi" target="_blank" rel="noopener">http://apr.apache.org/download.cgi</a>下载apr和apr-util的源码包，这里下载的是最新的<code>apr-1.7.0.tar.gz</code>和<code>apr-util-1.6.1.tar.gz</code>这两个包。</li>
-<li>去官网<a href="https://ftp.pcre.org/pub/pcre/" target="_blank" rel="noopener">https://ftp.pcre.org/pub/pcre/</a>下载pcre的源码包，这里下载的是<code>pcre-8.44.zip</code>这个包。</li>
-</ol>
-<h4 id="解压并安装apr"><a href="#解压并安装apr" class="headerlink" title="解压并安装apr"></a>解压并安装apr</h4><pre><code class="shell"># 解压apr
-cd /zs32/home/chxia/Softwares
-tar -zxvf apr-1.7.0.tar.gz
-# 进入源码包目录，安装apr
-cd apr-1.7.0
-./configure --prefix=/zs32/home/chxia/Softwares/apr-1.7.0/usr/local/apr
-make
-make install</code></pre>
-<p>上面的配置参数–prefix就是指定安装目录，执行没问题稍等一会就安装好了。</p>
-<h4 id="解压并安装apr-util"><a href="#解压并安装apr-util" class="headerlink" title="解压并安装apr-util"></a>解压并安装apr-util</h4><pre><code class="shell"># 解压apr-util
-cd /zs32/home/chxia/Softwares
-tar -zxvf apr-util-1.6.1.tar.gz 
-# 进入源码包目录，安装apr-util
-cd apr-util-1.6.1
-./configure --prefix=/zs32/home/chxia/Softwares/apr-util-1.6.1/usr/local/apr-util --with-apr=/zs32/home/chxia/Softwares/apr-1.7.0/usr/local/apr
-make
-make install</code></pre>
-<p>上面配置参数的–with-apr表示apr-util安装需要依赖apr，所以指定apr的安装目录，到这里apr-util也安装完成了。</p>
-<h4 id="解压并安装pcre"><a href="#解压并安装pcre" class="headerlink" title="解压并安装pcre"></a>解压并安装pcre</h4><pre><code class="shell"># 解压pcre
-cd /zs32/home/chxia/Softwares
-unzip pcre-8.44.zip 
-# 进入源码包目录，安装pcre
-cd pcre-8.44
-./configure --prefix=/zs32/home/chxia/Softwares/pcre-8.44/usr/local/pcre
-make
-make install</code></pre>
-<h4 id="解压并安装Apache"><a href="#解压并安装Apache" class="headerlink" title="解压并安装Apache"></a>解压并安装Apache</h4><pre><code class="shell"># 删除之前安装的Apache httpd-2.4.43
-rm -R /zs32/home/chxia/Softwares/httpd-2.4.43
-## 解压并安装Apache httpd-2.4.43
-# 解压Apache httpd-2.4.43
-cd /zs32/home/chxia/Softwares
-tar -jxvf httpd-2.4.43.tar.bz2
-# 进入源码包目录，安装Apache httpd-2.4.43
-cd /zs32/home/chxia/Softwares/httpd-2.4.43
-./configure --prefix=/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24 --with-apr=/zs32/home/chxia/Softwares/apr-1.7.0/usr/local/apr --with-apr-util=/zs32/home/chxia/Softwares/apr-util-1.6.1/usr/local/apr-util --with-pcre=/zs32/home/chxia/Softwares/pcre-8.44/usr/local/pcre
-make clean
-make
-make install</code></pre>
-<p>编译过程时间有点长，耐心等待一下，执行完毕，Apache就安装完成了。</p>
-<p>注意：如果make中出现错误，必须执行make clean清除所有缓存文件后继续，如果是在make install过程中出现错误，必须执行make clean并且删除生成了的安装目录，然后重新执行make和make install。</p>
-<h4 id="启动Apache-httpd服务之前"><a href="#启动Apache-httpd服务之前" class="headerlink" title="启动Apache httpd服务之前"></a>启动Apache httpd服务之前</h4><ol>
-<li><p>修改端口为<code>1024</code>以上端口</p>
-<p>注：非root用户使用的端口80将无权限，1~1024 端口只有root只能绑定。你如果不是用root启动apache，则需修改为1024以上的端口。<br>所以，需要打开<code>/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/conf/httpd.conf</code>修改端口信息。</p>
-<pre><code class="shell">#Listen 12.34.56.78:80
- Listen 8080      //修改端口为8080或8008</code></pre>
-</li>
-<li><p>打开<code>/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/conf/httpd.conf</code>文件找到<code>#ServerName www.example.com:80</code>, 把这行代码前面的<code>#</code>去掉，保存退出，然后重新启动Apache。</p>
-</li>
-<li><p>需要注意服务器的默认根目录（即放<code>index.html</code>等网站文件的目录）是在<code>/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/htdocs/</code>。</p>
-</li>
-</ol>
-<h4 id="启动Apache-httpd服务"><a href="#启动Apache-httpd服务" class="headerlink" title="启动Apache httpd服务"></a>启动Apache httpd服务</h4><pre><code class="shell"># 启动Apache服务
-/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/bin/apachectl start
-/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/bin/apachectl -f /zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/conf/httpd.conf -k start</code></pre>
-<h4 id="浏览器访问对应服务器的外网ip地址（加端口），看到It-works-即表示安装成功"><a href="#浏览器访问对应服务器的外网ip地址（加端口），看到It-works-即表示安装成功" class="headerlink" title="浏览器访问对应服务器的外网ip地址（加端口），看到It works! 即表示安装成功"></a>浏览器访问对应服务器的<u>外网ip</u>地址（加端口），看到It works! 即表示安装成功</h4><p>如下图所示：</p>
-<p><img src="https://images2015.cnblogs.com/blog/734555/201602/734555-20160202144513694-1214565426.jpg" alt="It works"></p>
-<p>但，遗憾的是，我没有成功，我的访问结果是：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CuihuaXia/images@master/uPic/image-20200527175714551.png" alt="image-20200527175714551"></p>
-<p>究其原因，大概是我没有使用root真正启动Apache吧。</p>
-<p>需要root操作一下来开启Apache服务：</p>
-<pre><code class="shell"># root开启Apache服务
-service httpd start</code></pre>
-<h4 id="停止Apache-httpd服务"><a href="#停止Apache-httpd服务" class="headerlink" title="停止Apache httpd服务"></a>停止Apache httpd服务</h4><pre><code class="shell"># 停止Apache服务
-/zs32/home/chxia/Softwares/httpd-2.4.43/usr/apache24/bin/apachectl stop</code></pre>
-<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ol>
-<li><a href="https://www.cnblogs.com/freeweb/p/5177516.html" target="_blank" rel="noopener">https://www.cnblogs.com/freeweb/p/5177516.html</a></li>
-<li><a href="http://www.itechlib.com/2016/01/07/non-root-start-apache-mysql" target="_blank" rel="noopener">http://www.itechlib.com/2016/01/07/non-root-start-apache-mysql</a></li>
-<li><a href="https://blog.csdn.net/xuexiaoxu1990/article/details/50460084" target="_blank" rel="noopener">https://blog.csdn.net/xuexiaoxu1990/article/details/50460084</a></li>
-</ol>
-<h4 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h4><p>在任务如此繁重，时间如此紧张的情况下，今天，我又花了整整一天时间安装Apache服务，以为终于可以使用自己实验室的Linux服务器搭建网站，并可以成功访问网页了，然而——现实是残酷的。在老板不给租云服务器，而自己实验室的服务器又没有root操作权限的前提下，我的数据库网站搭建技术学得再好，也只是白费，想要以一己之力实现搭建数据库网站和发数据库文章一条龙的梦，始终是——泡沫。</p>
-<p>因此，也许很快…我不会再坚持“作为一个生信人必须要掌握开发数据库网站这项<u>基本技能</u>”了吧。</p>
-<p>科研的时间如此宝贵，我不会把宝贵的时间和精力浪费在“一开始就知道不会有结果”的事情上。</p>
-<p>既然此路不通，那我从此便关闭此路。</p>
-<p>科研之路，条条大路通罗马，马上开启自己的下一条路便是了。下一条路，大可能比这一条路容易实现得多。</p>
+<section class="post" itemscope itemprop="blogitem">
   
-	</div>
-
-    
-      <div class="article-footer-copyright">
-  <left><b>本文作者：<a href="/about/" target="_blank" title="TouchUMind">TouchUMind</a></b></left><br/>
-
-  <left><b>本文链接：<a href="/2020/05/27/Linux普通用户下安装Apache/" target="_blank" title="Linux普通用户下安装Apache">https://touchumind.com/2020/05/27/Linux普通用户下安装Apache/</a></b>.</left></br>
-
-  <left><b>版权声明：</b>本文著作权归作者所有，遵循<b>CC BY</b>-<b>NC</b>-<b>SA 4.0</b>国际许可协议。商业转载请联系作者获取授权，非商业转载请注明作者及出处！</left>
-</div>
-    
-
-		<footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a>
-</div>
-
-
-  <div class="article-tags">
+    <a href="/2020/03/29/Perl/" title="Perl" itemprop="url">
   
-  <span></span> <a href="/tags/Apache/">Apache</a>
-  </div>
+    <h1 itemprop="name">Perl</h1>
+    
+     
+           <p itemprop="description" >常见注意事项hash: 建立索引
+standard out: 标准输出，即screen，输出在屏幕上。
+standard in: 标准输入，即从键盘输入。
+Perl不需要compile(编译)
+#号用来注释
+hash table：应该保证是unique，即使其没有重复的元素
+ha</p>
+        
+    
+    <time datetime="2020-03-28T21:45:25.000Z" itemprop="datePublished">2020-03-29</time>
+
+
+
+    <!-- <time datetime="2020-03-28T21:45:25.000Z" itemprop="dateUpdated">2020-03-29</time> -->
+
+
+
+
+
+
+  </a>
+</section>
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2020/03/25/如何简单搭建个人博客/" title="如何简单搭建个人博客" itemprop="url">
+  
+    <h1 itemprop="name">如何简单搭建个人博客</h1>
+    
+     
+           <p itemprop="description" >搭建个人博客的初衷/原因因为新冠肺炎疫情，今年的寒假已经休了太长时间，但是也给了我一个安静的，独立思考的时间和空间。
+最初只是想整理一下自己在各个软件和平台的学习笔记。然而，在连续整理了好几天之后，我崩溃地发现，我花了好几天的结果是，整理的效果和没整理时是一样的！
+因为我用了太多</p>
+        
+    
+    <time datetime="2020-03-24T21:41:59.000Z" itemprop="datePublished">2020-03-25</time>
+
+
+
+    <!-- <time datetime="2020-03-24T21:41:59.000Z" itemprop="dateUpdated">2020-03-25</time> -->
+
+
+
+
+
+
+  </a>
+</section>
+
+
+
+
+  <nav id="page-nav" class="clearfix unexpand">
+    <a class="extend prev" rel="prev" href="/page/3/">&lt; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
 
 </div>
-
-
-
-	<div class="article-share" id="share">
-	
-	  <div data-url="https://touchumind.com/2020/05/27/Linux%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%E4%B8%8B%E5%AE%89%E8%A3%85Apache/" data-title="Linux普通用户下安装Apache | 生物信息学技术分享" data-tsina="" class="share clearfix">
-	  </div>
-	
-	</div>
-
-
-</footer>
-
-   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2020/06/01/使用GitHub备份Hexo博客源文件/" title="使用GitHub备份Hexo博客源文件">
-  <strong>上一篇：</strong><br/>
-  <span>
-  使用GitHub备份Hexo博客源文件</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/2020/05/26/Linux版本MySQL在个人目录下的下载与安装/"  title="Linux版本MySQL在个人目录下的下载与安装">
- <strong>下一篇：</strong><br/> 
- <span>Linux版本MySQL在个人目录下的下载与安装
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-
-
-
-</div>  
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装包下载"><span class="toc-number">1.</span> <span class="toc-text">安装包下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解压并安装apr"><span class="toc-number">2.</span> <span class="toc-text">解压并安装apr</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解压并安装apr-util"><span class="toc-number">3.</span> <span class="toc-text">解压并安装apr-util</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解压并安装pcre"><span class="toc-number">4.</span> <span class="toc-text">解压并安装pcre</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解压并安装Apache"><span class="toc-number">5.</span> <span class="toc-text">解压并安装Apache</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动Apache-httpd服务之前"><span class="toc-number">6.</span> <span class="toc-text">启动Apache httpd服务之前</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动Apache-httpd服务"><span class="toc-number">7.</span> <span class="toc-text">启动Apache httpd服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器访问对应服务器的外网ip地址（加端口），看到It-works-即表示安装成功"><span class="toc-number">8.</span> <span class="toc-text">浏览器访问对应服务器的外网ip地址（加端口），看到It works! 即表示安装成功</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#停止Apache-httpd服务"><span class="toc-number">9.</span> <span class="toc-text">停止Apache httpd服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料"><span class="toc-number">10.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#结束语"><span class="toc-number">11.</span> <span class="toc-text">结束语</span></a></li></ol>
- 
-  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
@@ -1037,88 +910,12 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
-
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-
-  $('.hoverqrcode').hide();
-
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
 
 
 
@@ -1189,5 +986,15 @@ ga('send', 'pageview');
 
 <!-- Tiny_search End -->
 
+
+<!-- <a href="https://github.com/cuihuaxia" target="_blank" rel="noopener">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67"
+alt="Fork me on GitHub" 
+data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+</a> -->
+
+
+
+
   </body>
-</html>
+ </html>
