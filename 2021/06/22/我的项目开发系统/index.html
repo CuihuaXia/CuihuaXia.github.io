@@ -1,0 +1,1358 @@
+
+ <!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>我的项目开发系统 | 生物信息学技术分享</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="TouchUMind">
+    
+
+    
+    <meta name="description" content="更新于 2021-06-22 10:08  本期介绍我的项目开发系统的建立，见下。 我的项目开发系统建立的原则：All in One；2&#x2F;3 Backups 本期主推：JupyterLab——一个好用到爆炸的可视化交互开发神器 本期涉及的主要软件&#x2F;工具：JupyterLab | GitHub | GitHub Desktop | Git | iTerm2 | MobaXterm | Termin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的项目开发系统">
+<meta property="og:url" content="https://touchumind.com/2021/06/22/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="生物信息学技术分享">
+<meta property="og:description" content="更新于 2021-06-22 10:08  本期介绍我的项目开发系统的建立，见下。 我的项目开发系统建立的原则：All in One；2&#x2F;3 Backups 本期主推：JupyterLab——一个好用到爆炸的可视化交互开发神器 本期涉及的主要软件&#x2F;工具：JupyterLab | GitHub | GitHub Desktop | Git | iTerm2 | MobaXterm | Termin">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/CuihuaXia/images/master/uPic/image-20210621222906080.png">
+<meta property="article:published_time" content="2021-06-22T02:07:36.885Z">
+<meta property="article:modified_time" content="2021-06-22T02:07:36.886Z">
+<meta property="article:author" content="TouchUMind">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/CuihuaXia/images/master/uPic/image-20210621222906080.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="生物信息学技术分享" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/%02.css">
+<link rel="stylesheet" href="/.css">
+
+
+
+
+<!-- <style>
+pre {white-space: pre-wrap; word-wrap: normal;}
+</style> -->
+
+
+<style type="text/css">
+    pre {display: block; overflow: auto !important; background: #322931 !important; padding: 0.5em;}
+    pre code {display: inline-block !important; color: #b9b5b8 !important;}
+</style> 
+
+
+
+<style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script><meta name="generator" content="Hexo 4.2.1"><style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script></head>
+
+  
+ <div id="loading-container">
+     <p class="loading-text">Loading . . . </p> 
+     <div class="loading-image">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div> 
+         <div></div>
+     </div>
+ </div><body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="生物信息学技术分享" title="生物信息学技术分享"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="生物信息学技术分享">生物信息学技术分享</a></h1>
+				<h2 class="blog-motto">不积小流，无以成江海。</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:touchumind.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2021/06/22/我的项目开发系统/" title="我的项目开发系统" itemprop="url">我的项目开发系统</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="TouchUMind" target="_blank" itemprop="author">TouchUMind</a>
+		
+  <p class="article-time">
+    <time datetime="2021-06-22T02:07:36.885Z" itemprop="datePublished"> Published 2021-06-22</time>
+
+
+
+
+    <!-- <time datetime="2021-06-22T02:07:36.885Z" itemprop="dateUpdated"> dateupdated 2021-06-22</time> -->
+
+
+
+    <span id="busuanzi_container_page_pv">&nbsp;Totally&nbsp;<span id="busuanzi_value_page_pv"></span> views
+</span>
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#项目开发环境"><span class="toc-number">1.</span> <span class="toc-text">项目开发环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JupyterLab"><span class="toc-number">2.</span> <span class="toc-text">JupyterLab</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#为什么放弃了VSCode，转向JupyterLab呢？"><span class="toc-number">2.1.</span> <span class="toc-text">为什么放弃了VSCode，转向JupyterLab呢？</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#首先，VSCode确实有很多吸引我的点："><span class="toc-number">2.1.1.</span> <span class="toc-text">首先，VSCode确实有很多吸引我的点：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#为什么我放弃了VSCode？"><span class="toc-number">2.1.2.</span> <span class="toc-text">为什么我放弃了VSCode？</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JupyterLab——一个好用到爆炸的可视化交互开发神器"><span class="toc-number">2.2.</span> <span class="toc-text">JupyterLab——一个好用到爆炸的可视化交互开发神器</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#安装"><span class="toc-number">2.2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#运行"><span class="toc-number">2.2.2.</span> <span class="toc-text">运行</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#日常运行"><span class="toc-number">2.2.3.</span> <span class="toc-text">日常运行</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Git-Git-Bash"><span class="toc-number">3.</span> <span class="toc-text">Git&#x2F;Git Bash</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GitHub-GitHub-Desktop"><span class="toc-number">4.</span> <span class="toc-text">GitHub&#x2F;GitHub Desktop</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#我的代码管理系统"><span class="toc-number">4.1.</span> <span class="toc-text">我的代码管理系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#代码编辑器"><span class="toc-number">4.1.1.</span> <span class="toc-text">代码编辑器</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#代码备份平台"><span class="toc-number">4.1.2.</span> <span class="toc-text">代码备份平台</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#代码提交更新工具"><span class="toc-number">4.1.3.</span> <span class="toc-text">代码提交更新工具</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#我的临时笔记系统"><span class="toc-number">4.2.</span> <span class="toc-text">我的临时笔记系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#我的临时笔记空间"><span class="toc-number">4.2.1.</span> <span class="toc-text">我的临时笔记空间</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#我的临时笔记备份"><span class="toc-number">4.2.2.</span> <span class="toc-text">我的临时笔记备份</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#个人博客网站托管平台和备份系统"><span class="toc-number">4.3.</span> <span class="toc-text">个人博客网站托管平台和备份系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#个人博客网站托管平台"><span class="toc-number">4.3.1.</span> <span class="toc-text">个人博客网站托管平台</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#个人博客网站备份系统"><span class="toc-number">4.3.2.</span> <span class="toc-text">个人博客网站备份系统</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#个人博客的免费图床"><span class="toc-number">4.4.</span> <span class="toc-text">个人博客的免费图床</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#iTerm2-Terminal-CMD-MobaXterm"><span class="toc-number">5.</span> <span class="toc-text">iTerm2&#x2F;Terminal&#x2F;CMD&#x2F;MobaXterm</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Terminal"><span class="toc-number">5.1.</span> <span class="toc-text">Terminal</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CMD"><span class="toc-number">5.2.</span> <span class="toc-text">CMD</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#iTerm2"><span class="toc-number">5.3.</span> <span class="toc-text">iTerm2</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#MobaXterm"><span class="toc-number">5.4.</span> <span class="toc-text">MobaXterm</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Typora——最好的Markdown工具"><span class="toc-number">6.</span> <span class="toc-text">Typora——最好的Markdown工具</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#我的码字工具"><span class="toc-number">6.1.</span> <span class="toc-text">我的码字工具</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#我的码字空间"><span class="toc-number">6.2.</span> <span class="toc-text">我的码字空间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#我的码字文章备份"><span class="toc-number">6.3.</span> <span class="toc-text">我的码字文章备份</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#个人博客网站文章发布-更新"><span class="toc-number">6.4.</span> <span class="toc-text">个人博客网站文章发布&#x2F;更新</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#uPic——一个简洁的Mac图床客户端"><span class="toc-number">7.</span> <span class="toc-text">uPic——一个简洁的Mac图床客户端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TinyPNG4Mac"><span class="toc-number">8.</span> <span class="toc-text">TinyPNG4Mac</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移动硬盘"><span class="toc-number">9.</span> <span class="toc-text">移动硬盘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#U盘"><span class="toc-number">10.</span> <span class="toc-text">U盘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#项目进度管理系统"><span class="toc-number">11.</span> <span class="toc-text">项目进度管理系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Notion"><span class="toc-number">11.0.1.</span> <span class="toc-text">Notion</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#轻量级文件备份系统"><span class="toc-number">12.</span> <span class="toc-text">轻量级文件备份系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-印象笔记"><span class="toc-number">12.0.1.</span> <span class="toc-text">1. 印象笔记</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-iCloud"><span class="toc-number">12.0.2.</span> <span class="toc-text">2. iCloud</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-Google-Drive"><span class="toc-number">12.0.3.</span> <span class="toc-text">3. Google Drive</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-百度网盘"><span class="toc-number">12.0.4.</span> <span class="toc-text">4. 百度网盘</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文献-PDF文件管理系统"><span class="toc-number">13.</span> <span class="toc-text">文献&#x2F;PDF文件管理系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-EndNote-20"><span class="toc-number">13.0.1.</span> <span class="toc-text">1. EndNote 20</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-MarginNote-3"><span class="toc-number">13.0.2.</span> <span class="toc-text">2. MarginNote 3</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#电子书管理系统"><span class="toc-number">14.</span> <span class="toc-text">电子书管理系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Apple-Books"><span class="toc-number">14.0.1.</span> <span class="toc-text">Apple Books</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#日常笔记管理系统"><span class="toc-number">15.</span> <span class="toc-text">日常笔记管理系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-印象笔记-1"><span class="toc-number">15.0.1.</span> <span class="toc-text">1. 印象笔记</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-Apple-Notes"><span class="toc-number">15.0.2.</span> <span class="toc-text">2. Apple Notes</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-Apple-GoodNotes"><span class="toc-number">15.0.3.</span> <span class="toc-text">3. Apple GoodNotes</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-Apple-Notability"><span class="toc-number">15.0.4.</span> <span class="toc-text">4. Apple Notability</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-Apple-Prodrafts"><span class="toc-number">15.0.5.</span> <span class="toc-text">5. Apple Prodrafts</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器系统"><span class="toc-number">16.</span> <span class="toc-text">浏览器系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-Google-Chrome"><span class="toc-number">16.0.1.</span> <span class="toc-text">1. Google Chrome</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-Safari"><span class="toc-number">16.0.2.</span> <span class="toc-text">2. Safari</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-Microsoft-Edge"><span class="toc-number">16.0.3.</span> <span class="toc-text">3. Microsoft Edge</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路整理系统"><span class="toc-number">17.</span> <span class="toc-text">思路整理系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-XMind"><span class="toc-number">17.0.1.</span> <span class="toc-text">1. XMind</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-Prodrafts"><span class="toc-number">17.0.2.</span> <span class="toc-text">2. Prodrafts</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#目前已淘汰软件"><span class="toc-number">18.</span> <span class="toc-text">目前已淘汰软件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结"><span class="toc-number">19.</span> <span class="toc-text">总结</span></a></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<p>更新于 2021-06-22 10:08</p>
+</blockquote>
+<p>本期介绍我的项目开发系统的建立，见下。</p>
+<p>我的项目开发系统建立的原则：<strong>All in One</strong>；<strong>2/3 Backups</strong></p>
+<p>本期主推：<em>JupyterLab——一个好用到爆炸的可视化交互开发神器</em></p>
+<p>本期涉及的主要软件/工具：JupyterLab | GitHub | GitHub Desktop | Git | iTerm2 | MobaXterm | Terminal | Git Bash | CMD | Typora | uPic | TinyPNG4Mac | 移动硬盘 | U盘 | Notion | 印象笔记 | iCloud | Google Drive | 百度网盘 | EndNote 20 | MarginNote 3 | Books | Notes | GoodNotes | Notability | Prodrafts | Google Chrome | Safari | Microsoft Edge</p>
+<p>以下是一个以<strong>问题/需求</strong>为导向，以<strong>系统性</strong>为原则的工具分享。如果你也感兴趣这些软件/工具是怎么应用到我的项目开发系统的，那就请继续往下看吧！</p>
+<h4 id="项目开发环境"><a href="#项目开发环境" class="headerlink" title="项目开发环境"></a>项目开发环境</h4><ul>
+<li>Windows 系统</li>
+<li>MacOS 系统</li>
+<li>Linux CentOS 系统</li>
+</ul>
+<p>下面来说说我为什么要同时使用这3个操作系统呢？那可不就是因为我富有么哈哈哈！开个玩笑啦haa。同时使用这3个系统，是因为我自己的电脑是MacBook Pro，课题组给配的电脑是戴尔台式机，还有我们做数据分析必备的——实验室的Linux服务器。</p>
+<p>不用说，Linux服务器肯定是用得最多的，毕竟一周7天都在搞科研嘛～～其次就是我的小苹果，办公、码字、敲代码、跑程序都不在话下，但它有一个“小小的“缺点，就是不能同时开很多个软件，我也是恨铁不成钢啊。。所以我在同时做多个任务时，就需要同时用到实验室的电脑。</p>
+<p>但，这就有一个问题了，我想把几个设备就当一个设备来用。换句话说，就是让这三个设备协同工作，彼时的我，就像在一台电脑上工作。</p>
+<p>那怎么让这三个设备协同工作呢？你想知道吗？那就跟着小编继续往下看吧～</p>
+<h4 id="JupyterLab"><a href="#JupyterLab" class="headerlink" title="JupyterLab"></a>JupyterLab</h4><p>首先从JupyterLab说起。我为什么选择JupyterLab作为我的项目开发系统的核心软件呢？其实我之前基本不知道Jupyter，是前段时间外导在面试我的时候，给我推荐的这个软件，我当时还执着地认为VSCode大法无敌。事实上，我在很长一段时间都是把VSCode、GitHub、GitHub Desktop作为我的项目开发系统的核心工具的，可是自从尝试了JupyterLab，我便再也不想打开VSCode了。只想说，Jupyter真香！</p>
+<h5 id="为什么放弃了VSCode，转向JupyterLab呢？"><a href="#为什么放弃了VSCode，转向JupyterLab呢？" class="headerlink" title="为什么放弃了VSCode，转向JupyterLab呢？"></a><em>为什么放弃了VSCode，转向JupyterLab呢？</em></h5><h6 id="首先，VSCode确实有很多吸引我的点："><a href="#首先，VSCode确实有很多吸引我的点：" class="headerlink" title="首先，VSCode确实有很多吸引我的点："></a><em>首先，VSCode确实有很多吸引我的点：</em></h6><ol>
+<li>高大上、颜值派。暗黑色的背景，布满五颜六色的代码，一眼看上去就逼格满满；并且有不同的代码主题可选，可以按照自己的审美DIY出一幅“大作”哈哈。</li>
+<li>优秀的写作工具。在安装markdown相关插件后，你可以使用markdown语句写稿子，并且实时预览markdown文件。这不稀奇，稀奇的是它可以内装PicGo插件，你只需用快捷键粘贴一下你的图片，它就可以直接被上传到你的图床比如GitHub，并即时生成图片链接，你说神不神奇～</li>
+<li>强大的插件系统。基本上是要啥有啥，我用的最多的是自动补全和代码高亮的插件。</li>
+</ol>
+<p>但是，为什么颜狗的我，放弃了它呢？那还不是因为我变了（不是</p>
+<p>在我这么久的亲身践行下，我很遗憾地，把VSCode这么强大的一个开发工具，用成了一个平平无奇的代码编辑器。。我对不起它🤦‍♀️</p>
+<h6 id="为什么我放弃了VSCode？"><a href="#为什么我放弃了VSCode？" class="headerlink" title="为什么我放弃了VSCode？"></a><em>为什么我放弃了VSCode？</em></h6><ol>
+<li><strong>远程Linux服务器不稳定</strong>。VSCode是有本地终端和远程Linux服务器功能的，我最初的时候也用过几次，但遗憾的是，在远程Linux服务器的时候，经常连不上或者断掉，反复几次之后，我也就不勉强它了。</li>
+<li><strong>Git平时用得不多</strong>。虽然它有Git功能，我也配置好了，但这个功能，我自始至终也就只用了一次。。</li>
+<li><strong>它的Markdown比不上Typora</strong>。每当我打开一个markdown文件时，它总会自动弹出预览窗口，瞬间占据我一半屏幕，每次都给我气个半死。。我其实想跟它说，我让你出现的时候你再出现OK？另外，它并不能实现Typora的“所见即所得”的“即时渲染”效果。事实上，我更想两步并作一步（带格式书写和格式转换变作一步）地使用markdown，就像直接在白纸上写字一样。</li>
+<li><strong>体系过于庞大，启动较慢，占用内存较大</strong>。插件系统强大，这是VSCode的优势，但也是它的劣势。庞大的插件系统，让它只在VSCode就能实现各种各样的功能，但在实现各种各样功能的同时，也让VSCode这个体系变得愈发庞大，拖慢了它的速度，也占用了更大的内存。</li>
+<li>最后，我很遗憾地，把VSCode用成了一个平平无奇的代码编辑器，因此<strong>它不能帮我远程管理Linux服务器上的数据和文件</strong>。当我想要预览、查看或编辑Linux服务器上的PDF、CSV、JPG等文件时，我只能先从Linux服务器把文件下载到本地，再用本地对应的软件打开相应的文件，而我想要的是一个不用下载文件，可以直接在Linux服务器上预览和查看的可视化交互工具。</li>
+</ol>
+<p>所以整体说来，VSCode对我来说，功能过剩，体系过于庞大，且不能真正实现“All in One”的功能。我需要的，是一个尽可能<strong>简洁、轻便、“All in One”</strong>的<strong>可视化交互工具</strong>，而这，就是我选择JupyterLab的原因。</p>
+<h5 id="JupyterLab——一个好用到爆炸的可视化交互开发神器"><a href="#JupyterLab——一个好用到爆炸的可视化交互开发神器" class="headerlink" title="JupyterLab——一个好用到爆炸的可视化交互开发神器"></a><em>JupyterLab——一个好用到爆炸的可视化交互开发神器</em></h5><h6 id="安装"><a href="#安装" class="headerlink" title="安装"></a><em>安装</em></h6><pre><code class="sh">########## Linux服务器上安装JupyterLab
+####### 方法一
+##### 01 安装 Miniconda（此处省略详细步骤）
+##### 02 安装 Python 3
+### 安装 openssl
+cd ./Softwares 
+tar xzvf openssl-3.0.0-alpha17.tar.gz
+cd openssl-3.0.0-alpha17
+./config --prefix=/zs32/home/chxia/local/openssl shared
+make
+make install
+# 查看是否安装成功
+openssl version
+### 安装 libressl
+cd ./Softwares
+tar xzvf libressl-3.3.3.tar.gz
+cd libressl-3.3.3
+./config
+make
+make install
+### 安装 Python3
+# 关于ssl出错解决办法的重要参考：
+# https://blog.csdn.net/jeryjeryjery/article/details/77880227
+# http://zhang-jc.github.io/2018/11/27/CentOS-6-8-%E5%AE%89%E8%A3%85-Python3-Could-not-build-the-ssl-module/
+# https://blog.csdn.net/Aidam_Bo/article/details/112919330
+# 下载及解压
+wget https://www.python.org/ftp/python/3.9.5/Python-3.9.5
+cd ./Softwares
+tar -xzf Python-3.9.5.tgz
+cd /zs32/home/chxia/Softwares/Python-3.9.5
+# 编译及安装
+./configure --prefix=&#39;/zs32/home/chxia/Softwares/Python-3.9.5&#39; --with-ssl
+make
+make install
+# 配置环境
+vim ~/.bashrc
+# 使用vim打开.bashrc文件，并添加python的环境
+export PATH=/zs32/home/chxia/Softwares/Python-3.9.5:$PATH
+export PATH=/zs32/home/chxia/Softwares/Python-3.9.5/bin:$PATH
+# 使生效
+source ~/.bashrc
+# 查看python版本
+python
+##### 03 安装JupyterLab
+# Installation with conda
+conda install -c conda-forge jupyterlab
+# Run JupyterLab
+jupyter-lab
+
+####### 方法二
+##### 01 安装 Anaconda
+# 如果安装 Anaconda，就已经安装了jupyter，可以直接使用。只是版本可能会旧些，需要升级。
+# 下载：从官网 https://www.anaconda.com/products/individual 下载 Anaconda3-2021.05-Linux-x86_64.sh
+# 安装
+cd ./Softwares
+bash Anaconda3-2021.05-Linux-x86_64.sh
+# 然后一路确认，等待安装完成即可
+##### 02 升级 JupyterLab 到最新版本
+jupyter lab --version
+pip3 install --upgrade pip  # 先升级 pip
+pip install -U jupyterlab
+
+####### 配置 jupyter lab
+##### 01 生成jupyter密码密文
+### 进入 python，输入
+from notebook.auth import passwd
+passwd()
+### 会提示输入密码，此时即设置密码
+### 生成密码密文，将其记录保存备用
+##### 02 生成配置文件
+jupyter notebook --generate-config
+##### 03 修改配置文件
+vi ~/.jupyter/jupyter_notebook_config.py
+### 在配置文件中添加下述内容：
+c.LabApp.open_browser = False #  禁止打开浏览器
+c.ServerApp.allow_remote_access = True
+c.ServerApp.ip = &#39;*&#39; # 表示所有ip皆可访问
+c.ServerApp.open_browser = False
+c.ServerApp.password = &#39;sha1:XXX&#39; # 前面生成的密码哈希值
+c.ServerApp.port = 8889 # 浏览器连接jupyter需要的端口号，可随便指定一个端口，默认为8888
+### 退出保存即可
+
+
+########## Mac上安装JupyterLab
+### 方法1: 使用 Anaconda 安装 JupyterLab
+# 01 官网（https://www.anaconda.com/products/individual）下载并本地安装 Anaconda
+# 02 直接运行JupyterLab（Anaconda会自带jupyter notebook和jupyter lab）: 打开终端，输入 jupyter lab，就会自动打开网页 http://localhost:8888/lab 
+# 03 然后就可以开始玩了～
+### 方法2: 使用 Miniconda 安装 JupyterLab
+# 01 官网（https://docs.conda.io/en/latest/miniconda.html）下载并本地安装 Miniconda
+# 02 使用 conda 安装 jupyter lab: 打开终端，输入: 
+conda install -c conda-forge jupyterlab
+# 02 使用 pip 安装 jupyter lab: 打开终端，输入: 
+pip3 install --upgrade pip  # 先升级 pip
+pip3 install jupyter jupyterlab
+# 03 运行JupyterLab: 在终端输入 jupyter lab，就会自动打开网页 http://localhost:8888/lab 
+# 04 然后就可以开始遨游太空了～
+
+
+########## Windows上安装JupyterLab（使用 Anaconda 安装 JupyterLab）
+# 01 官网（https://www.anaconda.com/products/individual）下载并本地安装 Anaconda
+# 02 设定 jupyter lab 启动目录
+# 打开 Anaconda Powershell Prompt 终端，输入 jupyter notebook --generate-config，生成 C:\Users\Dell18\.jupyter\jupyter_notebook_config.py 文件
+# 打开上述文件，添加 c.NotebookApp.notebook_dir = &#39;D:\GitHubDesktop&#39;
+# 保存退出即可
+# 03 运行JupyterLab（Anaconda会自带jupyter notebook和jupyter lab）: 打开 Anaconda Powershell Prompt 终端，输入 jupyter lab，就会自动打开网页 http://localhost:8888/lab 
+# 04 然后就可以开心地玩耍啦！
+
+
+########## Windows、Mac、Linux 后台运行 JupyterLab
+# 每次打开网页版 jupyter lab 时都要打开相应的终端，并在相应的终端输入 jupyter lab 来重启，很不方便，所以我直接设置后台运行，这样也不用时刻开着终端窗口。
+# 01 在 Windows Git Bash 本地终端 或 Mac iTerm2/Terminal 本地或远程终端 或 Windows MobaXterm 远程终端输入：
+nohup jupyter lab &gt; jupyterlab.log 2&gt;&amp;1 &amp;
+# &amp; 让命令后台运行，并把标准输出写入jupyterlab.log中；nohup 表示no hang up ，就是不挂起，这个命令执行后即使终端退出，jupyter 也不会停止运行。
+# 02 从本地浏览器打开网址 localhost:8888 即可后台运行 本地 jupyter lab
+# Mac和Windows本地的 jupyter lab 在后台运行，只要上面一句命令即可。
+# 03 但远程Linux服务器在本地浏览器后台运行，还需要一个步骤，即在本地终端（Mac iTerm2/Terminal 终端; Windows Win+R 输入 cmd，在 CMD 终端）输入：
+ssh -N -f -L localhost:8891:localhost:8889 -p Linux服务器外网端口 用户名@Linux服务器外网IP地址
+# 04 方便起见，将 ssh -N -f -L localhost:8891:localhost:8889 -p Linux服务器外网端口 用户名@Linux服务器外网IP地址 写入根目录下文件 j.sh
+# Mac的根目录在 /Users/xia/j.sh
+# Window的根目录在：
+# 001 先找到 Git Bash 的根目录：
+Win + R 输入 cmd 打开命令窗口，然后在命令行输入 where git ，就会显示 Git 的安装路径在 C:\Program Files\Git\cmd\git.exe
+# 002 将文件 j.sh 拷贝并放在 Git Bash 的安装路径下（访问 Git 根目录需要使用管理员权限，所以需要手动操作）
+# 05 以后只需在本地终端（Mac Terminal/iTerm2；Windows Git Bash）输入：
+bash j.sh 
+# 运行完 bash j.sh 命令即可关闭终端，不影响后续 jupyter lab 的运行
+# 06 从本地浏览器打开网址 localhost:8891 即可后台运行 远程Linux服务器 jupyter lab
+
+
+########## 杀掉后台程序：https://blog.csdn.net/qq_34385263/article/details/82080575
+# 发现有错误时也不要紧，后台运行的jupyter lab也可以随时关掉～
+# 只需在运行后台程序的终端运行下述命令：
+ps -axu xia(用户名) | grep jupyter
+kill -9 501(PID)</code></pre>
+<h6 id="运行"><a href="#运行" class="headerlink" title="运行"></a><em>运行</em></h6><pre><code class="sh">##### 不同操作系统下，后台运行 jupyter lab
+# 01 在 Windows Git Bash 本地终端 或 Mac iTerm2/Terminal 本地或远程终端 或 Windows MobaXterm 远程终端输入：
+nohup jupyter lab &gt; jupyterlab.log 2&gt;&amp;1 &amp;
+# 02 在本地终端（Mac Terminal/iTerm2；Windows Git Bash）输入：
+bash j.sh 
+# 03 从本地浏览器打开网址 localhost:8888 即可后台运行 本地jupyter lab，打开网址 localhost:8891 即可后台运行 远程Linux服务器 jupyter lab</code></pre>
+<h6 id="日常运行"><a href="#日常运行" class="headerlink" title="日常运行"></a><em>日常运行</em></h6><pre><code class="sh">##### 不同操作系统下，日常运行 jupyter lab
+### 运行本地 jupyter lab
+# 直接从本地浏览器打开网址 localhost:8888 即可后台运行 本地jupyter lab
+### 运行远程Linux服务器 jupyter lab
+# 01 在本地终端（Mac Terminal/iTerm2；Windows Git Bash）输入：
+bash j.sh 
+# 02 从本地浏览器打开网址 localhost:8891 即可后台运行 远程Linux服务器 jupyter lab</code></pre>
+<p>JupyterLab 是我项目开发系统的核心软件，它具有“All in One”的功能，我平时敲代码、运行代码/数据处理、查看PDF、CSV、JPG等格式的结果文件、上传和下载数据时，都是用它。简单来说，在配合 GitHub、GitHubDesktop 使用时，它对于我来说，就是一个把基于Windows、MacOS、Linux CentOS 三个操作系统的三台服务器同时集成到一个工作空间的可视化交互开发工具。</p>
+<h4 id="Git-Git-Bash"><a href="#Git-Git-Bash" class="headerlink" title="Git/Git Bash"></a>Git/Git Bash</h4><p><strong>Git</strong> 是目前世界上最先进的分布式<strong>版本控制系统</strong>。</p>
+<p>我安装 Git 首先是因为我要用GitHub Desktop，而它安装和运行的前提是系统已经安装了Git；另一个原因，是为了提交更新我的个人博客网站 touchumind.com ，因为这个网站是基于GitHub Pages静态网站托管服务进行搭建的，换句话说，这个网站是通过GitHub Pages直接托管在 GitHub 的服务器上的。</p>
+<p>不管是基于 GitHub Desktop 将本地代码提交更新到 GitHub，还是个人博客网站内容的提交更新，都需要用到 Git，原因就是 GitHub 使用的版本控制系统是 Git。</p>
+<p><strong>Git Bash</strong> 是 Git 自带的，它在你安装 Git 的时候也会被同时安装。可以把 Git Bash 当作类似于 Mac Terminal 终端的 Windows 系统的终端。我用 Git Bash 终端主要做两件事，第一是<strong>执行 Git 命令</strong>，第二是<strong>在Windows下使用 linux 命令</strong>，比如 pwd, ls, ls -l, vi, vim 等。</p>
+<h4 id="GitHub-GitHub-Desktop"><a href="#GitHub-GitHub-Desktop" class="headerlink" title="GitHub/GitHub Desktop"></a>GitHub/GitHub Desktop</h4><p>下面就来说说多次提到的 GitHub 和 GitHub Desktop 吧。</p>
+<p>简言之，GitHub 和 GitHub Desktop 是我的<strong>代码管理系统</strong>、<strong>临时笔记系统</strong>、<strong>个人博客网站托管平台和备份系统</strong>、<strong>个人博客的免费图床</strong>。</p>
+<h5 id="我的代码管理系统"><a href="#我的代码管理系统" class="headerlink" title="我的代码管理系统"></a><em>我的代码管理系统</em></h5><h6 id="代码编辑器"><a href="#代码编辑器" class="headerlink" title="代码编辑器"></a><em>代码编辑器</em></h6><p>本地JupyterLab</p>
+<h6 id="代码备份平台"><a href="#代码备份平台" class="headerlink" title="代码备份平台"></a><em>代码备份平台</em></h6><ol>
+<li>本地 GitHub Desktop 文件夹</li>
+<li>GitHub 网站</li>
+</ol>
+<h6 id="代码提交更新工具"><a href="#代码提交更新工具" class="headerlink" title="代码提交更新工具"></a><em>代码提交更新工具</em></h6><p>GitHub Desktop</p>
+<h5 id="我的临时笔记系统"><a href="#我的临时笔记系统" class="headerlink" title="我的临时笔记系统"></a><em>我的临时笔记系统</em></h5><p>临时笔记包括临时会议记录、临时提醒事项、临时思路和想法、临时素材等各种临时文字。</p>
+<h6 id="我的临时笔记空间"><a href="#我的临时笔记空间" class="headerlink" title="我的临时笔记空间"></a><em>我的临时笔记空间</em></h6><p><code>/Users/xia/Documents/GitHub/Notebook</code></p>
+<h6 id="我的临时笔记备份"><a href="#我的临时笔记备份" class="headerlink" title="我的临时笔记备份"></a><em>我的临时笔记备份</em></h6><ol>
+<li><p>本地 <code>/Users/xia/Documents/GitHub/Notebook</code></p>
+</li>
+<li><p>GitHub：将 Mac 本地临时笔记空间文件夹 <code>/Users/xia/Documents/GitHub/Notebook</code> 通过 GitHub Desktop 及时备份到 GitHub</p>
+</li>
+</ol>
+<h5 id="个人博客网站托管平台和备份系统"><a href="#个人博客网站托管平台和备份系统" class="headerlink" title="个人博客网站托管平台和备份系统"></a><em>个人博客网站托管平台和备份系统</em></h5><h6 id="个人博客网站托管平台"><a href="#个人博客网站托管平台" class="headerlink" title="个人博客网站托管平台"></a><em>个人博客网站托管平台</em></h6><p><a href="https://github.com/CuihuaXia/cuihuaxia.github.io" target="_blank" rel="noopener">https://github.com/CuihuaXia/cuihuaxia.github.io</a></p>
+<h6 id="个人博客网站备份系统"><a href="#个人博客网站备份系统" class="headerlink" title="个人博客网站备份系统"></a><em>个人博客网站备份系统</em></h6><p>将 Mac 本地的个人博客网站源文件夹 <code>/Users/xia/Documents/MyBlog</code> 通过 GitHub Desktop 定期备份到 GitHub</p>
+<h5 id="个人博客的免费图床"><a href="#个人博客的免费图床" class="headerlink" title="个人博客的免费图床"></a><em>个人博客的免费图床</em></h5><p>图床是专门用来存放图片（包括动图），同时允许你把图片对外连接的网上空间。</p>
+<p>图床是我们在发布<strong>带图片</strong>的<strong>在线</strong>博客时所必须的存储空间和流量平台。</p>
+<p>在 GitHub 网站，新建一个公共仓库，名为 images，然后获取个人 token 并保存（这个 token 只会显示一次所以需要及时保存），后面在设置图床客户端的时候需要这个token。</p>
+<p>此时，位于 GitHub 上的 images 公共仓库，就是我所说的图床。</p>
+<h4 id="iTerm2-Terminal-CMD-MobaXterm"><a href="#iTerm2-Terminal-CMD-MobaXterm" class="headerlink" title="iTerm2/Terminal/CMD/MobaXterm"></a>iTerm2/Terminal/CMD/MobaXterm</h4><h5 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a><em>Terminal</em></h5><p>Mac 本地终端</p>
+<h5 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a><em>CMD</em></h5><p>Windows 本地命令行工具</p>
+<h5 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a><em>iTerm2</em></h5><p>Mac 本地终端运行和远程连接 Linux 服务器工具</p>
+<h5 id="MobaXterm"><a href="#MobaXterm" class="headerlink" title="MobaXterm"></a><em>MobaXterm</em></h5><p>Windows 远程连接 Linux 服务器工具</p>
+<h4 id="Typora——最好的Markdown工具"><a href="#Typora——最好的Markdown工具" class="headerlink" title="Typora——最好的Markdown工具"></a>Typora——最好的Markdown工具</h4><p>《论语》有言：“吾日三省吾身”。我们很多人可能做不到“日三省”，但“周一省””月一省“甚至“年一省”还是没有太大难度的。</p>
+<p>在一段时间的工作后，我们确实很有必要，回头对前一段时间的工作和学习，甚至是生活，进行一个系统的总结和复盘，让我们更加清楚自己这段时间收获了什么、收获了多少，有哪些进步，又有哪些不足，为下一阶段的工作和生活做出阶段目标指导和方向确定/调整。</p>
+<p>那么，Typora 就作为了我的正式码字——各种严肃的科研、学习、工作总结复盘工具。</p>
+<p>Markdown工具如今已经层出不穷，但我认为Typora之所以能“独领风骚”“一骑绝尘”，就在于它的极简主义和“所见即所得”的“即时渲染”效果。当然它还有很多其他优秀“才艺”的加持，比如插入公式、插入图片的方式等。</p>
+<p>我为什么选择 Typora 作为我的码字工具呢？最主要是因为它能通过图床客户端 uPic 等，自动上传图片到图床，同时将本地的图片路径转换成在线 URL。我不需要做任何特殊操作，不管来自哪里的图片，只要它在剪贴板上，我只需要执行正常的 <code>Command + V</code> 操作，就能一步实现粘贴图片、上传图片、转换 URL。另外，Typora 轻量级、简洁大方、所见即所得、即时渲染的特点，也是我选择它的原因。</p>
+<h5 id="我的码字工具"><a href="#我的码字工具" class="headerlink" title="我的码字工具"></a><em>我的码字工具</em></h5><p>Typora</p>
+<h5 id="我的码字空间"><a href="#我的码字空间" class="headerlink" title="我的码字空间"></a><em>我的码字空间</em></h5><p><code>/Users/xia/Documents/GitHub/Drafts</code>。</p>
+<p>即在 GitHub 网站建立一个私人仓库 Drafts，然后通过本地 GitHub Desktop 克隆这个仓库到本地路径 <code>/Users/xia/Documents/GitHub/Drafts</code></p>
+<h5 id="我的码字文章备份"><a href="#我的码字文章备份" class="headerlink" title="我的码字文章备份"></a><em>我的码字文章备份</em></h5><ol>
+<li><p>本地 <code>/Users/xia/Documents/GitHub/Drafts</code></p>
+</li>
+<li><p>GitHub：将 Mac 本地码字空间文件夹 <code>/Users/xia/Documents/GitHub/Drafts</code> 通过 GitHub Desktop 及时备份到 GitHub</p>
+</li>
+</ol>
+<h5 id="个人博客网站文章发布-更新"><a href="#个人博客网站文章发布-更新" class="headerlink" title="个人博客网站文章发布/更新"></a><em>个人博客网站文章发布/更新</em></h5><pre><code class="shell"># 01 使用本地 JupyterLab 打开 Mac 本地终端
+# 02 将本地 /Users/xia/Documents/GitHub/Drafts 中写好的文章（该markdown文件），拷贝到 Documents/MyBlog/source/_posts/ 文件夹下
+cp Documents/GitHub/Drafts/我的项目开发系统.md Documents/MyBlog/source/_posts/
+# 03 vim 打开该文件
+vim Documents/MyBlog/source/_posts/我的项目开发系统.md
+# 04 添加如下开头，然后退出保存
+---
+title: 我的项目开发系统（文章名称）
+mathjax: false
+show_copyright: true
+date: 
+tags:
+categories:
+description:
+img:
+top:
+cover:
+coverImg:
+password:
+toc:
+summary:
+---
+
+&gt; 更新于 XXXX-XX-XX XX:XX
+# 05 在终端执行：
+cd /Users/xia/Documents/MyBlog
+hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</code></pre>
+<h4 id="uPic——一个简洁的Mac图床客户端"><a href="#uPic——一个简洁的Mac图床客户端" class="headerlink" title="uPic——一个简洁的Mac图床客户端"></a>uPic——一个简洁的Mac图床客户端</h4><p>uPic 是我为了搭配 Typora 使用而安装的，是为了配合实现 Typora 的上传图片功能。</p>
+<p>在 Typora 设置里选择 Image，然后修改第一项为“Upload image”，然后只勾选前两个复选框，最后“Image Uploader”那里选择”uPic“。</p>
+<p>下载安装好 uPic 之后，在 uPic 设置里添加 GitHub 为图床，然后将用户名、仓库名、分支名以及Token填好并保存。</p>
+<p>分别在 Typora 和 uPic 点击验证或测试按钮，如果图片上传测试成功，会有成功提示。</p>
+<h4 id="TinyPNG4Mac"><a href="#TinyPNG4Mac" class="headerlink" title="TinyPNG4Mac"></a>TinyPNG4Mac</h4><p>为了减少博客文章的负载，在上传图片之前，通常需要在保证图片质量的前提下把图片文件压缩为更小。而 TinyPNG4Mac 就是同时满足这两个条件的轻量级图片压缩软件。</p>
+<h4 id="移动硬盘"><a href="#移动硬盘" class="headerlink" title="移动硬盘"></a>移动硬盘</h4><p>用来做项目<u>重要数据（比如原始数据）</u>的第3个备份。项目的非重要数据只做本地和Linux服务器两个位置的备份。</p>
+<h4 id="U盘"><a href="#U盘" class="headerlink" title="U盘"></a>U盘</h4><p>用来临时存放要临时使用（如打印、不同设备之间拷贝等）的文件。</p>
+<h4 id="项目进度管理系统"><a href="#项目进度管理系统" class="headerlink" title="项目进度管理系统"></a>项目进度管理系统</h4><h6 id="Notion"><a href="#Notion" class="headerlink" title="Notion"></a>Notion</h6><h4 id="轻量级文件备份系统"><a href="#轻量级文件备份系统" class="headerlink" title="轻量级文件备份系统"></a>轻量级文件备份系统</h4><h6 id="1-印象笔记"><a href="#1-印象笔记" class="headerlink" title="1. 印象笔记"></a>1. 印象笔记</h6><h6 id="2-iCloud"><a href="#2-iCloud" class="headerlink" title="2. iCloud"></a>2. iCloud</h6><h6 id="3-Google-Drive"><a href="#3-Google-Drive" class="headerlink" title="3. Google Drive"></a>3. Google Drive</h6><h6 id="4-百度网盘"><a href="#4-百度网盘" class="headerlink" title="4. 百度网盘"></a>4. 百度网盘</h6><h4 id="文献-PDF文件管理系统"><a href="#文献-PDF文件管理系统" class="headerlink" title="文献/PDF文件管理系统"></a>文献/PDF文件管理系统</h4><h6 id="1-EndNote-20"><a href="#1-EndNote-20" class="headerlink" title="1. EndNote 20"></a>1. EndNote 20</h6><h6 id="2-MarginNote-3"><a href="#2-MarginNote-3" class="headerlink" title="2. MarginNote 3"></a>2. MarginNote 3</h6><h4 id="电子书管理系统"><a href="#电子书管理系统" class="headerlink" title="电子书管理系统"></a>电子书管理系统</h4><h6 id="Apple-Books"><a href="#Apple-Books" class="headerlink" title="Apple Books"></a>Apple Books</h6><h4 id="日常笔记管理系统"><a href="#日常笔记管理系统" class="headerlink" title="日常笔记管理系统"></a>日常笔记管理系统</h4><h6 id="1-印象笔记-1"><a href="#1-印象笔记-1" class="headerlink" title="1. 印象笔记"></a>1. 印象笔记</h6><h6 id="2-Apple-Notes"><a href="#2-Apple-Notes" class="headerlink" title="2. Apple Notes"></a>2. Apple Notes</h6><h6 id="3-Apple-GoodNotes"><a href="#3-Apple-GoodNotes" class="headerlink" title="3. Apple GoodNotes"></a>3. Apple GoodNotes</h6><h6 id="4-Apple-Notability"><a href="#4-Apple-Notability" class="headerlink" title="4. Apple Notability"></a>4. Apple Notability</h6><h6 id="5-Apple-Prodrafts"><a href="#5-Apple-Prodrafts" class="headerlink" title="5. Apple Prodrafts"></a>5. Apple Prodrafts</h6><h4 id="浏览器系统"><a href="#浏览器系统" class="headerlink" title="浏览器系统"></a>浏览器系统</h4><h6 id="1-Google-Chrome"><a href="#1-Google-Chrome" class="headerlink" title="1. Google Chrome"></a>1. Google Chrome</h6><h6 id="2-Safari"><a href="#2-Safari" class="headerlink" title="2. Safari"></a>2. Safari</h6><h6 id="3-Microsoft-Edge"><a href="#3-Microsoft-Edge" class="headerlink" title="3. Microsoft Edge"></a>3. Microsoft Edge</h6><h4 id="思路整理系统"><a href="#思路整理系统" class="headerlink" title="思路整理系统"></a>思路整理系统</h4><h6 id="1-XMind"><a href="#1-XMind" class="headerlink" title="1. XMind"></a>1. XMind</h6><h6 id="2-Prodrafts"><a href="#2-Prodrafts" class="headerlink" title="2. Prodrafts"></a>2. Prodrafts</h6><h4 id="目前已淘汰软件"><a href="#目前已淘汰软件" class="headerlink" title="目前已淘汰软件"></a>目前已淘汰软件</h4><p>FileZilla，WinSCP，VSCode，Transmit</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>最后用一张思维导图总结我平时开发课题项目的流程：</p>
+<p><img src="https://raw.githubusercontent.com/CuihuaXia/images/master/uPic/image-20210621222906080.png" alt="image-20210621222906080"></p>
+<p>本文章首发于个人微信公众号 TouchUMind，备份于个人博客网站 touchumind.com 和 哔哩哔哩账号 iTouchUMind，欢迎关注和支持！</p>
+  
+	</div>
+
+    
+      <div class="article-footer-copyright">
+  <left><b>本文作者：<a href="/about/" target="_blank" title="TouchUMind">TouchUMind</a></b></left><br/>
+
+  <left><b>本文链接：<a href="/2021/06/22/我的项目开发系统/" target="_blank" title="我的项目开发系统">https://touchumind.com/2021/06/22/我的项目开发系统/</a></b>.</left></br>
+
+  <left><b>版权声明：</b>本文著作权归作者所有，遵循<b>CC BY</b>-<b>NC</b>-<b>SA 4.0</b>国际许可协议。商业转载请联系作者获取授权，非商业转载请注明作者及出处！</left>
+</div>
+    
+
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://touchumind.com/2021/06/22/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E7%B3%BB%E7%BB%9F/" data-title="我的项目开发系统 | 生物信息学技术分享" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2021/03/30/每天一个科研小技巧-借助Twitter获取最新文献或研究动态/"  title="每天一个科研小技巧-借助Twitter获取最新文献或研究动态">
+ <strong>下一篇：</strong><br/> 
+ <span>每天一个科研小技巧-借助Twitter获取最新文献或研究动态
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#项目开发环境"><span class="toc-number">1.</span> <span class="toc-text">项目开发环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JupyterLab"><span class="toc-number">2.</span> <span class="toc-text">JupyterLab</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#为什么放弃了VSCode，转向JupyterLab呢？"><span class="toc-number">2.1.</span> <span class="toc-text">为什么放弃了VSCode，转向JupyterLab呢？</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#首先，VSCode确实有很多吸引我的点："><span class="toc-number">2.1.1.</span> <span class="toc-text">首先，VSCode确实有很多吸引我的点：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#为什么我放弃了VSCode？"><span class="toc-number">2.1.2.</span> <span class="toc-text">为什么我放弃了VSCode？</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JupyterLab——一个好用到爆炸的可视化交互开发神器"><span class="toc-number">2.2.</span> <span class="toc-text">JupyterLab——一个好用到爆炸的可视化交互开发神器</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#安装"><span class="toc-number">2.2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#运行"><span class="toc-number">2.2.2.</span> <span class="toc-text">运行</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#日常运行"><span class="toc-number">2.2.3.</span> <span class="toc-text">日常运行</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Git-Git-Bash"><span class="toc-number">3.</span> <span class="toc-text">Git&#x2F;Git Bash</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GitHub-GitHub-Desktop"><span class="toc-number">4.</span> <span class="toc-text">GitHub&#x2F;GitHub Desktop</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#我的代码管理系统"><span class="toc-number">4.1.</span> <span class="toc-text">我的代码管理系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#代码编辑器"><span class="toc-number">4.1.1.</span> <span class="toc-text">代码编辑器</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#代码备份平台"><span class="toc-number">4.1.2.</span> <span class="toc-text">代码备份平台</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#代码提交更新工具"><span class="toc-number">4.1.3.</span> <span class="toc-text">代码提交更新工具</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#我的临时笔记系统"><span class="toc-number">4.2.</span> <span class="toc-text">我的临时笔记系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#我的临时笔记空间"><span class="toc-number">4.2.1.</span> <span class="toc-text">我的临时笔记空间</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#我的临时笔记备份"><span class="toc-number">4.2.2.</span> <span class="toc-text">我的临时笔记备份</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#个人博客网站托管平台和备份系统"><span class="toc-number">4.3.</span> <span class="toc-text">个人博客网站托管平台和备份系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#个人博客网站托管平台"><span class="toc-number">4.3.1.</span> <span class="toc-text">个人博客网站托管平台</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#个人博客网站备份系统"><span class="toc-number">4.3.2.</span> <span class="toc-text">个人博客网站备份系统</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#个人博客的免费图床"><span class="toc-number">4.4.</span> <span class="toc-text">个人博客的免费图床</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#iTerm2-Terminal-CMD-MobaXterm"><span class="toc-number">5.</span> <span class="toc-text">iTerm2&#x2F;Terminal&#x2F;CMD&#x2F;MobaXterm</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Terminal"><span class="toc-number">5.1.</span> <span class="toc-text">Terminal</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CMD"><span class="toc-number">5.2.</span> <span class="toc-text">CMD</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#iTerm2"><span class="toc-number">5.3.</span> <span class="toc-text">iTerm2</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#MobaXterm"><span class="toc-number">5.4.</span> <span class="toc-text">MobaXterm</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Typora——最好的Markdown工具"><span class="toc-number">6.</span> <span class="toc-text">Typora——最好的Markdown工具</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#我的码字工具"><span class="toc-number">6.1.</span> <span class="toc-text">我的码字工具</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#我的码字空间"><span class="toc-number">6.2.</span> <span class="toc-text">我的码字空间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#我的码字文章备份"><span class="toc-number">6.3.</span> <span class="toc-text">我的码字文章备份</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#个人博客网站文章发布-更新"><span class="toc-number">6.4.</span> <span class="toc-text">个人博客网站文章发布&#x2F;更新</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#uPic——一个简洁的Mac图床客户端"><span class="toc-number">7.</span> <span class="toc-text">uPic——一个简洁的Mac图床客户端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TinyPNG4Mac"><span class="toc-number">8.</span> <span class="toc-text">TinyPNG4Mac</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移动硬盘"><span class="toc-number">9.</span> <span class="toc-text">移动硬盘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#U盘"><span class="toc-number">10.</span> <span class="toc-text">U盘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#项目进度管理系统"><span class="toc-number">11.</span> <span class="toc-text">项目进度管理系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Notion"><span class="toc-number">11.0.1.</span> <span class="toc-text">Notion</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#轻量级文件备份系统"><span class="toc-number">12.</span> <span class="toc-text">轻量级文件备份系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-印象笔记"><span class="toc-number">12.0.1.</span> <span class="toc-text">1. 印象笔记</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-iCloud"><span class="toc-number">12.0.2.</span> <span class="toc-text">2. iCloud</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-Google-Drive"><span class="toc-number">12.0.3.</span> <span class="toc-text">3. Google Drive</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-百度网盘"><span class="toc-number">12.0.4.</span> <span class="toc-text">4. 百度网盘</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文献-PDF文件管理系统"><span class="toc-number">13.</span> <span class="toc-text">文献&#x2F;PDF文件管理系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-EndNote-20"><span class="toc-number">13.0.1.</span> <span class="toc-text">1. EndNote 20</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-MarginNote-3"><span class="toc-number">13.0.2.</span> <span class="toc-text">2. MarginNote 3</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#电子书管理系统"><span class="toc-number">14.</span> <span class="toc-text">电子书管理系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Apple-Books"><span class="toc-number">14.0.1.</span> <span class="toc-text">Apple Books</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#日常笔记管理系统"><span class="toc-number">15.</span> <span class="toc-text">日常笔记管理系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-印象笔记-1"><span class="toc-number">15.0.1.</span> <span class="toc-text">1. 印象笔记</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-Apple-Notes"><span class="toc-number">15.0.2.</span> <span class="toc-text">2. Apple Notes</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-Apple-GoodNotes"><span class="toc-number">15.0.3.</span> <span class="toc-text">3. Apple GoodNotes</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-Apple-Notability"><span class="toc-number">15.0.4.</span> <span class="toc-text">4. Apple Notability</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-Apple-Prodrafts"><span class="toc-number">15.0.5.</span> <span class="toc-text">5. Apple Prodrafts</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器系统"><span class="toc-number">16.</span> <span class="toc-text">浏览器系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-Google-Chrome"><span class="toc-number">16.0.1.</span> <span class="toc-text">1. Google Chrome</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-Safari"><span class="toc-number">16.0.2.</span> <span class="toc-text">2. Safari</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-Microsoft-Edge"><span class="toc-number">16.0.3.</span> <span class="toc-text">3. Microsoft Edge</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路整理系统"><span class="toc-number">17.</span> <span class="toc-text">思路整理系统</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-XMind"><span class="toc-number">17.0.1.</span> <span class="toc-text">1. XMind</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-Prodrafts"><span class="toc-number">17.0.2.</span> <span class="toc-text">2. Prodrafts</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#目前已淘汰软件"><span class="toc-number">18.</span> <span class="toc-text">目前已淘汰软件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结"><span class="toc-number">19.</span> <span class="toc-text">总结</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  <div class="weixin">
+  <br />
+  <p class="asidetitle">微信公众号</p>
+  <img src="https://i.loli.net/2020/05/10/WUxX4OuoCji6V1A.jpg" style="display:block;margin:auto" width="230px" /> 
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/个人博客/" title="个人博客">个人博客<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/凌濛心语/" title="凌濛心语">凌濛心语<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/实用工具/" title="实用工具">实用工具<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/思考总结/" title="思考总结">思考总结<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/我的视频/" title="我的视频">我的视频<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/生信进阶/" title="生信进阶">生信进阶<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/科研写作/" title="科研写作">科研写作<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/统计分析/" title="统计分析">统计分析<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/统计制图/" title="统计制图">统计制图<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/编程语言/" title="编程语言">编程语言<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/英语学习/" title="英语学习">英语学习<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/读书分享/" title="读书分享">读书分享<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/资源干货/" title="资源干货">资源干货<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/R/" title="R">R<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/English/" title="English">English<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Writing/" title="Writing">Writing<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/文献检索/" title="文献检索">文献检索<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Apache/" title="Apache">Apache<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PPT模板/" title="PPT模板">PPT模板<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Perl/" title="Perl">Perl<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GWAS/" title="GWAS">GWAS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Listening/" title="Listening">Listening<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GitHubDesktop/" title="GitHubDesktop">GitHubDesktop<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ggplot2/" title="ggplot2">ggplot2<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/散点图/" title="散点图">散点图<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/limma/" title="limma">limma<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/差异表达/" title="差异表达">差异表达<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/博客备份/" title="博客备份">博客备份<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/代码高亮/" title="代码高亮">代码高亮<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RSS/" title="RSS">RSS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/气泡图/" title="气泡图">气泡图<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PRS/" title="PRS">PRS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/知识管理/" title="知识管理">知识管理<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/效率办公/" title="效率办公">效率办公<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/博客搭建/" title="博客搭建">博客搭建<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/文献阅读/" title="文献阅读">文献阅读<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Sequencing/" title="Sequencing">Sequencing<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/科研工具/" title="科研工具">科研工具<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/探针注释/" title="探针注释">探针注释<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Jekyll/" title="Jekyll">Jekyll<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Presentation/" title="Presentation">Presentation<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/Apache/" style="font-size: 13px; color: #51a4c7">Apache</a> <a href="/tags/MySQL/" style="font-size: 13px; color: #51a4c7">MySQL</a> <a href="/tags/R/" style="font-size: 23px; color: #51a4c7">R</a> <a href="/tags/Linux/" style="font-size: 13px; color: #51a4c7">Linux</a> <a href="/tags/PPT%E6%A8%A1%E6%9D%BF/" style="font-size: 13px; color: #51a4c7">PPT模板</a> <a href="/tags/Perl/" style="font-size: 13px; color: #51a4c7">Perl</a> <a href="/tags/GWAS/" style="font-size: 13px; color: #51a4c7">GWAS</a> <a href="/tags/English/" style="font-size: 18px; color: #51a4c7">English</a> <a href="/tags/Listening/" style="font-size: 13px; color: #51a4c7">Listening</a> <a href="/tags/Writing/" style="font-size: 18px; color: #51a4c7">Writing</a> <a href="/tags/Git/" style="font-size: 13px; color: #51a4c7">Git</a> <a href="/tags/GitHubDesktop/" style="font-size: 13px; color: #51a4c7">GitHubDesktop</a> <a href="/tags/ggplot2/" style="font-size: 13px; color: #51a4c7">ggplot2</a> <a href="/tags/%E6%95%A3%E7%82%B9%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">散点图</a> <a href="/tags/limma/" style="font-size: 13px; color: #51a4c7">limma</a> <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" style="font-size: 13px; color: #51a4c7">差异表达</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD/" style="font-size: 13px; color: #51a4c7">博客备份</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/" style="font-size: 13px; color: #51a4c7">代码高亮</a> <a href="/tags/RSS/" style="font-size: 13px; color: #51a4c7">RSS</a> <a href="/tags/%E6%B0%94%E6%B3%A1%E5%9B%BE/" style="font-size: 13px; color: #51a4c7">气泡图</a> <a href="/tags/PRS/" style="font-size: 13px; color: #51a4c7">PRS</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13px; color: #51a4c7">知识管理</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%8A%9E%E5%85%AC/" style="font-size: 13px; color: #51a4c7">效率办公</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px; color: #51a4c7">博客搭建</a> <a href="/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/" style="font-size: 18px; color: #51a4c7">文献检索</a> <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 13px; color: #51a4c7">文献阅读</a> <a href="/tags/Sequencing/" style="font-size: 13px; color: #51a4c7">Sequencing</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #51a4c7">科研工具</a> <a href="/tags/%E6%8E%A2%E9%92%88%E6%B3%A8%E9%87%8A/" style="font-size: 13px; color: #51a4c7">探针注释</a> <a href="/tags/Jekyll/" style="font-size: 13px; color: #51a4c7">Jekyll</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #51a4c7">Hexo</a> <a href="/tags/Presentation/" style="font-size: 13px; color: #51a4c7">Presentation</a>
+    </div>
+  </div>
+
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://maxyjian.github.io/" target="_blank" title="Max Blog">Max Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://demonlee.ml/" target="_blank" title="魔鬼裡">魔鬼裡</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.shaoguoji.cn/" target="_blank" title="国际哥">国际哥</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.huangshujia.me/" target="_blank" title="碱基矿工">碱基矿工</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.wusanwan.xyz/" target="_blank" title="菜鸡小万">菜鸡小万</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://bioinformatics.lofter.com/" target="_blank" title="Bioinformatics">Bioinformatics</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yangli.name/" target="_blank" title="Yang&#39;s Garden">Yang&#39;s Garden</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.xcnte.com/" target="_blank" title="Xcnte&#39;s Blog">Xcnte&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yearito.cn/" target="_blank" title="Yearito&#39;s Blog">Yearito&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://cgspace.date/" target="_blank" title="cgspace">cgspace</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://jinyy.app/" target="_blank" title="Jin">Jin</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.wuxu92.com/" target="_blank" title="Wu Xu">Wu Xu</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://purethought.cn/" target="_blank" title="AlaDing">AlaDing</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://blog.ouyangsihai.cn/" target="_blank" title="欧阳思海">欧阳思海</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/cuihuaxia" target="_blank" class="icon-github" style="font-size:30px;background-color:#1F1F1F;color:#FFFFFF" title="github"></a> 
+		
+		
+		<a href="http://stackoverflow.com/users/13554410" target="_blank" class="icon-stack-overflow" style="font-size:30px;background-color:#1F1F1F;color:#E6863E" title="stackoverflow"></a>
+		
+		
+		
+		
+		
+		
+		
+
+
+
+
+
+		<script src="https://kit.fontawesome.com/adc42ede4e.js" crossorigin="anonymous"></script>
+		
+		<a href="https://www.researchgate.net/profile/Cuihua_Xia" target="_blank" class="fab fa-researchgate" style="font-size:30px;background-color:#1F1F1F;color:#5AC9BB" title="researchgate"></a>
+		
+
+
+
+
+
+		
+		<a href="mailto:xiacuihuar@gmail.com" target="_blank" class="icon-email" style="font-size:30px;background-color:#1F1F1F;color:#CD5546" title="Email Me"></a>
+		
+
+
+	</div>
+			
+		
+
+
+
+<p class="copyright">
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <span id="busuanzi_container_site_pv">
+      本站总访问量 <span id="busuanzi_value_site_pv"></span> 次 | 
+  </span>
+
+  <span id="busuanzi_container_site_uv">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人次 | 
+  </span>
+
+
+
+<span id="sitetime"></span>
+<script language=javascript>
+  function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+    year - 作为date对象的年份，为4位年份值
+    month - 0-11之间的整数，做为date对象的月份
+    day - 1-31之间的整数，做为date对象的天数
+    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+    minutes - 0-59之间的整数，做为date对象的分钟数
+    seconds - 0-59之间的整数，做为date对象的秒数
+    microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+    var t1 = Date.UTC(2020,03,25,00,00,00); //这里调整博客建站时间，时间：2019-05-14 00:00:00
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = t2-t1;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+    document.getElementById("sitetime").innerHTML="本站已安全运行 "+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+  }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+  siteTime();
+</script>
+
+<br/>
+
+<span>
+湘公网安备 43010502001197号 | 湘ICP备2020018549号
+</span>
+
+<br/>
+
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a>
+<br/>
+		Copyright © 2020-2021 by 
+		
+		<a href="/about" target="_blank" title="TouchUMind">TouchUMind</a>
+		
+</p>
+</div></footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-161858965-3', '');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
